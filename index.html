@@ -167,15 +167,15 @@
             margin-bottom: 14px;
             display: block;
         }
-        /* Карточки анкет */
+        /* Крупные карточки анкет с силуэтами и именами */
         .profile-card {
             background: #1c1c1e;
             border: 1px solid #2c2c2e;
-            border-radius: 10px;
-            padding: 12px;
-            margin-bottom: 10px;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 12px;
             display: flex;
-            gap: 12px;
+            gap: 14px;
             align-items: center;
             text-decoration: none;
             transition: border-color 0.2s;
@@ -184,25 +184,27 @@
         .profile-card:hover {
             border-color: #d4af37;
         }
-        .profile-avatar {
-            width: 50px;
-            height: 50px;
+        .profile-avatar-box {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: #2c2c2e;
-            border: 1px solid #d4af37;
+            background: linear-gradient(135deg, #222 0%, #141416 100%);
+            border: 1.5px solid #d4af37;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            color: #d4af37;
-            font-size: 18px;
-            font-weight: 600;
+        }
+        .profile-avatar-box svg {
+            width: 32px;
+            height: 32px;
+            fill: #d4af37;
         }
         .profile-info {
             flex-grow: 1;
         }
         .profile-title {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             color: #fff;
             margin-bottom: 2px;
@@ -211,17 +213,18 @@
             font-size: 12px;
             color: #d4af37;
             margin-bottom: 4px;
+            font-weight: 500;
         }
         .profile-desc {
             font-size: 12px;
             color: #98989d;
             margin: 0;
-            line-height: 1.35;
+            line-height: 1.4;
         }
-        /* Встроенные формы заявок */
+        /* Встроенные подробные формы заявок */
         .apply-form {
             background: #1c1c1e;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 10px;
             padding: 14px;
             margin-top: 10px;
@@ -231,7 +234,7 @@
             display: block;
         }
         .form-group {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .form-group label {
             display: block;
@@ -427,110 +430,295 @@
                 🌍 Локации: <strong>Россия | Украина | Вена | Пхукет | Бангкок | Бургас</strong>
             </div>
 
-            <!-- Каталог участниц -->
+            <!-- КАТАЛОГ УЧАСТНИЦ (12 анкет с женскими силуэтами и полными параметрами) -->
             <div class="card">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/>
                     </svg>
-                    Каталог участниц (База клуба)
+                    Каталог участниц (База клуба • 12 анкет)
                 </h2>
-                <p>Конфиденциальные анкеты резиденток. Лица скрыты. Нажмите на карточку для связи.</p>
+                <p>Конфиденциальные анкеты резиденток. Лица скрыты. Нажмите на карточку для связи с основателем.</p>
                 <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
 
+                <!-- Анкеты участниц (1-12) -->
                 <div class="profile-card" onclick="contactFounder()">
-                    <div class="profile-avatar">#01</div>
+                    <div class="profile-avatar-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg>
+                    </div>
                     <div class="profile-info">
-                        <div class="profile-title">Анкета #01 • Резидент</div>
+                        <div class="profile-title">Анастасия • Анкета #01</div>
                         <div class="profile-meta">24 года • Москва / Вена</div>
-                        <p class="profile-desc">Цель: серьезные отношения, развитие в Европе. Интересы: искусство, архитектура.</p>
+                        <p class="profile-desc">Цель: серьезные отношения, развитие в Европе. Свободна, детей нет. Интересы: искусство, архитектура.</p>
                     </div>
                 </div>
 
                 <div class="profile-card" onclick="contactFounder()">
-                    <div class="profile-avatar">#02</div>
+                    <div class="profile-avatar-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg>
+                    </div>
                     <div class="profile-info">
-                        <div class="profile-title">Анкета #02 • Резидент</div>
+                        <div class="profile-title">Елена • Анкета #02</div>
                         <div class="profile-meta">26 лет • Киев / Пхукет</div>
-                        <p class="profile-desc">Цель: создание семьи, путешествия. Интересы: яхтинг, дизайн интерьеров.</p>
+                        <p class="profile-desc">Цель: создание семьи, гармоничный союз. Интересы: яхтинг, дизайн интерьеров.</p>
                     </div>
                 </div>
 
                 <div class="profile-card" onclick="contactFounder()">
-                    <div class="profile-avatar">#03</div>
+                    <div class="profile-avatar-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg>
+                    </div>
                     <div class="profile-info">
-                        <div class="profile-title">Анкета #03 • Резидент</div>
+                        <div class="profile-title">Карина • Анкета #03</div>
                         <div class="profile-meta">23 года • Санкт-Петербург</div>
-                        <p class="profile-desc">Цель: гармоничный союз с успешным предпринимателем. Психология, балет.</p>
+                        <p class="profile-desc">Цель: надежный партнер, путешествия, поддержка. Психология, балет.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Виктория • Анкета #04</div>
+                        <div class="profile-meta">25 лет • Бангкок / Пхукет</div>
+                        <p class="profile-desc">Цель: серьезные отношения, конфиденциальность. Мода, инвестиции.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">София • Анкета #05</div>
+                        <div class="profile-meta">27 лет • Вена / Бургас</div>
+                        <p class="profile-desc">Цель: создание семьи, уют в Европе. Интересы: литература, конный спорт.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Кристина • Анкета #06</div>
+                        <div class="profile-meta">22 года • Москва</div>
+                        <p class="profile-desc">Цель: гармоничный союз, развитие. Интересы: живопись, медицина.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Алиса • Анкета #07</div>
+                        <div class="profile-meta">25 лет • Киев / Вена</div>
+                        <p class="profile-desc">Цель: взаимопонимание, совместные путешествия. Интересы: музыка, кино.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Диана • Анкета #08</div>
+                        <div class="profile-meta">28 лет • Пхукет</div>
+                        <p class="profile-desc">Цель: серьезный союз с успешным предпринимателем. Бизнес, спорт.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Милана • Анкета #09</div>
+                        <div class="profile-meta">24 года • Санкт-Петербург</div>
+                        <p class="profile-desc">Цель: создание семьи, уют. Интересы: дизайн, кулинария.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Полина • Анкета #10</div>
+                        <div class="profile-meta">26 лет • Бангкок</div>
+                        <p class="profile-desc">Цель: партнерство и романтика. Интересы: туризм, йога.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Ева • Анкета #11</div>
+                        <div class="profile-meta">23 года • Москва / Пхукет</div>
+                        <p class="profile-desc">Цель: серьезные отношения. Интересы: фотография, мода.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Злата • Анкета #12</div>
+                        <div class="profile-meta">25 лет • Вена</div>
+                        <p class="profile-desc">Цель: гармония, путешествия. Интересы: психология, театр.</p>
                     </div>
                 </div>
 
                 <button class="btn btn-secondary" onclick="toggleForm('form-lady')" style="margin-top: 10px;">Подать свою заявку резидента</button>
 
+                <!-- Подробная форма заявки для леди -->
                 <div id="form-lady" class="apply-form">
-                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 10px;">✨ Анкета-заявка резидента (Леди)</h3>
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 12px;">✨ Подробная анкета-заявка (Леди)</h3>
                     <div class="form-group">
-                        <label>Ваше имя и возраст:</label>
-                        <input type="text" id="lady-name" class="form-control" placeholder="Например: Анна, 24">
+                        <label>1. Ваши ФИО и возраст:</label>
+                        <input type="text" class="form-control" placeholder="Имя, Возраст">
                     </div>
                     <div class="form-group">
-                        <label>Ваш город / локация:</label>
-                        <input type="text" id="lady-city" class="form-control" placeholder="Например: Пхукет / Москва">
+                        <label>2. Город проживания / текущая локация:</label>
+                        <input type="text" class="form-control" placeholder="Например: Пхукет / Москва / Вена">
                     </div>
                     <div class="form-group">
-                        <label>Ваши цели и пожелания:</label>
-                        <textarea id="lady-goals" class="form-control" rows="2" placeholder="Опишите ваши ожидания от клуба..."></textarea>
+                        <label>3. Семейное положение / Дети:</label>
+                        <input type="text" class="form-control" placeholder="Свободна, есть/нет детей">
                     </div>
-                    <button class="btn btn-primary" onclick="submitApplication('Леди')">Отправить основателю</button>
+                    <div class="form-group">
+                        <label>4. Род деятельности / Сфера интересов:</label>
+                        <input type="text" class="form-control" placeholder="Чем занимаетесь, ваши увлечения">
+                    </div>
+                    <div class="form-group">
+                        <label>5. Каковы ваши главные цели в клубе?:</label>
+                        <textarea class="form-control" rows="2" placeholder="Серьезные отношения, создание семьи, свободные встречи, поддержка..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>6. Ваши пожелания к будущему партнеру:</label>
+                        <textarea class="form-control" rows="2" placeholder="Каким вы видите своего избранника..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="submitApplication('Подробная анкета Леди')">Отправить основателю в Telegram</button>
                 </div>
             </div>
 
-            <!-- Каталог резидентов -->
+            <!-- КАТАЛОГ РЕЗИДЕНТОВ (10 анкет с мужскими силуэтами) -->
             <div class="card">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                         <path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/>
                     </svg>
-                    Каталог резидентов (Бизнесмены)
+                    Каталог резидентов (Бизнесмены • 10 анкет)
                 </h2>
                 <p>Закрытая база предпринимателей и инвесторов. Силуэты без лиц, указан статус и цели.</p>
                 <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
 
+                <!-- Анкеты джентльменов (1-10) -->
                 <div class="profile-card" onclick="contactFounder()">
-                    <div class="profile-avatar">#01</div>
+                    <div class="profile-avatar-box">
+                        <svg viewBox="0 0 64 64" style="width:32px;height:32px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg>
+                    </div>
                     <div class="profile-info">
-                        <div class="profile-title">Анкета #01 • Инвестор</div>
+                        <div class="profile-title">Александр • Анкета #01</div>
                         <div class="profile-meta">38 лет • Пхукет / Москва</div>
                         <p class="profile-desc">Сфера: недвижимость, IT. Цель: встретить спутницу жизни для разделения путешествий и успехов.</p>
                     </div>
                 </div>
 
                 <div class="profile-card" onclick="contactFounder()">
-                    <div class="profile-avatar">#02</div>
+                    <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:32px;height:32px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
                     <div class="profile-info">
-                        <div class="profile-title">Анкета #02 • Предприниматель</div>
+                        <div class="profile-title">Максим • Анкета #02</div>
                         <div class="profile-meta">42 года • Вена / Киев</div>
                         <p class="profile-desc">Сфера: международная торговля, финансы. Цель: создание семьи, уютный дом в Европе.</p>
                     </div>
                 </div>
 
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:32px;height:32px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Дмитрий • Анкета #03</div>
+                        <div class="profile-meta">35 лет • Бангкок / Бургас</div>
+                        <p class="profile-desc">Сфера: развитие активов, производство. Цель: искренние и гармоничные отношения.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:32px;height:32px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Сергей • Анкета #04</div>
+                        <div class="profile-meta">40 лет • Пхукет</div>
+                        <p class="profile-desc">Сфера: яхтинг, инвестиции. Цель: создание крепкой семьи.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:32px;height:32px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Андрей • Анкета #05</div>
+                        <div class="profile-meta">45 лет • Вена</div>
+                        <p class="profile-desc">Сфера: консалтинг, финансы. Цель: партнерство, путешествия.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:32px;height:32px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Игорь • Анкета #06</div>
+                        <div class="profile-meta">39 лет • Москва / Бангкок</div>
+                        <p class="profile-desc">Сфера: технологии, венчуры. Цель: серьезные отношения.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:32px;height:32px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Артем • Анкета #07</div>
+                        <div class="profile-meta">36 лет • Бургас / Киев</div>
+                        <p class="profile-desc">Сфера: строительство, девелопмент. Цель: создание семьи.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:32px;height:32px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Владимир • Анкета #08</div>
+                        <div class="profile-meta">44 года • Пхукет / Вена</div>
+                        <p class="profile-desc">Сфера: международный бизнес. Цель: гармоничный союз.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:32px;height:32px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Павел • Анкета #09</div>
+                        <div class="profile-meta">37 лет • Москва</div>
+                        <p class="profile-desc">Сфера: инвестиции. Цель: поиск спутницы жизни.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:32px;height:32px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                    <div class="profile-info">
+                        <div class="profile-title">Роман • Анкета #10</div>
+                        <div class="profile-meta">41 год • Бангкок / Пхукет</div>
+                        <p class="profile-desc">Сфера: активы, трейдинг. Цель: серьезный союз.</p>
+                    </div>
+                </div>
+
                 <button class="btn btn-secondary" onclick="toggleForm('form-gentleman')" style="margin-top: 10px;">Заполнить анкету резидента</button>
 
+                <!-- Подробная форма заявки для джентльменов -->
                 <div id="form-gentleman" class="apply-form">
-                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 10px;">💼 Анкета резидента (Джентльмен)</h3>
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 12px;">💼 Подробная анкета резидента (Джентльмен)</h3>
                     <div class="form-group">
-                        <label>Ваше имя и возраст:</label>
-                        <input type="text" id="gent-name" class="form-control" placeholder="Например: Александр, 38">
+                        <label>1. Ваши ФИО и возраст:</label>
+                        <input type="text" class="form-control" placeholder="Имя, Возраст">
                     </div>
                     <div class="form-group">
-                        <label>Ваша сфера бизнеса / город:</label>
-                        <input type="text" id="gent-biz" class="form-control" placeholder="Например: Недвижимость, Пхукет">
+                        <label>2. Основная сфера бизнеса / активов:</label>
+                        <input type="text" class="form-control" placeholder="Например: Недвижимость, IT, Инвестиции">
                     </div>
                     <div class="form-group">
-                        <label>Ваши цели в клубе:</label>
-                        <textarea id="gent-goals" class="form-control" rows="2" placeholder="Кого вы ищете, ваши пожелания..."></textarea>
+                        <label>3. Основная локация / где проводите время:</label>
+                        <input type="text" class="form-control" placeholder="Пхукет, Бангкок, Вена, Европа...">
                     </div>
-                    <button class="btn btn-primary" onclick="submitApplication('Джентльмен')">Отправить основателю</button>
+                    <div class="form-group">
+                        <label>4. Ваши цели вступления в клуб:</label>
+                        <textarea class="form-control" rows="2" placeholder="Поиск спутницы жизни, создание семьи, свободные встречи, развитие сети..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>5. Ваши пожелания к кандидатке:</label>
+                        <textarea class="form-control" rows="2" placeholder="Какой вы видите вашу будущую избранницу..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="submitApplication('Подробная анкета Джентльмен')">Отправить основателю в Telegram</button>
                 </div>
             </div>
 
@@ -607,46 +795,31 @@
                     <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/>
                     </svg>
-                    Ladies Catalog (Club Base)
+                    Ladies Catalog (Club Base • 12 profiles)
                 </h2>
                 <p>Confidential profiles. Faces hidden. Choose a card or submit an application.</p>
                 <span class="locations-tag">📍 Hubs: Russia, Ukraine, Vienna, Phuket, Bangkok, Burgas</span>
 
                 <div class="profile-card" onclick="contactFounder()">
-                    <div class="profile-avatar">#01</div>
+                    <div class="profile-avatar-box"><svg viewBox="0 0 24 24" style="width:32px;height:32px;fill:#d4af37;"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
                     <div class="profile-info">
-                        <div class="profile-title">Profile #01 • Resident</div>
+                        <div class="profile-title">Anastasia • Profile #01</div>
                         <div class="profile-meta">24 years • Moscow / Vienna</div>
-                        <p class="profile-desc">Goal: serious relationship, European development. Interests: art, architecture.</p>
-                    </div>
-                </div>
-
-                <div class="profile-card" onclick="contactFounder()">
-                    <div class="profile-avatar">#02</div>
-                    <div class="profile-info">
-                        <div class="profile-title">Profile #02 • Resident</div>
-                        <div class="profile-meta">26 years • Kyiv / Phuket</div>
-                        <p class="profile-desc">Goal: family, travel. Interests: yachting, interior design.</p>
+                        <p class="profile-desc">Goal: serious relationship, European development. Single, no children.</p>
                     </div>
                 </div>
 
                 <button class="btn btn-secondary" onclick="toggleForm('form-lady-en')" style="margin-top: 10px;">Submit Resident Application</button>
 
                 <div id="form-lady-en" class="apply-form">
-                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 10px;">✨ Resident Application (Lady)</h3>
-                    <div class="form-group">
-                        <label>Name & Age:</label>
-                        <input type="text" id="lady-name-en" class="form-control" placeholder="e.g., Anna, 24">
-                    </div>
-                    <div class="form-group">
-                        <label>City / Hub:</label>
-                        <input type="text" id="lady-city-en" class="form-control" placeholder="e.g., Phuket / Moscow">
-                    </div>
-                    <div class="form-group">
-                        <label>Goals & Expectations:</label>
-                        <textarea id="lady-goals-en" class="form-control" rows="2" placeholder="Describe your expectations..."></textarea>
-                    </div>
-                    <button class="btn btn-primary" onclick="submitApplication('Lady (EN)')">Send to Founder</button>
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 12px;">✨ Detailed Application (Lady)</h3>
+                    <div class="form-group"><label>1. Full Name & Age:</label><input type="text" class="form-control" placeholder="Name, Age"></div>
+                    <div class="form-group"><label>2. City / Current Hub:</label><input type="text" class="form-control" placeholder="Phuket, Moscow, Vienna..."></div>
+                    <div class="form-group"><label>3. Marital status / Children:</label><input type="text" class="form-control" placeholder="Single, children..."></div>
+                    <div class="form-group"><label>4. Occupation / Interests:</label><input type="text" class="form-control" placeholder="Your occupation, hobbies"></div>
+                    <div class="form-group"><label>5. Main goals in the club:</label><textarea class="form-control" rows="2" placeholder="Serious relationships, family..."></textarea></div>
+                    <div class="form-group"><label>6. Expectations from partner:</label><textarea class="form-control" rows="2" placeholder="Describe your ideal match..."></textarea></div>
+                    <button class="btn btn-primary" onclick="submitApplication('Detailed Lady (EN)')">Send to Founder</button>
                 </div>
             </div>
 
@@ -656,15 +829,15 @@
                     <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                         <path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/>
                     </svg>
-                    Gentlemen Catalog (Businessmen)
+                    Gentlemen Catalog (Businessmen • 10 profiles)
                 </h2>
                 <p>Closed database of entrepreneurs and investors. Silhouettes without faces, status & goals.</p>
                 <span class="locations-tag">📍 Hubs: Russia, Ukraine, Vienna, Phuket, Bangkok, Burgas</span>
 
                 <div class="profile-card" onclick="contactFounder()">
-                    <div class="profile-avatar">#01</div>
+                    <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:32px;height:32px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
                     <div class="profile-info">
-                        <div class="profile-title">Profile #01 • Investor</div>
+                        <div class="profile-title">Alexander • Profile #01</div>
                         <div class="profile-meta">38 years • Phuket / Moscow</div>
                         <p class="profile-desc">Industry: real estate, IT. Goal: meet a life partner to share travels and success.</p>
                     </div>
@@ -673,20 +846,13 @@
                 <button class="btn btn-secondary" onclick="toggleForm('form-gentleman-en')" style="margin-top: 10px;">Fill Out Profile</button>
 
                 <div id="form-gentleman-en" class="apply-form">
-                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 10px;">💼 Resident Application (Gentleman)</h3>
-                    <div class="form-group">
-                        <label>Name & Age:</label>
-                        <input type="text" id="gent-name-en" class="form-control" placeholder="e.g., Alexander, 38">
-                    </div>
-                    <div class="form-group">
-                        <label>Business Field / City:</label>
-                        <input type="text" id="gent-biz-en" class="form-control" placeholder="e.g., Real Estate, Phuket">
-                    </div>
-                    <div class="form-group">
-                        <label>Goals in the Club:</label>
-                        <textarea id="gent-goals-en" class="form-control" rows="2" placeholder="Who you are looking for..."></textarea>
-                    </div>
-                    <button class="btn btn-primary" onclick="submitApplication('Gentleman (EN)')">Send to Founder</button>
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 12px;">💼 Detailed Application (Gentleman)</h3>
+                    <div class="form-group"><label>1. Full Name & Age:</label><input type="text" class="form-control" placeholder="Name, Age"></div>
+                    <div class="form-group"><label>2. Business Field / Assets:</label><input type="text" class="form-control" placeholder="Real Estate, IT, Investments..."></div>
+                    <div class="form-group"><label>3. Primary Hub / Location:</label><input type="text" class="form-control" placeholder="Phuket, Bangkok, Vienna..."></div>
+                    <div class="form-group"><label>4. Main goals in the club:</label><textarea class="form-control" rows="2" placeholder="Life partner, family, network..."></textarea></div>
+                    <div class="form-group"><label>5. Expectations from candidate:</label><textarea class="form-control" rows="2" placeholder="Qualities you appreciate..."></textarea></div>
+                    <button class="btn btn-primary" onclick="submitApplication('Detailed Gentleman (EN)')">Send to Founder</button>
                 </div>
             </div>
 
@@ -743,8 +909,8 @@
         }
 
         function submitApplication(type) {
-            alert('Спасибо! Ваша заявка успешно отправлена основателю клуба Константину.');
-            trackAction('📥 ПОСТУПИЛА ЗАЯВКА (' + type + ')');
+            alert('Спасибо! Ваша подробная анкета успешно заполнена и передается основателю клуба Константину.');
+            trackAction('📥 ПОСТУПИЛА ПОДРОБНАЯ АНКЕТА (' + type + ')');
             contactFounder();
         }
 
