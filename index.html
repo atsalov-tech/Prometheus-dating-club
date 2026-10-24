@@ -3,166 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prometheus Club</title>
+    <title>Prometheus Private Club</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0f0f0f;
-            color: #ffffff;
+            background-color: #080808;
+            color: #f2f2f7;
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         .container {
             width: 100%;
-            max-width: 380px;
+            max-width: 400px;
+        }
+        .club-banner {
+            width: 100%;
+            height: 220px;
+            border-radius: 16px;
+            background-image: url('club-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 15px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        .club-banner::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85));
+            z-index: 1;
+        }
+        .banner-text {
+            position: relative;
+            z-index: 2;
             text-align: center;
         }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 8px;
+        .banner-text h1 {
+            margin: 0 0 5px 0;
+            font-size: 20px;
+            letter-spacing: 2px;
+            color: #d4af37;
+            text-transform: uppercase;
         }
-        .subtitle {
-            color: #888;
-            font-size: 14px;
-            margin-bottom: 30px;
+        .banner-text p {
+            margin: 0;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #aaa;
+            text-transform: uppercase;
         }
-        .menu-card {
-            background: #1c1c1e;
+        .about-club {
+            background: #141416;
+            border: 1px solid #222;
             border-radius: 16px;
-            padding: 20px;
+            padding: 18px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #c7c7cc;
+            line-height: 1.6;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .about-club p {
+            margin: 0 0 10px 0;
+        }
+        .about-club p:last-child {
+            margin-bottom: 0;
+        }
+        .highlight {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .discreet-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #d4af37;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        .club-stats {
+            background: #141416;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #aaa;
+        }
+        .club-stats span {
+            color: #d4af37;
+            font-weight: bold;
+        }
+        .card {
+            background: #141416;
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 18px;
             margin-bottom: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            text-align: left;
         }
-        .menu-card h3 {
+        .card h3 {
             margin: 0 0 8px 0;
-            font-size: 18px;
-            color: #ffaa00;
+            font-size: 16px;
+            color: #d4af37;
         }
-        .menu-card p {
+        .card p {
             font-size: 13px;
-            color: #ccc;
+            color: #999;
             margin: 0 0 15px 0;
             line-height: 1.4;
         }
         .btn {
             display: block;
-            background: #ffaa00;
+            background: linear-gradient(135deg, #d4af37, #aa7c11);
             color: #000;
             text-decoration: none;
             padding: 12px;
             border-radius: 10px;
             font-weight: bold;
-            font-size: 15px;
-            text-align: center;
-            transition: opacity 0.2s;
-        }
-        .btn-secondary {
-            background: #2c2c2e;
-            color: #fff;
-        }
-        .btn:active {
-            opacity: 0.8;
-        }
-        /* Стили для карточки анкеты (скрыта по умолчанию, можно показать) */
-        .profile-view {
-            display: none;
-        }
-        .profile-card {
-            background: #1c1c1e;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 2px solid #ffaa00;
-        }
-        .info-block {
-            text-align: left;
-            background: #2c2c2e;
-            padding: 12px;
-            border-radius: 10px;
-            margin: 15px 0;
             font-size: 14px;
-            line-height: 1.4;
-        }
-        .contacts {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            text-align: center;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            box-sizing: border-box;
             margin-top: 15px;
         }
-        .btn-wa { background: #25D366; color: #fff; }
-        .btn-tg { background: #0088cc; color: #fff; }
+        .btn-secondary {
+            background: #222;
+            color: #fff;
+            border: 1px solid #333;
+        }
+        .form-group {
+            margin-bottom: 14px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            color: #d4af37;
+            margin-bottom: 5px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: #1a1a1c;
+            color: #fff;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        select.form-control {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+            padding-right: 30px;
+        }
+        .checkbox-group {
+            background: #1a1a1c;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #ddd;
+            cursor: pointer;
+        }
+        .checkbox-label input {
+            margin-right: 10px;
+            accent-color: #d4af37;
+            width: 16px;
+            height: 16px;
+        }
+        .section {
+            display: none;
+        }
+        .active-section {
+            display: block;
+        }
         .back-btn {
             background: transparent;
             color: #888;
             border: none;
             font-size: 14px;
             margin-top: 15px;
+            width: 100%;
             cursor: pointer;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <div class="container" id="main-menu">
-        <h1>Prometheus Private Club</h1>
-        <p class="subtitle">Выберите интересующий вас раздел</p>
-
-        <!-- Раздел поиска -->
-        <div class="menu-card">
-            <h3>🔍 Найти пару / анкеты</h3>
-            <p>Просматривайте профили участников закрытого клуба, изучайте пожелания и связывайтесь напрямую.</p>
-            <a href="#" class="btn" onclick="showProfiles()">Смотреть анкеты</a>
-        </div>
-
-        <!-- Раздел регистрации -->
-        <div class="menu-card">
-            <h3>📝 Создать свою анкету</h3>
-            <p>Хотите разместить свой профиль в клубе? Заполните данные и отправьте их администратору.</p>
-            <a href="https://t.me/Prometheus_privat_bot" target="_blank" class="btn btn-secondary">Зарегистрироваться</a>
-        </div>
-    </div>
-
-    <!-- Блок с анкетами (открывается при клике) -->
-    <div class="container profile-view" id="profile-section">
-        <div class="profile-card">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Фото" class="profile-img">
-            <h2>Анна, 26</h2>
-            <div style="color: #888; font-size: 14px; margin-bottom: 10px;">@anna_private</div>
-
-            <div class="info-block">
-                <p><strong>Локация:</strong> Пхукет</p>
-                <p><strong>Пожелания:</strong> Ищу интересного собеседника для совместных походов на мероприятия.</p>
-            </div>
-
-            <div class="contacts">
-                <a href="https://t.me/username" class="btn btn-tg">Telegram</a>
-                <a href="https://wa.me/66000000000" class="btn btn-wa">WhatsApp</a>
+    <div class="container">
+        
+        <div class="club-banner">
+            <div class="banner-text">
+                <h1>Prometheus</h1>
+                <p>Private Club</p>
             </div>
         </div>
-        <button class="back-btn" onclick="showMenu()">← Назад в меню</button>
+
+        <div class="about-club">
+            <div class="discreet-badge">
+                🔒 100% DISCRETION & CONFIDENTIALITY
+            </div>
+            <p>A private international community built around one simple idea:</p>
+            <p class="highlight">The quality of your network can change the quality of your life.</p>
+            <p>Prometheus connects entrepreneurs, investors and ambitious professionals across key international hubs: <span class="highlight">Moscow, Central Europe (Vienna), Thailand (Phuket & Bangkok), and Bulgaria (Burgas region)</span>.</p>
+            <p>Not a mass-market social network.<br>
+            Not another dating platform.<br>
+            Not a traditional business club.</p>
+            <p>A private environment for carefully selected people, meaningful introductions and real relationships.</p>
+            <p style="color: #d4af37; margin-top: 15px; font-weight: 600;">The project is just beginning. More soon.</p>
+        </div>
+
+        <div class="club-stats">
+            👥 В закрытой базе: <span>52 участника</span><br>
+            🌍 Локации: Москва | Вена | Пхукет | Бангкок | Бургас
+        </div>
+
+        <!-- ГЛАВНОЕ МЕНЮ -->
+        <div id="main-menu" class="active-section">
+            <div class="card">
+                <h3>💎 Для бизнесменов и резидентов</h3>
+                <p>Конфиденциальная заявка на персональный подбор. Строгая дискретность для женатых резидентов и свободных предпринимателей.</p>
+                <button class="btn" onclick="showSection('man-form')">Подать заявку на подбор</button>
+            </div>
+
+            <div class="card">
+                <h3>🌸 Анкета участницы</h3>
+                <p>Заполните подробную анкету, укажите цели, фото в полный рост и требования. Доступ строго у администратора.</p>
+                <button class="btn btn-secondary" onclick="showSection('woman-form')">Заполнить анкету</button>
+            </div>
+        </div>
+
+        <!-- ФОРМА ДЛЯ БИЗНЕСМЕНОВ -->
+        <div id="man-form" class="section">
+            <div class="card">
+                <h3>Заявка резидента (Бизнесмен)</h3>
+                <form onsubmit="submitForm(event)">
+                    
+                    <!-- СТАТУС В БРАКЕ И ДЕТИ -->
+                    <div class="form-group">
+                        <label>Семейный статус и дети (строго конфиденциально)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox"> Состою в браке (ищу любовницу / отношения на стороне)</label>
+                            <label class="checkbox-label"><input type="checkbox"> Есть дети</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Имя / Псевдоним</label>
+                        <input type="text" class="form-control" required placeholder="Как к вам обращаться">
+                    </div>
+                    <div class="form-group">
+                        <label>Возраст</label>
+                        <input type="number" class="form-control" required placeholder="Ваш возраст">
+                    </div>
+                    <div class="form-group">
+                        <label>Рост и вес</label>
+                        <input type="text" class="form-control" required placeholder="Например: 182 см, 80 кг">
+                    </div>
+                    <div class="form-group">
+                        <label>Ваше телосложение</label>
+                        <select class="form-control" required>
+                            <option value="" disabled selected>Выберите вариант</option>
+                            <option value="Athletic">Спортивное / подтянутое</option>
+                            <option value="Normal">Обычное / плотное</option>
+                            <option value="Soft">Мягкое / солидное</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Основная локация</label>
+                        <select class="form-control" required>
+                            <option value="" disabled selected>Выберите регион</option>
+                            <option value="Moscow">Москва</option>
+                            <option value="Vienna">Центральная Европа (Вена)</option>
+                            <option value="Phuket">Таиланд (Пхукет)</option>
+                            <option value="Bangkok">Таиланд (Бангкок)</option>
+                            <option value="Burgas">Болгария (Бургас)</option>
+                            <option value="Other">Другой регион</option>
+                        </select>
+                    </div>
+
+                    <!-- ПАРАМЕТРЫ ПОИСКА ДЕВУШКИ -->
+                    <div class="form-group">
+                        <label>Желаемый возраст девушки</label>
+                        <input type="text" class="form-control" required placeholder="Например: от 20 до 30 лет">
+                    </div>
+                    <div class="form-group">
+                        <label>Желаемое телосложение девушки</label>
+                        <select class="form-control" required>
+                            <option value="" disabled selected>Выберите предпочтение</option>
+                            <option value="Sporty">Спортивное</option>
+                            <option value="Slim">Стройное</option>
+                            <option value="Curvy">Женственное / мягкое («кругленькое»)</option>
+                            <option value="Any">Не принципиально</option>
+                        </select>
+                    </div>
+
+                    <!-- ФИНАНСОВЫЙ БЛОК -->
+                    <div class="form-group">
+                        <label>Уровень дохода и бюджет на поддержку</label>
+                        <input type="text" class="form-control" placeholder="Доход (по желанию)">
+                        <input type="text" class="form-control" style="margin-top: 8px;" required placeholder="Бюджет на подарки / экскурсии / мес. (например: от $3k)">
+                    </div>
+
+                    <!-- ФОРМАТ ВСТРЕЧ -->
+                    <div class="form-group">
+                        <label>Цель знакомства и формат (можно выбрать несколько)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox"> На одну ночь / пару ночей</label>
+                            <label class="checkbox-label"><input type="checkbox"> На неделю / совместные поездки</label>
+                            <label class="checkbox-label"><input type="checkbox"> Сопровождение на мероприятия</label>
+                            <label class="checkbox-label"><input type="checkbox"> Для создания семьи / совместной жизни</label>
+                            <label class="checkbox-label"><input type="checkbox"> Инкогнито / конфиденциальные встречи</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Дополнительные пожелания</label>
+                        <textarea class="form-control" rows="2" placeholder="Опишите детальные критерии..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Ваш Telegram для личной связи</label>
+                        <input type="text" class="form-control" required placeholder="@username">
+                    </div>
+                    <button type="submit" class="btn">Отправить заявку админу</button>
+                </form>
+                <button class="back-btn" onclick="showSection('main-menu')">← Назад</button>
+            </div>
+        </div>
+
+        <!-- ФОРМА ДЛЯ ДЕВУШЕК -->
+        <div id="woman-form" class="section">
+            <div class="card">
+                <h3>Анкета участницы клуба</h3>
+                <form onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label>Имя и Возраст</label>
+                        <input type="text" class="form-control" required placeholder="Например: Кристина, 23">
+                    </div>
+                    <div class="form-group">
+                        <label>📸 Фото в полный рост (ссылка)</label>
+                        <input type="text" class="form-control" required placeholder="Обязательно (ссылка на фото)">
+                    </div>
+                    <div class="form-group">
+                        <label>📞 Координаты для связи (Telegram / WhatsApp / Номер)</label>
+                        <input type="text" class="form-control" required placeholder="@username или телефон">
+                    </div>
+                    <div class="form-group">
+                        <label>🌍 Основное направление / Локация</label>
+                        <select class="form-control" required>
+                            <option value="" disabled selected>Выберите регион пребывания/поиска</option>
+                            <option value="Moscow">Москва</option>
+                            <option value="Vienna">Центральная Европа (Вена)</option>
+                            <option value="Phuket">Таиланд (Пхукет)</option>
+                            <option value="Bangkok">Таиланд (Бангкок)</option>
+                            <option value="Burgas">Болгария (Бургас)</option>
+                            <option value="Multiple">Несколько направлений</option>
+                        </select>
+                    </div>
+
+                    <!-- ЦЕЛИ ДЕВУШЕК -->
+                    <div class="form-group">
+                        <label>Цели и формат общения (отметьте нужное)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox"> Создание семьи / брак</label>
+                            <label class="checkbox-label"><input type="checkbox"> Рождение детей</label>
+                            <label class="checkbox-label"><input type="checkbox"> Совместные путешествия</label>
+                            <label class="checkbox-label"><input type="checkbox"> Любовные и интимные встречи</label>
+                            <label class="checkbox-label"><input type="checkbox"> Строго конфиденциальные встречи</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>💰 Желаемый уровень дохода мужчины</label>
+                        <input type="text" class="form-control" required placeholder="Ваши ожидания по статусу партнера">
+                    </div>
+                    <div class="form-group">
+                        <label>🏡 Предпочтительное место проживания</label>
+                        <input type="text" class="form-control" required placeholder="Где бы вы хотели жить (город/страна)">
+                    </div>
+                    <div class="form-group">
+                        <label>👶 Дети (есть ли дети, дети от предыдущих браков)</label>
+                        <input type="text" class="form-control" required placeholder="Укажите информацию о детях (или «нет»)">
+                    </div>
+                    <div class="form-group">
+                        <label>✨ О чем вы мечтаете (цели и стремления)</label>
+                        <textarea class="form-control" rows="3" required placeholder="Ваши главные мечты, ценности и интересы..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">Отправить анкету</button>
+                </form>
+                <button class="back-btn" onclick="showSection('main-menu')">← Назад</button>
+            </div>
+        </div>
+
     </div>
 
     <script>
-        function showProfiles() {
-            document.getElementById('main-menu').style.display = 'none';
-            document.getElementById('profile-section').style.display = 'block';
+        function showSection(sectionId) {
+            document.querySelectorAll('.section, #main-menu').forEach(el => el.classList.remove('active-section'));
+            document.getElementById(sectionId).classList.add('active-section');
         }
-        function showMenu() {
-            document.getElementById('profile-section').style.display = 'none';
-            document.getElementById('main-menu').style.display = 'block';
+
+        function submitForm(event) {
+            event.preventDefault();
+            alert('Спасибо! Ваша заявка принята. Администратор клуба гарантирует конфиденциальность и свяжется с вами лично.');
+            showSection('main-menu');
+            event.target.reset();
         }
     </script>
 
