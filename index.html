@@ -159,6 +159,30 @@
             margin-bottom: 14px;
             display: block;
         }
+        /* Сетка номеров анкет внутри каталога */
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .profile-chip {
+            background-color: #1c1c1e;
+            border: 1px solid #333;
+            color: #e5c158;
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .profile-chip:hover {
+            border-color: #d4af37;
+            background-color: rgba(212, 175, 55, 0.1);
+        }
         .event-item {
             background-color: #1c1c1e;
             border-left: 3px solid #d4af37;
@@ -331,7 +355,7 @@
                 🌍 Локации: <strong>Россия | Украина | Вена | Пхукет | Бангкок | Бургас</strong>
             </div>
 
-            <!-- Каталог участниц -->
+            <!-- Каталог участниц с номерами анкет -->
             <div class="card">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -341,11 +365,27 @@
                 </h2>
                 <p>Посмотреть анкеты участниц (строго конфиденциально, скрытые лица). Выберите номер понравившейся анкеты.</p>
                 <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
-                <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Смотреть анкеты девушек'); contactFounder(); return false;" class="btn btn-primary">Смотреть анкеты девушек (12)</a>
+                
+                <!-- Сетка номеров анкет участниц (1-12) -->
+                <div class="profiles-grid">
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №01'); contactFounder(); return false;" class="profile-chip">#01</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №02'); contactFounder(); return false;" class="profile-chip">#02</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №03'); contactFounder(); return false;" class="profile-chip">#03</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №04'); contactFounder(); return false;" class="profile-chip">#04</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №05'); contactFounder(); return false;" class="profile-chip">#05</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №06'); contactFounder(); return false;" class="profile-chip">#06</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №07'); contactFounder(); return false;" class="profile-chip">#07</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №08'); contactFounder(); return false;" class="profile-chip">#08</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №09'); contactFounder(); return false;" class="profile-chip">#09</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №10'); contactFounder(); return false;" class="profile-chip">#10</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №11'); contactFounder(); return false;" class="profile-chip">#11</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №12'); contactFounder(); return false;" class="profile-chip">#12</a>
+                </div>
+
                 <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Заявка резидента (девушки)'); contactFounder(); return false;" class="btn btn-secondary">Подать свою заявку резидента</a>
             </div>
 
-            <!-- Каталог резидентов -->
+            <!-- Каталог резидентов с номерами анкет -->
             <div class="card">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -355,7 +395,21 @@
                 </h2>
                 <p>Посмотреть закрытую базу резидентов (силуэты без лиц, указан доход и цели). Выберите интересующий номер.</p>
                 <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
-                <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Смотреть анкеты резидентов'); contactFounder(); return false;" class="btn btn-primary">Смотреть анкеты резидентов (10)</a>
+                
+                <!-- Сетка номеров анкет резидентов (1-10) -->
+                <div class="profiles-grid">
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №01'); contactFounder(); return false;" class="profile-chip">#01</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №02'); contactFounder(); return false;" class="profile-chip">#02</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №03'); contactFounder(); return false;" class="profile-chip">#03</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №04'); contactFounder(); return false;" class="profile-chip">#04</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №05'); contactFounder(); return false;" class="profile-chip">#05</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №06'); contactFounder(); return false;" class="profile-chip">#06</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №07'); contactFounder(); return false;" class="profile-chip">#07</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №08'); contactFounder(); return false;" class="profile-chip">#08</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №09'); contactFounder(); return false;" class="profile-chip">#09</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №10'); contactFounder(); return false;" class="profile-chip">#10</a>
+                </div>
+
                 <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Заполнить анкету (мужчины)'); contactFounder(); return false;" class="btn btn-secondary">Заполнить анкету</a>
             </div>
 
@@ -426,7 +480,7 @@
                 🌍 Hubs: <strong>Russia | Ukraine | Vienna | Phuket | Bangkok | Burgas</strong>
             </div>
 
-            <!-- Ladies Catalog -->
+            <!-- Ladies Catalog Grid -->
             <div class="card">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -436,11 +490,26 @@
                 </h2>
                 <p>View ladies profiles (strictly confidential, faces hidden). Choose a profile number.</p>
                 <span class="locations-tag">📍 Hubs: Russia, Ukraine, Vienna, Phuket, Bangkok, Burgas</span>
-                <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: View Ladies Profiles'); contactFounder(); return false;" class="btn btn-primary">View Ladies Profiles (12)</a>
+                
+                <div class="profiles-grid">
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #01'); contactFounder(); return false;" class="profile-chip">#01</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #02'); contactFounder(); return false;" class="profile-chip">#02</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #03'); contactFounder(); return false;" class="profile-chip">#03</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #04'); contactFounder(); return false;" class="profile-chip">#04</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #05'); contactFounder(); return false;" class="profile-chip">#05</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #06'); contactFounder(); return false;" class="profile-chip">#06</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #07'); contactFounder(); return false;" class="profile-chip">#07</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #08'); contactFounder(); return false;" class="profile-chip">#08</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #09'); contactFounder(); return false;" class="profile-chip">#09</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #10'); contactFounder(); return false;" class="profile-chip">#10</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #11'); contactFounder(); return false;" class="profile-chip">#11</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #12'); contactFounder(); return false;" class="profile-chip">#12</a>
+                </div>
+
                 <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Submit Application (Ladies)'); contactFounder(); return false;" class="btn btn-secondary">Submit Resident Application</a>
             </div>
 
-            <!-- Gentlemen Catalog -->
+            <!-- Gentlemen Catalog Grid -->
             <div class="card">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -450,7 +519,20 @@
                 </h2>
                 <p>View closed resident base (silhouettes without faces, income & goals). Choose a profile number.</p>
                 <span class="locations-tag">📍 Hubs: Russia, Ukraine, Vienna, Phuket, Bangkok, Burgas</span>
-                <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: View Gentlemen Profiles'); contactFounder(); return false;" class="btn btn-primary">View Gentlemen Profiles (10)</a>
+                
+                <div class="profiles-grid">
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #01'); contactFounder(); return false;" class="profile-chip">#01</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #02'); contactFounder(); return false;" class="profile-chip">#02</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #03'); contactFounder(); return false;" class="profile-chip">#03</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #04'); contactFounder(); return false;" class="profile-chip">#04</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #05'); contactFounder(); return false;" class="profile-chip">#05</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #06'); contactFounder(); return false;" class="profile-chip">#06</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #07'); contactFounder(); return false;" class="profile-chip">#07</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #08'); contactFounder(); return false;" class="profile-chip">#08</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #09'); contactFounder(); return false;" class="profile-chip">#09</a>
+                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #10'); contactFounder(); return false;" class="profile-chip">#10</a>
+                </div>
+
                 <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Fill Profile (Gentlemen)'); contactFounder(); return false;" class="btn btn-secondary">Fill Out Profile</a>
             </div>
 
@@ -497,11 +579,9 @@
 
     <script>
         const FOUNDER_TG_USERNAME = 'KonstantinBGInvest';
-        const BOT_USERNAME = 'Prometheus_privat_bot'; // Бот для отправки уведомлений вам
 
         const FALLBACK_AVATAR = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23141416'/><text x='50' y='66' font-family='Georgia, serif' font-size='48' font-weight='bold' fill='%23d4af37' text-anchor='middle'>K</text></svg>";
 
-        // Функция отправки тихого уведомления в ваш Telegram при открытии или клике
         function sendAnalyticsNotification(actionName) {
             try {
                 let userInfo = "Гость клуба";
@@ -510,16 +590,11 @@
                     userInfo = `${u.first_name || ''} ${u.last_name || ''} (@${u.username || 'нет_ника'}) [ID: ${u.id}]`;
                 }
                 const text = encodeURIComponent(`📊 [Prometheus Stat]\n👤 Кто: ${userInfo}\n⚡️ Действие: ${actionName}\n⏱ Время: ${new Date().toLocaleString()}`);
-                
-                // Тихо отправляем через изображение-маячок на сервер Telegram API или бота
                 const img = new Image();
-                img.src = `https://api.telegram.org/bot<TOKEN>/sendMessage?chat_id=<YOUR_CHAT_ID>&text=${text}`; // Автоматически фиксируется WebApp
-            } catch (e) {
-                // Игнорируем ошибки сети, чтобы интерфейс не тормозил
-            }
+                img.src = `https://api.telegram.org/bot<TOKEN>/sendMessage?chat_id=<YOUR_CHAT_ID>&text=${text}`;
+            } catch (e) {}
         }
 
-        // Автоматический отчет при входе в мини-апп
         window.addEventListener('DOMContentLoaded', () => {
             sendAnalyticsNotification("🔔 Открыл(а) мини-приложение Prometheus Privat Club");
         });
