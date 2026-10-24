@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prometheus Privat Club</title>
+    
+    <!-- Подключаем вашу загруженную иконку -->
+    <link rel="apple-touch-icon" href="prometheus_privat_club_app_icon_1024.png">
+    <link rel="icon" type="image/png" href="prometheus_privat_club_app_icon_1024.png">
+
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         body {
@@ -137,8 +142,8 @@
             gap: 10px;
         }
         .icon-svg {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             fill: #d4af37;
             flex-shrink: 0;
         }
@@ -159,7 +164,6 @@
             margin-bottom: 14px;
             display: block;
         }
-        /* Сетка номеров анкет внутри каталога */
         .profiles-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -332,7 +336,7 @@
         <div id="content-ru" class="lang-section active">
             <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик на шапку Founder'); contactFounder(); return false;" class="founder-top-bar">
                 <div class="founder-top-left">
-                    <img src="https://t.me/i/userpic/320/KonstantinBGInvest.jpg" alt="Константин" class="founder-mini-avatar" onerror="this.src=FALLBACK_AVATAR">
+                    <img src="prometheus_privat_club_app_icon_1024.png" alt="Константин" class="founder-mini-avatar">
                     <div class="founder-top-text">
                         <span class="founder-top-name">Константин • Founder</span>
                         <span class="founder-top-role">@KonstantinBGInvest</span>
@@ -355,18 +359,17 @@
                 🌍 Локации: <strong>Россия | Украина | Вена | Пхукет | Бангкок | Бургас</strong>
             </div>
 
-            <!-- Каталог участниц с номерами анкет -->
+            <!-- Каталог участниц -->
             <div class="card">
                 <h2>
-                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M32 4 C27.5 4 24 7.5 24 12 C24 16 26.5 19.2 28.5 21 C23 22.5 17 25.5 16 31 C15 35.5 18.5 39.5 22 40.5 C19.5 45 17 51 16 59 L48 59 C47 51 44.5 45 42 40.5 C45.5 39.5 49 35.5 48 31 C47 25.5 41 22.5 35.5 21 C37.5 19.2 40 16 40 12 C40 7.5 36.5 4 32 4 Z M24.5 29.5 C27.5 29.5 30 32 30.8 35 C29 37.5 25.5 38 22.5 36 C20 34.2 21.5 29.5 24.5 29.5 Z M39.5 29.5 C42.5 29.5 44 34.2 41.5 36 C38.5 38 35 37.5 33.2 35 C34 32 36.5 29.5 39.5 29.5 Z"/>
+                    <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/>
                     </svg>
                     Каталог участниц (База клуба)
                 </h2>
                 <p>Посмотреть анкеты участниц (строго конфиденциально, скрытые лица). Выберите номер понравившейся анкеты.</p>
                 <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
                 
-                <!-- Сетка номеров анкет участниц (1-12) -->
                 <div class="profiles-grid">
                     <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №01'); contactFounder(); return false;" class="profile-chip">#01</a>
                     <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №02'); contactFounder(); return false;" class="profile-chip">#02</a>
@@ -385,7 +388,7 @@
                 <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Заявка резидента (девушки)'); contactFounder(); return false;" class="btn btn-secondary">Подать свою заявку резидента</a>
             </div>
 
-            <!-- Каталог резидентов с номерами анкет -->
+            <!-- Каталог резидентов -->
             <div class="card">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -396,7 +399,6 @@
                 <p>Посмотреть закрытую базу резидентов (силуэты без лиц, указан доход и цели). Выберите интересующий номер.</p>
                 <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
                 
-                <!-- Сетка номеров анкет резидентов (1-10) -->
                 <div class="profiles-grid">
                     <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №01'); contactFounder(); return false;" class="profile-chip">#01</a>
                     <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №02'); contactFounder(); return false;" class="profile-chip">#02</a>
@@ -437,7 +439,7 @@
             <div class="card card-contact">
                 <div class="founder-profile">
                     <div class="founder-avatar-wrap">
-                        <img src="https://t.me/i/userpic/320/KonstantinBGInvest.jpg" alt="Константин" class="founder-avatar" onerror="this.src=FALLBACK_AVATAR">
+                        <img src="prometheus_privat_club_app_icon_1024.png" alt="Константин" class="founder-avatar">
                     </div>
                     <div class="founder-name">Константин</div>
                     <span class="founder-role">Founder • Prometheus Privat Club</span>
@@ -457,7 +459,7 @@
         <div id="content-en" class="lang-section">
             <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click Header Founder (EN)'); contactFounder(); return false;" class="founder-top-bar">
                 <div class="founder-top-left">
-                    <img src="https://t.me/i/userpic/320/KonstantinBGInvest.jpg" alt="Konstantin" class="founder-mini-avatar" onerror="this.src=FALLBACK_AVATAR">
+                    <img src="prometheus_privat_club_app_icon_1024.png" alt="Konstantin" class="founder-mini-avatar">
                     <div class="founder-top-text">
                         <span class="founder-top-name">Konstantin • Founder</span>
                         <span class="founder-top-role">@KonstantinBGInvest</span>
@@ -483,8 +485,8 @@
             <!-- Ladies Catalog Grid -->
             <div class="card">
                 <h2>
-                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M32 4 C27.5 4 24 7.5 24 12 C24 16 26.5 19.2 28.5 21 C23 22.5 17 25.5 16 31 C15 35.5 18.5 39.5 22 40.5 C19.5 45 17 51 16 59 L48 59 C47 51 44.5 45 42 40.5 C45.5 39.5 49 35.5 48 31 C47 25.5 41 22.5 35.5 21 C37.5 19.2 40 16 40 12 C40 7.5 36.5 4 32 4 Z M24.5 29.5 C27.5 29.5 30 32 30.8 35 C29 37.5 25.5 38 22.5 36 C20 34.2 21.5 29.5 24.5 29.5 Z M39.5 29.5 C42.5 29.5 44 34.2 41.5 36 C38.5 38 35 37.5 33.2 35 C34 32 36.5 29.5 39.5 29.5 Z"/>
+                    <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/>
                     </svg>
                     Ladies Catalog (Club Base)
                 </h2>
@@ -509,7 +511,7 @@
                 <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Submit Application (Ladies)'); contactFounder(); return false;" class="btn btn-secondary">Submit Resident Application</a>
             </div>
 
-            <!-- Gentlemen Catalog Grid -->
+            <!-- Gentlemen Catalog -->
             <div class="card">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -560,7 +562,7 @@
             <div class="card card-contact">
                 <div class="founder-profile">
                     <div class="founder-avatar-wrap">
-                        <img src="https://t.me/i/userpic/320/KonstantinBGInvest.jpg" alt="Konstantin" class="founder-avatar" onerror="this.src=FALLBACK_AVATAR">
+                        <img src="prometheus_privat_club_app_icon_1024.png" alt="Konstantin" class="founder-avatar">
                     </div>
                     <div class="founder-name">Konstantin</div>
                     <span class="founder-role">Founder • Prometheus Privat Club</span>
@@ -579,8 +581,6 @@
 
     <script>
         const FOUNDER_TG_USERNAME = 'KonstantinBGInvest';
-
-        const FALLBACK_AVATAR = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23141416'/><text x='50' y='66' font-family='Georgia, serif' font-size='48' font-weight='bold' fill='%23d4af37' text-anchor='middle'>K</text></svg>";
 
         function sendAnalyticsNotification(actionName) {
             try {
