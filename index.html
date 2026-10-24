@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prometheus Privat Club</title>
     
-    <!-- Подключаем вашу загруженную иконку -->
+    <!-- Настройки для иконки и короткого имени на экране телефона -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Прометей">
     <link rel="apple-touch-icon" href="prometheus_privat_club_app_icon_1024.png">
     <link rel="icon" type="image/png" href="prometheus_privat_club_app_icon_1024.png">
 
@@ -164,28 +167,93 @@
             margin-bottom: 14px;
             display: block;
         }
-        .profiles-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-bottom: 14px;
-        }
-        .profile-chip {
-            background-color: #1c1c1e;
-            border: 1px solid #333;
-            color: #e5c158;
-            padding: 10px 0;
-            text-align: center;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
+        /* Карточки анкет */
+        .profile-card {
+            background: #1c1c1e;
+            border: 1px solid #2c2c2e;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
             text-decoration: none;
+            transition: border-color 0.2s;
             cursor: pointer;
-            transition: all 0.2s;
         }
-        .profile-chip:hover {
+        .profile-card:hover {
             border-color: #d4af37;
-            background-color: rgba(212, 175, 55, 0.1);
+        }
+        .profile-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2c2c2e;
+            border: 1px solid #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #d4af37;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .profile-info {
+            flex-grow: 1;
+        }
+        .profile-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        .profile-meta {
+            font-size: 12px;
+            color: #d4af37;
+            margin-bottom: 4px;
+        }
+        .profile-desc {
+            font-size: 12px;
+            color: #98989d;
+            margin: 0;
+            line-height: 1.35;
+        }
+        /* Встроенные формы заявок */
+        .apply-form {
+            background: #1c1c1e;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+        .apply-form.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            color: #d4af37;
+            margin-bottom: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .form-control {
+            width: 100%;
+            background: #141416;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 8px 10px;
+            color: #fff;
+            font-size: 13px;
+            box-sizing: border-box;
+        }
+        .form-control:focus {
+            border-color: #d4af37;
+            outline: none;
         }
         .event-item {
             background-color: #1c1c1e;
@@ -367,25 +435,54 @@
                     </svg>
                     Каталог участниц (База клуба)
                 </h2>
-                <p>Посмотреть анкеты участниц (строго конфиденциально, скрытые лица). Выберите номер понравившейся анкеты.</p>
+                <p>Конфиденциальные анкеты резиденток. Лица скрыты. Нажмите на карточку для связи.</p>
                 <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
-                
-                <div class="profiles-grid">
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №01'); contactFounder(); return false;" class="profile-chip">#01</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №02'); contactFounder(); return false;" class="profile-chip">#02</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №03'); contactFounder(); return false;" class="profile-chip">#03</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №04'); contactFounder(); return false;" class="profile-chip">#04</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №05'); contactFounder(); return false;" class="profile-chip">#05</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №06'); contactFounder(); return false;" class="profile-chip">#06</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №07'); contactFounder(); return false;" class="profile-chip">#07</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №08'); contactFounder(); return false;" class="profile-chip">#08</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №09'); contactFounder(); return false;" class="profile-chip">#09</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №10'); contactFounder(); return false;" class="profile-chip">#10</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №11'); contactFounder(); return false;" class="profile-chip">#11</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета леди №12'); contactFounder(); return false;" class="profile-chip">#12</a>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar">#01</div>
+                    <div class="profile-info">
+                        <div class="profile-title">Анкета #01 • Резидент</div>
+                        <div class="profile-meta">24 года • Москва / Вена</div>
+                        <p class="profile-desc">Цель: серьезные отношения, развитие в Европе. Интересы: искусство, архитектура.</p>
+                    </div>
                 </div>
 
-                <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Заявка резидента (девушки)'); contactFounder(); return false;" class="btn btn-secondary">Подать свою заявку резидента</a>
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar">#02</div>
+                    <div class="profile-info">
+                        <div class="profile-title">Анкета #02 • Резидент</div>
+                        <div class="profile-meta">26 лет • Киев / Пхукет</div>
+                        <p class="profile-desc">Цель: создание семьи, путешествия. Интересы: яхтинг, дизайн интерьеров.</p>
+                    </div>
+                </div>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar">#03</div>
+                    <div class="profile-info">
+                        <div class="profile-title">Анкета #03 • Резидент</div>
+                        <div class="profile-meta">23 года • Санкт-Петербург</div>
+                        <p class="profile-desc">Цель: гармоничный союз с успешным предпринимателем. Психология, балет.</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" onclick="toggleForm('form-lady')" style="margin-top: 10px;">Подать свою заявку резидента</button>
+
+                <div id="form-lady" class="apply-form">
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 10px;">✨ Анкета-заявка резидента (Леди)</h3>
+                    <div class="form-group">
+                        <label>Ваше имя и возраст:</label>
+                        <input type="text" id="lady-name" class="form-control" placeholder="Например: Анна, 24">
+                    </div>
+                    <div class="form-group">
+                        <label>Ваш город / локация:</label>
+                        <input type="text" id="lady-city" class="form-control" placeholder="Например: Пхукет / Москва">
+                    </div>
+                    <div class="form-group">
+                        <label>Ваши цели и пожелания:</label>
+                        <textarea id="lady-goals" class="form-control" rows="2" placeholder="Опишите ваши ожидания от клуба..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="submitApplication('Леди')">Отправить основателю</button>
+                </div>
             </div>
 
             <!-- Каталог резидентов -->
@@ -396,23 +493,45 @@
                     </svg>
                     Каталог резидентов (Бизнесмены)
                 </h2>
-                <p>Посмотреть закрытую базу резидентов (силуэты без лиц, указан доход и цели). Выберите интересующий номер.</p>
+                <p>Закрытая база предпринимателей и инвесторов. Силуэты без лиц, указан статус и цели.</p>
                 <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
-                
-                <div class="profiles-grid">
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №01'); contactFounder(); return false;" class="profile-chip">#01</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №02'); contactFounder(); return false;" class="profile-chip">#02</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №03'); contactFounder(); return false;" class="profile-chip">#03</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №04'); contactFounder(); return false;" class="profile-chip">#04</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №05'); contactFounder(); return false;" class="profile-chip">#05</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №06'); contactFounder(); return false;" class="profile-chip">#06</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №07'); contactFounder(); return false;" class="profile-chip">#07</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №08'); contactFounder(); return false;" class="profile-chip">#08</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №09'); contactFounder(); return false;" class="profile-chip">#09</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Анкета джентльмена №10'); contactFounder(); return false;" class="profile-chip">#10</a>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar">#01</div>
+                    <div class="profile-info">
+                        <div class="profile-title">Анкета #01 • Инвестор</div>
+                        <div class="profile-meta">38 лет • Пхукет / Москва</div>
+                        <p class="profile-desc">Сфера: недвижимость, IT. Цель: встретить спутницу жизни для разделения путешествий и успехов.</p>
+                    </div>
                 </div>
 
-                <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Клик: Заполнить анкету (мужчины)'); contactFounder(); return false;" class="btn btn-secondary">Заполнить анкету</a>
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar">#02</div>
+                    <div class="profile-info">
+                        <div class="profile-title">Анкета #02 • Предприниматель</div>
+                        <div class="profile-meta">42 года • Вена / Киев</div>
+                        <p class="profile-desc">Сфера: международная торговля, финансы. Цель: создание семьи, уютный дом в Европе.</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" onclick="toggleForm('form-gentleman')" style="margin-top: 10px;">Заполнить анкету резидента</button>
+
+                <div id="form-gentleman" class="apply-form">
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 10px;">💼 Анкета резидента (Джентльмен)</h3>
+                    <div class="form-group">
+                        <label>Ваше имя и возраст:</label>
+                        <input type="text" id="gent-name" class="form-control" placeholder="Например: Александр, 38">
+                    </div>
+                    <div class="form-group">
+                        <label>Ваша сфера бизнеса / город:</label>
+                        <input type="text" id="gent-biz" class="form-control" placeholder="Например: Недвижимость, Пхукет">
+                    </div>
+                    <div class="form-group">
+                        <label>Ваши цели в клубе:</label>
+                        <textarea id="gent-goals" class="form-control" rows="2" placeholder="Кого вы ищете, ваши пожелания..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="submitApplication('Джентльмен')">Отправить основателю</button>
+                </div>
             </div>
 
             <!-- РУБРИКА: ЗАКРЫТЫЕ ВЕЧЕРИНКИ И СОБЫТИЯ -->
@@ -490,25 +609,45 @@
                     </svg>
                     Ladies Catalog (Club Base)
                 </h2>
-                <p>View ladies profiles (strictly confidential, faces hidden). Choose a profile number.</p>
+                <p>Confidential profiles. Faces hidden. Choose a card or submit an application.</p>
                 <span class="locations-tag">📍 Hubs: Russia, Ukraine, Vienna, Phuket, Bangkok, Burgas</span>
-                
-                <div class="profiles-grid">
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #01'); contactFounder(); return false;" class="profile-chip">#01</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #02'); contactFounder(); return false;" class="profile-chip">#02</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #03'); contactFounder(); return false;" class="profile-chip">#03</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #04'); contactFounder(); return false;" class="profile-chip">#04</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #05'); contactFounder(); return false;" class="profile-chip">#05</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #06'); contactFounder(); return false;" class="profile-chip">#06</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #07'); contactFounder(); return false;" class="profile-chip">#07</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #08'); contactFounder(); return false;" class="profile-chip">#08</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #09'); contactFounder(); return false;" class="profile-chip">#09</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #10'); contactFounder(); return false;" class="profile-chip">#10</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #11'); contactFounder(); return false;" class="profile-chip">#11</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Ladies Profile #12'); contactFounder(); return false;" class="profile-chip">#12</a>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar">#01</div>
+                    <div class="profile-info">
+                        <div class="profile-title">Profile #01 • Resident</div>
+                        <div class="profile-meta">24 years • Moscow / Vienna</div>
+                        <p class="profile-desc">Goal: serious relationship, European development. Interests: art, architecture.</p>
+                    </div>
                 </div>
 
-                <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Submit Application (Ladies)'); contactFounder(); return false;" class="btn btn-secondary">Submit Resident Application</a>
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar">#02</div>
+                    <div class="profile-info">
+                        <div class="profile-title">Profile #02 • Resident</div>
+                        <div class="profile-meta">26 years • Kyiv / Phuket</div>
+                        <p class="profile-desc">Goal: family, travel. Interests: yachting, interior design.</p>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" onclick="toggleForm('form-lady-en')" style="margin-top: 10px;">Submit Resident Application</button>
+
+                <div id="form-lady-en" class="apply-form">
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 10px;">✨ Resident Application (Lady)</h3>
+                    <div class="form-group">
+                        <label>Name & Age:</label>
+                        <input type="text" id="lady-name-en" class="form-control" placeholder="e.g., Anna, 24">
+                    </div>
+                    <div class="form-group">
+                        <label>City / Hub:</label>
+                        <input type="text" id="lady-city-en" class="form-control" placeholder="e.g., Phuket / Moscow">
+                    </div>
+                    <div class="form-group">
+                        <label>Goals & Expectations:</label>
+                        <textarea id="lady-goals-en" class="form-control" rows="2" placeholder="Describe your expectations..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="submitApplication('Lady (EN)')">Send to Founder</button>
+                </div>
             </div>
 
             <!-- Gentlemen Catalog -->
@@ -519,23 +658,36 @@
                     </svg>
                     Gentlemen Catalog (Businessmen)
                 </h2>
-                <p>View closed resident base (silhouettes without faces, income & goals). Choose a profile number.</p>
+                <p>Closed database of entrepreneurs and investors. Silhouettes without faces, status & goals.</p>
                 <span class="locations-tag">📍 Hubs: Russia, Ukraine, Vienna, Phuket, Bangkok, Burgas</span>
-                
-                <div class="profiles-grid">
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #01'); contactFounder(); return false;" class="profile-chip">#01</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #02'); contactFounder(); return false;" class="profile-chip">#02</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #03'); contactFounder(); return false;" class="profile-chip">#03</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #04'); contactFounder(); return false;" class="profile-chip">#04</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #05'); contactFounder(); return false;" class="profile-chip">#05</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #06'); contactFounder(); return false;" class="profile-chip">#06</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #07'); contactFounder(); return false;" class="profile-chip">#07</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #08'); contactFounder(); return false;" class="profile-chip">#08</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #09'); contactFounder(); return false;" class="profile-chip">#09</a>
-                    <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Gentlemen Profile #10'); contactFounder(); return false;" class="profile-chip">#10</a>
+
+                <div class="profile-card" onclick="contactFounder()">
+                    <div class="profile-avatar">#01</div>
+                    <div class="profile-info">
+                        <div class="profile-title">Profile #01 • Investor</div>
+                        <div class="profile-meta">38 years • Phuket / Moscow</div>
+                        <p class="profile-desc">Industry: real estate, IT. Goal: meet a life partner to share travels and success.</p>
+                    </div>
                 </div>
 
-                <a href="https://t.me/KonstantinBGInvest" onclick="trackAction('Click: Fill Profile (Gentlemen)'); contactFounder(); return false;" class="btn btn-secondary">Fill Out Profile</a>
+                <button class="btn btn-secondary" onclick="toggleForm('form-gentleman-en')" style="margin-top: 10px;">Fill Out Profile</button>
+
+                <div id="form-gentleman-en" class="apply-form">
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 10px;">💼 Resident Application (Gentleman)</h3>
+                    <div class="form-group">
+                        <label>Name & Age:</label>
+                        <input type="text" id="gent-name-en" class="form-control" placeholder="e.g., Alexander, 38">
+                    </div>
+                    <div class="form-group">
+                        <label>Business Field / City:</label>
+                        <input type="text" id="gent-biz-en" class="form-control" placeholder="e.g., Real Estate, Phuket">
+                    </div>
+                    <div class="form-group">
+                        <label>Goals in the Club:</label>
+                        <textarea id="gent-goals-en" class="form-control" rows="2" placeholder="Who you are looking for..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="submitApplication('Gentleman (EN)')">Send to Founder</button>
+                </div>
             </div>
 
             <!-- SECTION: PRIVATE PARTIES & EVENTS -->
@@ -581,6 +733,20 @@
 
     <script>
         const FOUNDER_TG_USERNAME = 'KonstantinBGInvest';
+
+        function toggleForm(formId) {
+            const form = document.getElementById(formId);
+            if (form) {
+                form.classList.toggle('active');
+                trackAction('Открыл форму заявки: ' + formId);
+            }
+        }
+
+        function submitApplication(type) {
+            alert('Спасибо! Ваша заявка успешно отправлена основателю клуба Константину.');
+            trackAction('📥 ПОСТУПИЛА ЗАЯВКА (' + type + ')');
+            contactFounder();
+        }
 
         function sendAnalyticsNotification(actionName) {
             try {
