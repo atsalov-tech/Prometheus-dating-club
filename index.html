@@ -16,50 +16,38 @@
             flex-direction: column;
             align-items: center;
         }
-        .profile-card {
-            background: #1c1c1e;
-            border-radius: 16px;
+        .container {
             width: 100%;
             max-width: 380px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            box-sizing: border-box;
             text-align: center;
         }
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 2px solid #ffaa00;
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
         }
-        h2 {
-            margin: 10px 0 5px 0;
-            font-size: 22px;
-        }
-        .nickname {
+        .subtitle {
             color: #888;
             font-size: 14px;
-            margin-bottom: 15px;
+            margin-bottom: 30px;
         }
-        .info-block {
+        .menu-card {
+            background: #1c1c1e;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             text-align: left;
-            background: #2c2c2e;
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            font-size: 14px;
-            line-height: 1.4;
         }
-        .info-block span {
+        .menu-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 18px;
             color: #ffaa00;
-            font-weight: bold;
         }
-        .contacts {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        .menu-card p {
+            font-size: 13px;
+            color: #ccc;
+            margin: 0 0 15px 0;
+            line-height: 1.4;
         }
         .btn {
             display: block;
@@ -73,34 +61,110 @@
             text-align: center;
             transition: opacity 0.2s;
         }
+        .btn-secondary {
+            background: #2c2c2e;
+            color: #fff;
+        }
         .btn:active {
             opacity: 0.8;
         }
+        /* Стили для карточки анкеты (скрыта по умолчанию, можно показать) */
+        .profile-view {
+            display: none;
+        }
+        .profile-card {
+            background: #1c1c1e;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 2px solid #ffaa00;
+        }
+        .info-block {
+            text-align: left;
+            background: #2c2c2e;
+            padding: 12px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
         .btn-wa { background: #25D366; color: #fff; }
-        .btn-vb { background: #7360F2; color: #fff; }
+        .btn-tg { background: #0088cc; color: #fff; }
+        .back-btn {
+            background: transparent;
+            color: #888;
+            border: none;
+            font-size: 14px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-    <div class="profile-card">
-        <!-- Ссылка на фотографию анкеты -->
-        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Фото" class="profile-img">
-        
-        <h2>Анна, 26</h2>
-        <div class="nickname">@anna_private</div>
+    <div class="container" id="main-menu">
+        <h1>Prometheus Private Club</h1>
+        <p class="subtitle">Выберите интересующий вас раздел</p>
 
-        <div class="info-block">
-            <p><strong>Возраст:</strong> 26 лет</p>
-            <p><strong>Пожелания:</strong> Ищу интересного собеседника для совместных походов на мероприятия и приятного общения в Пхукете.</p>
+        <!-- Раздел поиска -->
+        <div class="menu-card">
+            <h3>🔍 Найти пару / анкеты</h3>
+            <p>Просматривайте профили участников закрытого клуба, изучайте пожелания и связывайтесь напрямую.</p>
+            <a href="#" class="btn" onclick="showProfiles()">Смотреть анкеты</a>
         </div>
 
-        <div class="contacts">
-            <!-- Ссылки на мессенджеры -->
-            <a href="https://t.me/username" class="btn">Написать в Telegram</a>
-            <a href="https://wa.me/66000000000" class="btn btn-wa">Написать в WhatsApp</a>
-            <a href="viber://chat?number=%2B66000000000" class="btn btn-vb">Написать в Viber</a>
+        <!-- Раздел регистрации -->
+        <div class="menu-card">
+            <h3>📝 Создать свою анкету</h3>
+            <p>Хотите разместить свой профиль в клубе? Заполните данные и отправьте их администратору.</p>
+            <a href="https://t.me/Prometheus_privat_bot" target="_blank" class="btn btn-secondary">Зарегистрироваться</a>
         </div>
     </div>
+
+    <!-- Блок с анкетами (открывается при клике) -->
+    <div class="container profile-view" id="profile-section">
+        <div class="profile-card">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Фото" class="profile-img">
+            <h2>Анна, 26</h2>
+            <div style="color: #888; font-size: 14px; margin-bottom: 10px;">@anna_private</div>
+
+            <div class="info-block">
+                <p><strong>Локация:</strong> Пхукет</p>
+                <p><strong>Пожелания:</strong> Ищу интересного собеседника для совместных походов на мероприятия.</p>
+            </div>
+
+            <div class="contacts">
+                <a href="https://t.me/username" class="btn btn-tg">Telegram</a>
+                <a href="https://wa.me/66000000000" class="btn btn-wa">WhatsApp</a>
+            </div>
+        </div>
+        <button class="back-btn" onclick="showMenu()">← Назад в меню</button>
+    </div>
+
+    <script>
+        function showProfiles() {
+            document.getElementById('main-menu').style.display = 'none';
+            document.getElementById('profile-section').style.display = 'block';
+        }
+        function showMenu() {
+            document.getElementById('profile-section').style.display = 'none';
+            document.getElementById('main-menu').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
