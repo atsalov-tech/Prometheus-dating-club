@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prometheus Private Club</title>
+    <title>Prometheus Privat Club</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         body {
@@ -20,7 +20,6 @@
             width: 100%;
             max-width: 400px;
         }
-        /* Переключатель языков */
         .lang-switch {
             display: flex;
             justify-content: flex-end;
@@ -31,871 +30,304 @@
             background: #141416;
             border: 1px solid #333;
             color: #888;
-            padding: 6px 14px;
+            padding: 5px 12px;
             border-radius: 8px;
             font-size: 12px;
+            font-weight: 600;
             cursor: pointer;
-            font-weight: bold;
-            transition: all 0.2s ease;
         }
         .lang-btn.active {
-            background: rgba(212, 175, 55, 0.2);
             border-color: #d4af37;
             color: #d4af37;
         }
-        body.lang-ru .en { display: none !important; }
-        body.lang-en .ru { display: none !important; }
-
-        /* Баннер клуба */
-        .club-banner {
-            width: 100%;
-            height: 220px;
-            border-radius: 16px;
-            background-color: #1a1a1c;
-            background-image: url('IMG_3323.jpeg');
-            background-size: cover;
-            background-position: center;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 15px;
-            box-sizing: border-box;
-            position: relative;
-            overflow: hidden;
-        }
-        .club-banner::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85));
-            z-index: 1;
-        }
-        .banner-text {
-            position: relative;
-            z-index: 2;
+        .header {
             text-align: center;
+            margin-bottom: 18px;
         }
-        .banner-text h1 {
-            margin: 0 0 5px 0;
+        .header h1 {
             font-size: 20px;
-            letter-spacing: 2px;
+            font-weight: 600;
+            letter-spacing: 1px;
             color: #d4af37;
-            text-transform: uppercase;
+            margin: 0 0 4px 0;
         }
-        .banner-text p {
+        .header p {
+            font-size: 13px;
+            color: #8e8e93;
             margin: 0;
-            font-size: 11px;
-            letter-spacing: 3px;
-            color: #aaa;
-            text-transform: uppercase;
-        }
-        .about-club {
-            background: #141416;
-            border: 1px solid #222;
-            border-radius: 16px;
-            padding: 18px;
-            margin-bottom: 20px;
-            font-size: 13px;
-            color: #c7c7cc;
-            line-height: 1.6;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .about-club p {
-            margin: 0 0 10px 0;
-        }
-        .about-club p:last-child {
-            margin-bottom: 0;
-        }
-        .highlight {
-            color: #ffffff;
-            font-weight: 600;
-        }
-        .discreet-badge {
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: #d4af37;
-            padding: 10px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-        }
-        .club-stats {
-            background: #141416;
-            border: 1px solid #222;
-            border-radius: 12px;
-            padding: 12px;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 13px;
-            color: #aaa;
-            line-height: 1.5;
-        }
-        .club-stats b {
-            color: #d4af37;
         }
         .card {
-            background: #141416;
-            border: 1px solid #222;
-            border-radius: 16px;
-            padding: 18px;
+            background-color: #141416;
+            border-radius: 14px;
+            padding: 16px;
             margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid #2c2c2e;
         }
-        .card h3 {
-            margin: 0 0 8px 0;
+        .card-events {
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            background: linear-gradient(180deg, #181612 0%, #141416 100%);
+        }
+        .card h2 {
             font-size: 16px;
-            color: #d4af37;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #e5c158;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .icon-svg {
+            width: 28px;
+            height: 28px;
+            fill: #d4af37;
+            flex-shrink: 0;
         }
         .card p {
             font-size: 13px;
-            color: #999;
-            margin: 0 0 15px 0;
+            color: #aeaeb2;
+            line-height: 1.45;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        .locations-tag {
+            font-size: 12px;
+            color: #d4af37;
+            background-color: #1c1c1e;
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .event-item {
+            background-color: #1c1c1e;
+            border-left: 3px solid #d4af37;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+        }
+        .event-badge {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.15);
+            color: #d4af37;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 5px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .event-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .event-details {
+            font-size: 12px;
+            color: #98989d;
             line-height: 1.4;
+            margin: 0;
         }
         .btn {
             display: block;
-            background: linear-gradient(135deg, #d4af37, #aa7c11);
-            color: #000;
-            text-decoration: none;
-            padding: 14px;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 14px;
-            text-align: center;
-            border: none;
             width: 100%;
-            cursor: pointer;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
             box-sizing: border-box;
-            margin-top: 10px;
-            -webkit-tap-highlight-color: transparent;
+            margin-bottom: 8px;
         }
-        .btn:active {
-            opacity: 0.85;
-            transform: scale(0.99);
+        .btn:last-child {
+            margin-bottom: 0;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37 0%, #aa771c 100%);
+            color: #000;
+            font-weight: 600;
         }
         .btn-secondary {
-            background: #222;
+            background-color: #2c2c2e;
             color: #fff;
-            border: 1px solid #333;
+            border: 1px solid #3a3a3c;
         }
-        .form-group {
-            margin-bottom: 14px;
-            text-align: left;
-        }
-        .form-group label {
-            display: block;
-            font-size: 12px;
-            color: #d4af37;
-            margin-bottom: 6px;
-        }
-        .form-control {
-            width: 100%;
-            padding: 11px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            background: #1a1a1c;
-            color: #fff;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
-        select.form-control {
-            appearance: none;
-            -webkit-appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 10px center;
-            background-size: 16px;
-            padding-right: 30px;
-        }
-        .checkbox-group {
-            background: #1a1a1c;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .checkbox-label {
-            display: flex;
-            align-items: center;
-            font-size: 13px;
-            color: #ddd;
-            cursor: pointer;
-            margin: 0 !important;
-        }
-        .checkbox-label input {
-            margin-right: 10px;
-            accent-color: #d4af37;
-            width: 17px;
-            height: 17px;
-            flex-shrink: 0;
-        }
-        .view-section {
-            display: none;
-        }
-        .view-section.active {
-            display: block;
-        }
-        .back-btn {
-            background: transparent;
-            color: #999;
-            border: 1px solid #333;
-            border-radius: 10px;
-            padding: 10px;
-            font-size: 14px;
-            margin-top: 15px;
-            width: 100%;
-            cursor: pointer;
+        .info-badge {
+            background-color: #141416;
+            border-radius: 12px;
+            padding: 12px;
             text-align: center;
-        }
-        /* Карточки каталога анкет без лица */
-        .profile-card {
-            background: #141416;
-            border: 1px solid #333;
-            border-radius: 14px;
-            padding: 15px;
             margin-bottom: 15px;
+            font-size: 13px;
+            color: #aeaeb2;
+            border: 1px solid #2c2c2e;
+            line-height: 1.6;
         }
-        .profile-header {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .silhouette-avatar {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            background: #222;
-            border: 1px solid #d4af37;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-        .profile-info h4 {
-            margin: 0 0 4px 0;
+        .info-badge strong {
             color: #d4af37;
-            font-size: 15px;
         }
-        .profile-info p {
-            margin: 0;
-            font-size: 12px;
-            color: #aaa;
-            line-height: 1.4;
-        }
-        .profile-details {
-            font-size: 12px;
-            color: #ccc;
-            border-top: 1px solid #222;
-            padding-top: 8px;
-            margin-top: 8px;
-            line-height: 1.5;
-        }
-        .select-profile-btn {
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid #d4af37;
-            color: #d4af37;
-            padding: 8px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: bold;
-            width: 100%;
-            cursor: pointer;
-            margin-top: 10px;
-            text-align: center;
-        }
-        .photo-preview {
-            margin-top: 8px;
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            object-fit: cover;
-            border: 1px solid #d4af37;
+        .lang-section {
             display: none;
+        }
+        .lang-section.active {
+            display: block;
         }
     </style>
 </head>
-<body class="lang-ru">
-
+<body>
     <div class="container">
-        
-        <!-- ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ -->
         <div class="lang-switch">
-            <button type="button" class="lang-btn active" id="btn-ru" onclick="switchLanguage('ru')">РУС</button>
-            <button type="button" class="lang-btn" id="btn-en" onclick="switchLanguage('en')">ENG</button>
+            <button class="lang-btn active" onclick="setLang('ru')" id="btn-ru">RU</button>
+            <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
         </div>
 
-        <!-- БАННЕР -->
-        <div class="club-banner">
-            <div class="banner-text">
-                <h1>Prometheus</h1>
-                <p>Private Club</p>
-            </div>
+        <div class="header">
+            <h1>PROMETHEUS PRIVAT CLUB</h1>
+            <p id="sub-title">Private International Matchmaking</p>
         </div>
 
-        <!-- ОПИСАНИЕ КЛУБА -->
-        <div class="about-club">
-            <div class="discreet-badge">
-                <span class="ru">🔒 100% КОНФИДЕНЦИАЛЬНОСТЬ И ДИСКРЕТНОСТЬ</span>
-                <span class="en">🔒 100% DISCRETION & CONFIDENTIALITY</span>
-            </div>
-            
-            <div class="ru">
+        <!-- РУССКАЯ ВЕРСИЯ -->
+        <div id="content-ru" class="lang-section active">
+            <div class="card">
                 <p>Закрытое международное сообщество, построенное на простой идее:</p>
-                <p class="highlight">Качество вашего окружения определяет качество вашей жизни.</p>
-                <p>Prometheus объединяет предпринимателей, инвесторов и успешных людей в ключевых локациях: <span class="highlight">Москва, Центральная Европа (Вена), Таиланд (Пхукет и Бангкок) и Болгария (Бургас)</span>.</p>
+                <p><strong style="color: #fff;">Качество вашего окружения определяет качество вашей жизни.</strong></p>
+                <p>Prometheus объединяет предпринимателей, инвесторов и успешных людей в ключевых локациях: <strong style="color: #fff;">Россия, Украина, Центральная Европа (Вена), Таиланд (Пхукет и Бангкок) и Болгария (Бургас).</strong></p>
                 <p>Не массовая соцсеть.<br>Не рядовой сайт знакомств.<br>Не классический бизнес-клуб.</p>
                 <p>Частная среда для тщательно отобранных людей, ценных знакомств и настоящих отношений с полным соблюдением личных границ и тайны частной жизни.</p>
-                <p style="color: #d4af37; margin-top: 15px; font-weight: 600;">Проект только начинается. Подробности скоро.</p>
+                <p style="color: #d4af37; margin-bottom: 0; font-weight: 500;">Проект только начинается. Подробности скоро.</p>
             </div>
 
-            <div class="en">
-                <p>A private international community built around one simple idea:</p>
-                <p class="highlight">The quality of your network can change the quality of your life.</p>
-                <p>Prometheus connects entrepreneurs, investors and ambitious individuals across key international hubs: <span class="highlight">Moscow, Central Europe (Vienna), Thailand (Phuket & Bangkok), and Bulgaria (Burgas region)</span>.</p>
+            <div class="info-badge">
+                👥 В закрытой базе: <strong>52 участника</strong><br>
+                🌍 Локации: <strong>Россия | Украина | Вена | Пхукет | Бангкок | Бургас</strong>
+            </div>
+
+            <!-- Каталог участниц -->
+            <div class="card">
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 4 C27.5 4 24 7.5 24 12 C24 16 26.5 19.2 28.5 21 C23 22.5 17 25.5 16 31 C15 35.5 18.5 39.5 22 40.5 C19.5 45 17 51 16 59 L48 59 C47 51 44.5 45 42 40.5 C45.5 39.5 49 35.5 48 31 C47 25.5 41 22.5 35.5 21 C37.5 19.2 40 16 40 12 C40 7.5 36.5 4 32 4 Z M24.5 29.5 C27.5 29.5 30 32 30.8 35 C29 37.5 25.5 38 22.5 36 C20 34.2 21.5 29.5 24.5 29.5 Z M39.5 29.5 C42.5 29.5 44 34.2 41.5 36 C38.5 38 35 37.5 33.2 35 C34 32 36.5 29.5 39.5 29.5 Z"/>
+                    </svg>
+                    Каталог участниц (База клуба)
+                </h2>
+                <p>Посмотреть анкеты участниц (строго конфиденциально, скрытые лица). Выберите номер понравившейся анкеты.</p>
+                <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
+                <a href="#" class="btn btn-primary">Смотреть анкеты девушек (12)</a>
+                <a href="#" class="btn btn-secondary">Подать свою заявку резидента</a>
+            </div>
+
+            <!-- Каталог резидентов -->
+            <div class="card">
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/>
+                    </svg>
+                    Каталог резидентов (Бизнесмены)
+                </h2>
+                <p>Посмотреть закрытую базу резидентов (силуэты без лиц, указан доход и цели). Выберите интересующий номер.</p>
+                <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
+                <a href="#" class="btn btn-primary">Смотреть анкеты резидентов (10)</a>
+                <a href="#" class="btn btn-secondary">Заполнить анкету</a>
+            </div>
+
+            <!-- РУБРИКА: ЗАКРЫТЫЕ ВЕЧЕРИНКИ И СОБЫТИЯ -->
+            <div class="card card-events">
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 8 L28 8 L26 26 C25.5 31 22 34 18 34 C14 34 10.5 31 10 26 L12 8 Z M17 36 L19 36 L19 50 L25 50 L25 54 L11 54 L11 50 L17 50 Z M36 8 L52 8 L54 26 C53.5 31 50 34 46 34 C42 34 38.5 31 38 26 Z M45 36 L47 36 L47 50 L53 50 L53 54 L39 54 L39 50 L45 50 Z"/>
+                    </svg>
+                    Закрытые вечеринки и события
+                </h2>
+                <p>Анонсы закрытых встреч, частных ужинов и клубных вечеринок для резидентов и приглашенных гостей клуба.</p>
+                
+                <div class="event-item">
+                    <span class="event-badge">📍 Пхукет • Ожидается анонс</span>
+                    <div class="event-title">Prometheus Private Villa & Yacht Gathering</div>
+                    <p class="event-details">Закрытая вечерняя встреча в приватной локации на Пхукете. Живое общение, избранное окружение, строгая конфиденциальность. Вход строго по спискам и предварительному согласованию.</p>
+                </div>
+
+                <a href="#" class="btn btn-primary">Запросить приглашение (RSVP)</a>
+                <a href="#" class="btn btn-secondary">Узнать расписание событий</a>
+            </div>
+        </div>
+
+        <!-- АНГЛИЙСКАЯ ВЕРСИЯ -->
+        <div id="content-en" class="lang-section">
+            <div class="card">
+                <p>A private international community built on a simple idea:</p>
+                <p><strong style="color: #fff;">The quality of your environment determines the quality of your life.</strong></p>
+                <p>Prometheus unites entrepreneurs, investors, and accomplished individuals across key locations: <strong style="color: #fff;">Russia, Ukraine, Central Europe (Vienna), Thailand (Phuket & Bangkok), and Bulgaria (Burgas region).</strong></p>
                 <p>Not a mass-market social network.<br>Not another dating platform.<br>Not a traditional business club.</p>
                 <p>A private environment for carefully selected people, meaningful introductions and real relationships with strict privacy protection.</p>
-                <p style="color: #d4af37; margin-top: 15px; font-weight: 600;">The project is just beginning. More soon.</p>
+                <p style="color: #d4af37; margin-bottom: 0; font-weight: 500;">The project is just beginning. More soon.</p>
             </div>
-        </div>
 
-        <!-- СТАТИСТИКА -->
-        <div class="club-stats">
-            <div class="ru">
-                👥 В закрытой базе: <b>52 участника</b><br>
-                🌍 Локации: Москва | Вена | Пхукет | Бангкок | Бургас
+            <div class="info-badge">
+                👥 In closed database: <strong>52 members</strong><br>
+                🌍 Hubs: <strong>Russia | Ukraine | Vienna | Phuket | Bangkok | Burgas</strong>
             </div>
-            <div class="en">
-                👥 In closed database: <b>52 members</b><br>
-                🌍 Hubs: Moscow | Vienna | Phuket | Bangkok | Burgas
-            </div>
-        </div>
 
-        <!-- ЭКРАН 1: ГЛАВНОЕ МЕНЮ -->
-        <div id="screen-menu" class="view-section active">
-            
-            <!-- БЛОК ДЛЯ МУЖЧИН / РЕЗИДЕНТОВ -->
+            <!-- Ladies Catalog -->
             <div class="card">
-                <h3>
-                    <span class="ru">💎 Каталог участниц (База клуба)</span>
-                    <span class="en">💎 Ladies Catalog (Club Base)</span>
-                </h3>
-                <p>
-                    <span class="ru">Посмотреть анкеты участниц (строго конфиденциально, скрытые лица). Выберите номер понравившейся анкеты.</span>
-                    <span class="en">View ladies profiles (strictly confidential, faces hidden). Choose a profile number.</span>
-                </p>
-                <button type="button" class="btn" onclick="openScreen('screen-catalog-ladies')">
-                    <span class="ru">Смотреть анкеты девушек (12)</span>
-                    <span class="en">View Ladies Profiles (12)</span>
-                </button>
-                <button type="button" class="btn btn-secondary" onclick="openScreen('screen-man')" style="margin-top: 8px;">
-                    <span class="ru">Подать свою заявку резидента</span>
-                    <span class="en">Submit Resident Application</span>
-                </button>
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 4 C27.5 4 24 7.5 24 12 C24 16 26.5 19.2 28.5 21 C23 22.5 17 25.5 16 31 C15 35.5 18.5 39.5 22 40.5 C19.5 45 17 51 16 59 L48 59 C47 51 44.5 45 42 40.5 C45.5 39.5 49 35.5 48 31 C47 25.5 41 22.5 35.5 21 C37.5 19.2 40 16 40 12 C40 7.5 36.5 4 32 4 Z M24.5 29.5 C27.5 29.5 30 32 30.8 35 C29 37.5 25.5 38 22.5 36 C20 34.2 21.5 29.5 24.5 29.5 Z M39.5 29.5 C42.5 29.5 44 34.2 41.5 36 C38.5 38 35 37.5 33.2 35 C34 32 36.5 29.5 39.5 29.5 Z"/>
+                    </svg>
+                    Ladies Catalog (Club Base)
+                </h2>
+                <p>View ladies profiles (strictly confidential, faces hidden). Choose a profile number.</p>
+                <span class="locations-tag">📍 Hubs: Russia, Ukraine, Vienna, Phuket, Bangkok, Burgas</span>
+                <a href="#" class="btn btn-primary">View Ladies Profiles (12)</a>
+                <a href="#" class="btn btn-secondary">Submit Resident Application</a>
             </div>
 
-            <!-- БЛОК ДЛЯ ЖЕНЩИН / УЧАСТНИЦ -->
+            <!-- Gentlemen Catalog -->
             <div class="card">
-                <h3>
-                    <span class="ru">🌸 Каталог резидентов (Бизнесмены)</span>
-                    <span class="en">🌸 Gentlemen Catalog (Businessmen)</span>
-                </h3>
-                <p>
-                    <span class="ru">Посмотреть закрытую базу резидентов (силуэты без лиц, указан доход и цели). Выберите интересующий номер.</span>
-                    <span class="en">View closed resident base (silhouettes without faces, income & goals). Choose a profile number.</span>
-                </p>
-                <button type="button" class="btn" onclick="openScreen('screen-catalog-gentlemen')">
-                    <span class="ru">Смотреть анкеты резидентов (10)</span>
-                    <span class="en">View Gentlemen Profiles (10)</span>
-                </button>
-                <button type="button" class="btn btn-secondary" onclick="openScreen('screen-woman')" style="margin-top: 8px;">
-                    <span class="ru">Заполнить свою анкету</span>
-                    <span class="en">Fill Out Profile</span>
-                </button>
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/>
+                    </svg>
+                    Gentlemen Catalog (Businessmen)
+                </h2>
+                <p>View closed resident base (silhouettes without faces, income & goals). Choose a profile number.</p>
+                <span class="locations-tag">📍 Hubs: Russia, Ukraine, Vienna, Phuket, Bangkok, Burgas</span>
+                <a href="#" class="btn btn-primary">View Gentlemen Profiles (10)</a>
+                <a href="#" class="btn btn-secondary">Fill Out Profile</a>
+            </div>
+
+            <!-- SECTION: PRIVATE PARTIES & EVENTS -->
+            <div class="card card-events">
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 8 L28 8 L26 26 C25.5 31 22 34 18 34 C14 34 10.5 31 10 26 L12 8 Z M17 36 L19 36 L19 50 L25 50 L25 54 L11 54 L11 50 L17 50 Z M36 8 L52 8 L54 26 C53.5 31 50 34 46 34 C42 34 38.5 31 38 26 Z M45 36 L47 36 L47 50 L53 50 L53 54 L39 54 L39 50 L45 50 Z"/>
+                    </svg>
+                    Private Parties & Events
+                </h2>
+                <p>Announcements of exclusive gatherings, private dinners, and club parties for residents and invited guests.</p>
+                
+                <div class="event-item">
+                    <span class="event-badge">📍 Phuket • Upcoming</span>
+                    <div class="event-title">Prometheus Private Villa & Yacht Gathering</div>
+                    <p class="event-details">An exclusive evening gathering at a private location in Phuket. Meaningful networking, curated guests, and strict privacy. Entry strictly by guest list and prior approval.</p>
+                </div>
+
+                <a href="#" class="btn btn-primary">Request Invitation (RSVP)</a>
+                <a href="#" class="btn btn-secondary">View Upcoming Schedule</a>
             </div>
         </div>
-
-        <!-- КАТАЛОГ 1: АНКЕТЫ ДЕВОЧЕК (ДЛЯ МУЖЧИН) -->
-        <div id="screen-catalog-ladies" class="view-section">
-            <div class="card">
-                <h3>
-                    <span class="ru">🌸 База участниц (Конфиденциально)</span>
-                    <span class="en">🌸 Ladies Base (Confidential)</span>
-                </h3>
-                <p>
-                    <span class="ru">Лица скрыты в целях безопасности. Прямой связи нет — выберите номер и передайте администратору.</span>
-                    <span class="en">Faces hidden for security. No direct contact — choose a number and forward to admin.</span>
-                </p>
-
-                <!-- Анкета 1 -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="silhouette-avatar">👤</div>
-                        <div class="profile-info">
-                            <h4>№ L-101 • Кристина, 23</h4>
-                            <p>📍 Москва / Пхукет</p>
-                        </div>
-                    </div>
-                    <div class="profile-details">
-                        <b>Цель:</b> Путешествия, создание семьи<br>
-                        <b>О себе:</b> Дизайнер, веду активный образ жизни, свободна от предрассудков. Ищу надежного и щедрого партнера.
-                    </div>
-                    <button class="select-profile-btn" onclick="selectProfileNumber('L-101')">Выбрать номер L-101</button>
-                </div>
-
-                <!-- Анкета 2 -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="silhouette-avatar">👤</div>
-                        <div class="profile-info">
-                            <h4>№ L-102 • Елена, 26</h4>
-                            <p>📍 Центральная Европа (Вена)</p>
-                        </div>
-                    </div>
-                    <div class="profile-details">
-                        <b>Цель:</b> Сопровождение в поездках, романтика<br>
-                        <b>О себе:</b> Знаю три языка, искусствовед. Ценю интеллект, эстетику и высокие стандарты во всем.
-                    </div>
-                    <button class="select-profile-btn" onclick="selectProfileNumber('L-102')">Выбрать номер L-102</button>
-                </div>
-
-                <!-- Анкета 3 -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="silhouette-avatar">👤</div>
-                        <div class="profile-info">
-                            <h4>№ L-103 • София, 21</h4>
-                            <p>📍 Бангкок / Пхукет</p>
-                        </div>
-                    </div>
-                    <div class="profile-details">
-                        <b>Цель:</b> Долгосрочные отношения, поддержка<br>
-                        <b>О себе:</b> Модель, студентка международной бизнес-школы. Ищу успешного ментора и спутника.
-                    </div>
-                    <button class="select-profile-btn" onclick="selectProfileNumber('L-103')">Выбрать номер L-103</button>
-                </div>
-
-                <!-- Анкета 4 -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="silhouette-avatar">👤</div>
-                        <div class="profile-info">
-                            <h4>№ L-104 • Алиса, 25</h4>
-                            <p>📍 Болгария (Бургас) / Москва</p>
-                        </div>
-                    </div>
-                    <div class="profile-details">
-                        <b>Цель:</b> Создание семьи, уют<br>
-                        <b>О себе:</b> Психолог, увлекаюсь яхтингом и архитектурой. Спокойная, гармоничная, ценю верность.
-                    </div>
-                    <button class="select-profile-btn" onclick="selectProfileNumber('L-104')">Выбрать номер L-104</button>
-                </div>
-
-                <!-- Анкета 5 -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="silhouette-avatar">👤</div>
-                        <div class="profile-info">
-                            <h4>№ L-105 • Мила, 24</h4>
-                            <p>📍 Пхукет</p>
-                        </div>
-                    </div>
-                    <div class="profile-details">
-                        <b>Цель:</b> Совместный отдых, романтика<br>
-                        <b>О себе:</b> Фотограф, живу на два города. Люблю путешествия, солнце и хорошую компанию.
-                    </div>
-                    <button class="select-profile-btn" onclick="selectProfileNumber('L-105')">Выбрать номер L-105</button>
-                </div>
-
-                <!-- Анкета 6 -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="silhouette-avatar">👤</div>
-                        <div class="profile-info">
-                            <h4>№ L-106 • Виктория, 27</h4>
-                            <p>📍 Москва</p>
-                        </div>
-                    </div>
-                    <div class="profile-details">
-                        <b>Цель:</b> Серьезные отношения, брак<br>
-                        <b>О себе:</b> Юрист в корпоративной сфере. Ценю надежность, уважение и амбиции.
-                    </div>
-                    <button class="select-profile-btn" onclick="selectProfileNumber('L-106')">Выбрать номер L-106</button>
-                </div>
-
-                <button type="button" class="back-btn" onclick="openScreen('screen-menu')">
-                    <span class="ru">← Назад в меню</span>
-                    <span class="en">← Back to Menu</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- КАТАЛОГ 2: АНКЕТЫ МУЖЧИН (ДЛЯ ДЕВОЧЕК) -->
-        <div id="screen-catalog-gentlemen" class="view-section">
-            <div class="card">
-                <h3>
-                    <span class="ru">💎 База резидентов (Бизнесмены)</span>
-                    <span class="en">💎 Gentlemen Base (Businessmen)</span>
-                </h3>
-                <p>
-                    <span class="ru">Проверенные предприниматели и инвесторы. Лица скрыты для обеспечения конфиденциальности.</span>
-                    <span class="en">Verified entrepreneurs & investors. Faces hidden for privacy protection.</span>
-                </p>
-
-                <!-- Анкета М1 -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="silhouette-avatar">💼</div>
-                        <div class="profile-info">
-                            <h4>№ M-201 • Резидент, 41 год</h4>
-                            <p>📍 Москва / Пхукет</p>
-                        </div>
-                    </div>
-                    <div class="profile-details">
-                        <b>Статус / Доход:</b> Инвестор в недвижимость / Высокий<br>
-                        <b>Цель:</b> Поиск спутницы для поездок и создания семьи.<br>
-                        <b>О себе:</b> Ценю ум, женственность и утонченный вкус. Часто бываю в Азии и Европе.
-                    </div>
-                    <button class="select-profile-btn" onclick="selectProfileNumber('M-201')">Выбрать номер M-201</button>
-                </div>
-
-                <!-- Анкета М2 -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="silhouette-avatar">💼</div>
-                        <div class="profile-info">
-                            <h4>№ M-202 • Резидент, 38 лет</h4>
-                            <p>📍 Центральная Европа (Вена)</p>
-                        </div>
-                    </div>
-                    <div class="profile-details">
-                        <b>Статус / Доход:</b> IT-предприниматель / Выше среднего<br>
-                        <b>Цель:</b> Конфиденциальные встречи, романтика.<br>
-                        <b>О себе:</b> Живу на два города, много работаю, ищу приятную девушку для совместных вечеров и отдыха.
-                    </div>
-                    <button class="select-profile-btn" onclick="selectProfileNumber('M-202')">Выбрать номер M-202</button>
-                </div>
-
-                <!-- Анкета М3 -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="silhouette-avatar">💼</div>
-                        <div class="profile-info">
-                            <h4>№ M-203 • Резидент, 45 лет</h4>
-                            <p>📍 Таиланд (Пхукет & Бангкок)</p>
-                        </div>
-                    </div>
-                    <div class="profile-details">
-                        <b>Статус / Доход:</b> Девелопер / Премиальный уровень<br>
-                        <b>Цель:</b> Постоянная спутница / поддержка.<br>
-                        <b>О себе:</b> Успешный бизнес в Азии. Ищу заботливую, легкую на подъём девушку для совместного проживания.
-                    </div>
-                    <button class="select-profile-btn" onclick="selectProfileNumber('M-203')">Выбрать номер M-203</button>
-                </div>
-
-                <!-- Анкета М4 -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="silhouette-avatar">💼</div>
-                        <div class="profile-info">
-                            <h4>№ M-204 • Резидент, 39 лет</h4>
-                            <p>📍 Болгария (Бургас) / Москва</p>
-                        </div>
-                    </div>
-                    <div class="profile-details">
-                        <b>Статус / Доход:</b> Международная торговля / Высокий<br>
-                        <b>Цель:</b> Брак, дети, семейный очаг.<br>
-                        <b>О себе:</b> Спокойный, семейный человек. Ищу девушку с традиционными ценностями для серьезных отношений.
-                    </div>
-                    <button class="select-profile-btn" onclick="selectProfileNumber('M-204')">Выбрать номер M-204</button>
-                </div>
-
-                <!-- Анкета М5 -->
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <div class="silhouette-avatar">💼</div>
-                        <div class="profile-info">
-                            <h4>№ M-205 • Резидент, 43 года</h4>
-                            <p>📍 Москва</p>
-                        </div>
-                    </div>
-                    <div class="profile-details">
-                        <b>Статус / Доход:</b> Финансист / Премиум<br>
-                        <b>Цель:</b> Сопровождение на мероприятия, отдых.<br>
-                        <b>О себе:</b> Интеллигентный, с чувством юмора. Ценю эрудицию и яркую внешность.
-                    </div>
-                    <button class="select-profile-btn" onclick="selectProfileNumber('M-205')">Выбрать номер M-205</button>
-                </div>
-
-                <button type="button" class="back-btn" onclick="openScreen('screen-menu')">
-                    <span class="ru">← Назад в меню</span>
-                    <span class="en">← Back to Menu</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- ЭКРАН: АНКЕТА ДЛЯ МУЖЧИН (ПОДБОР) -->
-        <div id="screen-man" class="view-section">
-            <div class="card">
-                <h3>
-                    <span class="ru">Заявка резидента (Бизнесмен)</span>
-                    <span class="en">Resident Application (Businessman)</span>
-                </h3>
-                <form id="form-man" onsubmit="handleFormSubmit(event, 'Заявка резидента (Бизнесмен)')">
-                    
-                    <div class="form-group">
-                        <label>
-                            <span class="ru">Интересующий номер анкеты из каталога (если приглянулась конкретная участница)</span>
-                            <span class="en">Desired profile number from catalog (if any)</span>
-                        </label>
-                        <input type="text" class="form-control" name="selected_number" id="selected-num-man" placeholder="Например: L-101 (или оставьте пустым)">
-                    </div>
-
-                    <div class="form-group">
-                        <label>
-                            <span class="ru">Семейный статус и дети (строго конфиденциально)</span>
-                            <span class="en">Marital Status & Children (Strictly Confidential)</span>
-                        </label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="status_married">
-                                <span class="ru">Состою в браке (ищу девушку / любовницу на стороне, важна дискретность)</span>
-                                <span class="en">Married (seeking a discreet companion / mistress)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="status_prefer_married">
-                                <span class="ru">Желательно подобрать девушку, которая тоже замужем</span>
-                                <span class="en">Prefer a lady who is also married</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="status_children">
-                                <span class="ru">У меня есть дети</span>
-                                <span class="en">I have children</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">Имя или Псевдоним</span><span class="en">Name or Alias</span></label>
-                        <input type="text" class="form-control" name="name" required data-ph-ru="Как к вам обращаться" data-ph-en="How to address you" placeholder="Как к вам обращаться">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">Ваш возраст</span><span class="en">Your Age</span></label>
-                        <input type="number" class="form-control" name="age" required data-ph-ru="Например: 38" data-ph-en="E.g.: 38" placeholder="Например: 38">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">Основное направление / Локация</span><span class="en">Primary Location / Hub</span></label>
-                        <select class="form-control" name="location" required>
-                            <option value="Moscow">Москва / Moscow</option>
-                            <option value="Vienna">Центральная Европа (Вена) / Vienna</option>
-                            <option value="Phuket">Таиланд (Пхукет) / Phuket</option>
-                            <option value="Bangkok">Таиланд (Бангкок) / Bangkok</option>
-                            <option value="Burgas">Болгария (Бургас) / Burgas</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">Ежемесячный бюджет на поддержку</span><span class="en">Monthly Support Budget</span></label>
-                        <input type="text" class="form-control" name="budget" required data-ph-ru="Бюджет на подарки, поездки, содержание" data-ph-en="Budget for gifts, trips & allowance" placeholder="Бюджет на подарки, поездки, содержание">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">Ваш Telegram / WhatsApp для связи</span><span class="en">Your Telegram / WhatsApp</span></label>
-                        <input type="text" class="form-control" name="contact" required data-ph-ru="@username или телефон" data-ph-en="@username or phone" placeholder="@username или телефон">
-                    </div>
-
-                    <button type="submit" class="btn">
-                        <span class="ru">Отправить заявку администратору</span>
-                        <span class="en">Submit Application to Admin</span>
-                    </button>
-                </form>
-
-                <button type="button" class="back-btn" onclick="openScreen('screen-menu')">
-                    <span class="ru">← Вернуться в меню</span>
-                    <span class="en">← Back to Menu</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- ЭКРАН: АНКЕТА ДЛЯ ДЕВУШЕК -->
-        <div id="screen-woman" class="view-section">
-            <div class="card">
-                <h3>
-                    <span class="ru">Анкета участницы клуба</span>
-                    <span class="en">Ladies Club Profile</span>
-                </h3>
-                <form id="form-woman" onsubmit="handleFormSubmit(event, 'Анкета участницы')">
-                    
-                    <div class="form-group">
-                        <label>
-                            <span class="ru">Интересующий номер резидента из каталога (если приглянулся конкретный мужчина)</span>
-                            <span class="en">Desired gentleman profile number from catalog (if any)</span>
-                        </label>
-                        <input type="text" class="form-control" name="selected_number" id="selected-num-woman" placeholder="Например: M-201 (или оставьте пустым)">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">Имя и Возраст</span><span class="en">Name and Age</span></label>
-                        <input type="text" class="form-control" name="name" required data-ph-ru="Например: Кристина, 23" data-ph-en="E.g.: Kristina, 23" placeholder="Например: Кристина, 23">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">📸 Загрузить фото (без лица / силуэт)</span><span class="en">📸 Upload photo (face hidden / silhouette)</span></label>
-                        <input type="file" id="lady-photo" class="form-control" accept="image/*" onchange="previewImage(event)" style="padding: 8px;">
-                        <img id="photo-preview-box" class="photo-preview" alt="Preview">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">📞 Координаты для связи</span><span class="en">📞 Contact details</span></label>
-                        <input type="text" class="form-control" name="contact" required data-ph-ru="@username или телефон" data-ph-en="@username or phone" placeholder="@username или телефон">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">🌍 Регион поиска</span><span class="en">🌍 Hub</span></label>
-                        <select class="form-control" name="location" required>
-                            <option value="Moscow">Москва / Moscow</option>
-                            <option value="Vienna">Центральная Европа (Вена) / Vienna</option>
-                            <option value="Phuket">Таиланд (Пхукет) / Phuket</option>
-                            <option value="Bangkok">Таиланд (Бангкок) / Бангкок</option>
-                            <option value="Burgas">Болгария (Бургас) / Burgas</option>
-                            <option value="Multiple">Несколько направлений / Multiple</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">✨ Ваши цели и мечты</span><span class="en">✨ Your Goals & Dreams</span></label>
-                        <textarea class="form-control" name="dreams" rows="3" required data-ph-ru="Опишите ваши стремления..." data-ph-en="Describe your aspirations..." placeholder="Опишите ваши стремления..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn">
-                        <span class="ru">Отправить анкету администратору</span>
-                        <span class="en">Submit Profile to Admin</span>
-                    </button>
-                </form>
-
-                <button type="button" class="back-btn" onclick="openScreen('screen-menu')">
-                    <span class="ru">← Вернуться в меню</span>
-                    <span class="en">← Back to Menu</span>
-                </button>
-            </div>
-        </div>
-
     </div>
 
     <script>
-        var currentLanguage = 'ru';
-        var uploadedPhotoData = '';
-
-        function openScreen(screenId) {
-            var sections = document.querySelectorAll('.view-section');
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].classList.remove('active');
-            }
-            var target = document.getElementById(screenId);
-            if (target) {
-                target.classList.add('active');
-            }
-            window.scrollTo(0, 0);
-        }
-
-        function switchLanguage(lang) {
-            currentLanguage = lang;
-            document.body.className = 'lang-' + lang;
-
+        function setLang(lang) {
+            document.getElementById('content-ru').classList.toggle('active', lang === 'ru');
+            document.getElementById('content-en').classList.toggle('active', lang === 'en');
             document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-            var inputs = document.querySelectorAll('[data-ph-ru]');
-            for (var i = 0; i < inputs.length; i++) {
-                var ph = inputs[i].getAttribute('data-ph-' + lang);
-                if (ph) {
-                    inputs[i].placeholder = ph;
-                }
-            }
-        }
-
-        function selectProfileNumber(profileNum) {
-            if (profileNum.startsWith('L-')) {
-                // Если мужчина выбрал девушку
-                document.getElementById('selected-num-man').value = profileNum;
-                openScreen('screen-man');
-                alert(currentLanguage === 'en' ? 'Profile ' + profileNum + ' selected! Please complete your application.' : 'Анкета ' + profileNum + ' выбрана! Заполните вашу заявку для связи.');
-            } else if (profileNum.startsWith('M-')) {
-                // Если девушка выбрала резидента
-                document.getElementById('selected-num-woman').value = profileNum;
-                openScreen('screen-woman');
-                alert(currentLanguage === 'en' ? 'Profile ' + profileNum + ' selected! Please complete your application.' : 'Анкета резидента ' + profileNum + ' выбрана! Заполните вашу анкету.');
-            }
-        }
-
-        function previewImage(event) {
-            var file = event.target.files[0];
-            if (file) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    uploadedPhotoData = e.target.result;
-                    var previewBox = document.getElementById('photo-preview-box');
-                    previewBox.src = uploadedPhotoData;
-                    previewBox.style.display = 'block';
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-
-        function handleFormSubmit(event, formTitle) {
-            event.preventDefault();
-            var form = event.target;
-            var text = "🔥 Новая заявка в клубе PROMETHEUS!\n\n📌 Тип: " + formTitle + "\n";
-            
-            form.querySelectorAll('input, select, textarea').forEach(function(el) {
-                if (el.type === 'checkbox') {
-                    if (el.checked) {
-                        var labelSpan = el.nextElementSibling;
-                        text += "• " + (labelSpan ? labelSpan.textContent.trim() : el.name) + "\n";
-                    }
-                } else if (el.value && el.type !== 'file' && el.type !== 'hidden') {
-                    var labelText = el.name;
-                    if (el.previousElementSibling) {
-                        labelText = el.previousElementSibling.textContent.trim();
-                    }
-                    text += "• " + labelText + ": " + el.value + "\n";
-                }
-            });
-
-            if (uploadedPhotoData) {
-                text += "• 📸 Фото участницы: [Файл успешно прикреплен с телефона]\n";
-            }
-
-            text += "\n📬 Получатели уведомления:\n👤 Администратор: @prometheus_privat\n💼 Куратор: @KonstantinBGInvest\n📧 Email: Atsalov@gmail.com";
-
-            var tgUrl = "https://t.me/prometheus_privat?text=" + encodeURIComponent(text);
-
-            if (currentLanguage === 'en') {
-                alert('Thank you! Your application has been prepared and will now be sent to the club administration.');
-            } else {
-                alert('Спасибо! Ваша анкета сформирована и передается руководству клуба.');
-            }
-
-            window.location.href = tgUrl;
-            
-            form.reset();
-            var previewBox = document.getElementById('photo-preview-box');
-            if(previewBox) previewBox.style.display = 'none';
-            uploadedPhotoData = '';
-            openScreen('screen-menu');
         }
     </script>
-
 </body>
 </html>
