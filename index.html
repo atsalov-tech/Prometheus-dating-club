@@ -43,11 +43,10 @@
             border-color: #d4af37;
             color: #d4af37;
         }
-        /* Логика отображения языков */
         body.lang-ru .en { display: none !important; }
         body.lang-en .ru { display: none !important; }
 
-        /* Баннер клуба с вашей фотографией */
+        /* Баннер клуба */
         .club-banner {
             width: 100%;
             height: 220px;
@@ -256,6 +255,73 @@
             cursor: pointer;
             text-align: center;
         }
+        /* Карточки каталога анкет без лица */
+        .profile-card {
+            background: #141416;
+            border: 1px solid #333;
+            border-radius: 14px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .profile-header {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .silhouette-avatar {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #222;
+            border: 1px solid #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .profile-info h4 {
+            margin: 0 0 4px 0;
+            color: #d4af37;
+            font-size: 15px;
+        }
+        .profile-info p {
+            margin: 0;
+            font-size: 12px;
+            color: #aaa;
+            line-height: 1.4;
+        }
+        .profile-details {
+            font-size: 12px;
+            color: #ccc;
+            border-top: 1px solid #222;
+            padding-top: 8px;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+        .select-profile-btn {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .photo-preview {
+            margin-top: 8px;
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid #d4af37;
+            display: none;
+        }
     </style>
 </head>
 <body class="lang-ru">
@@ -316,38 +382,268 @@
 
         <!-- ЭКРАН 1: ГЛАВНОЕ МЕНЮ -->
         <div id="screen-menu" class="view-section active">
+            
+            <!-- БЛОК ДЛЯ МУЖЧИН / РЕЗИДЕНТОВ -->
             <div class="card">
                 <h3>
-                    <span class="ru">💎 Для бизнесменов и резидентов</span>
-                    <span class="en">💎 For Businessmen & Residents</span>
+                    <span class="ru">💎 Каталог участниц (База клуба)</span>
+                    <span class="en">💎 Ladies Catalog (Club Base)</span>
                 </h3>
                 <p>
-                    <span class="ru">Конфиденциальная заявка на персональный подбор. Строгая дискретность для женатых резидентов и свободных предпринимателей.</span>
-                    <span class="en">Confidential matchmaking request. Strict discretion for married residents and independent entrepreneurs.</span>
+                    <span class="ru">Посмотреть анкеты участниц (строго конфиденциально, скрытые лица). Выберите номер понравившейся анкеты.</span>
+                    <span class="en">View ladies profiles (strictly confidential, faces hidden). Choose a profile number.</span>
                 </p>
-                <button type="button" class="btn" onclick="openScreen('screen-man')">
-                    <span class="ru">Подать заявку на подбор</span>
-                    <span class="en">Submit Matchmaking Request</span>
+                <button type="button" class="btn" onclick="openScreen('screen-catalog-ladies')">
+                    <span class="ru">Смотреть анкеты девушек (12)</span>
+                    <span class="en">View Ladies Profiles (12)</span>
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="openScreen('screen-man')" style="margin-top: 8px;">
+                    <span class="ru">Подать свою заявку резидента</span>
+                    <span class="en">Submit Resident Application</span>
                 </button>
             </div>
 
+            <!-- БЛОК ДЛЯ ЖЕНЩИН / УЧАСТНИЦ -->
             <div class="card">
                 <h3>
-                    <span class="ru">🌸 Анкета участницы</span>
-                    <span class="en">🌸 Ladies Application</span>
+                    <span class="ru">🌸 Каталог резидентов (Бизнесмены)</span>
+                    <span class="en">🌸 Gentlemen Catalog (Businessmen)</span>
                 </h3>
                 <p>
-                    <span class="ru">Заполните подробную анкету, укажите цели, фото в полный рост и пожелания. Доступ к анкете строго у администратора.</span>
-                    <span class="en">Fill out a detailed profile, including goals, full-length photo and preferences. Access is strictly for the administrator.</span>
+                    <span class="ru">Посмотреть закрытую базу резидентов (силуэты без лиц, указан доход и цели). Выберите интересующий номер.</span>
+                    <span class="en">View closed resident base (silhouettes without faces, income & goals). Choose a profile number.</span>
                 </p>
-                <button type="button" class="btn btn-secondary" onclick="openScreen('screen-woman')">
-                    <span class="ru">Заполнить анкету</span>
+                <button type="button" class="btn" onclick="openScreen('screen-catalog-gentlemen')">
+                    <span class="ru">Смотреть анкеты резидентов (10)</span>
+                    <span class="en">View Gentlemen Profiles (10)</span>
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="openScreen('screen-woman')" style="margin-top: 8px;">
+                    <span class="ru">Заполнить свою анкету</span>
                     <span class="en">Fill Out Profile</span>
                 </button>
             </div>
         </div>
 
-        <!-- ЭКРАН 2: АНКЕТА ДЛЯ МУЖЧИН -->
+        <!-- КАТАЛОГ 1: АНКЕТЫ ДЕВОЧЕК (ДЛЯ МУЖЧИН) -->
+        <div id="screen-catalog-ladies" class="view-section">
+            <div class="card">
+                <h3>
+                    <span class="ru">🌸 База участниц (Конфиденциально)</span>
+                    <span class="en">🌸 Ladies Base (Confidential)</span>
+                </h3>
+                <p>
+                    <span class="ru">Лица скрыты в целях безопасности. Прямой связи нет — выберите номер и передайте администратору.</span>
+                    <span class="en">Faces hidden for security. No direct contact — choose a number and forward to admin.</span>
+                </p>
+
+                <!-- Анкета 1 -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="silhouette-avatar">👤</div>
+                        <div class="profile-info">
+                            <h4>№ L-101 • Кристина, 23</h4>
+                            <p>📍 Москва / Пхукет</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <b>Цель:</b> Путешествия, создание семьи<br>
+                        <b>О себе:</b> Дизайнер, веду активный образ жизни, свободна от предрассудков. Ищу надежного и щедрого партнера.
+                    </div>
+                    <button class="select-profile-btn" onclick="selectProfileNumber('L-101')">Выбрать номер L-101</button>
+                </div>
+
+                <!-- Анкета 2 -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="silhouette-avatar">👤</div>
+                        <div class="profile-info">
+                            <h4>№ L-102 • Елена, 26</h4>
+                            <p>📍 Центральная Европа (Вена)</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <b>Цель:</b> Сопровождение в поездках, романтика<br>
+                        <b>О себе:</b> Знаю три языка, искусствовед. Ценю интеллект, эстетику и высокие стандарты во всем.
+                    </div>
+                    <button class="select-profile-btn" onclick="selectProfileNumber('L-102')">Выбрать номер L-102</button>
+                </div>
+
+                <!-- Анкета 3 -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="silhouette-avatar">👤</div>
+                        <div class="profile-info">
+                            <h4>№ L-103 • София, 21</h4>
+                            <p>📍 Бангкок / Пхукет</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <b>Цель:</b> Долгосрочные отношения, поддержка<br>
+                        <b>О себе:</b> Модель, студентка международной бизнес-школы. Ищу успешного ментора и спутника.
+                    </div>
+                    <button class="select-profile-btn" onclick="selectProfileNumber('L-103')">Выбрать номер L-103</button>
+                </div>
+
+                <!-- Анкета 4 -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="silhouette-avatar">👤</div>
+                        <div class="profile-info">
+                            <h4>№ L-104 • Алиса, 25</h4>
+                            <p>📍 Болгария (Бургас) / Москва</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <b>Цель:</b> Создание семьи, уют<br>
+                        <b>О себе:</b> Психолог, увлекаюсь яхтингом и архитектурой. Спокойная, гармоничная, ценю верность.
+                    </div>
+                    <button class="select-profile-btn" onclick="selectProfileNumber('L-104')">Выбрать номер L-104</button>
+                </div>
+
+                <!-- Анкета 5 -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="silhouette-avatar">👤</div>
+                        <div class="profile-info">
+                            <h4>№ L-105 • Мила, 24</h4>
+                            <p>📍 Пхукет</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <b>Цель:</b> Совместный отдых, романтика<br>
+                        <b>О себе:</b> Фотограф, живу на два города. Люблю путешествия, солнце и хорошую компанию.
+                    </div>
+                    <button class="select-profile-btn" onclick="selectProfileNumber('L-105')">Выбрать номер L-105</button>
+                </div>
+
+                <!-- Анкета 6 -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="silhouette-avatar">👤</div>
+                        <div class="profile-info">
+                            <h4>№ L-106 • Виктория, 27</h4>
+                            <p>📍 Москва</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <b>Цель:</b> Серьезные отношения, брак<br>
+                        <b>О себе:</b> Юрист в корпоративной сфере. Ценю надежность, уважение и амбиции.
+                    </div>
+                    <button class="select-profile-btn" onclick="selectProfileNumber('L-106')">Выбрать номер L-106</button>
+                </div>
+
+                <button type="button" class="back-btn" onclick="openScreen('screen-menu')">
+                    <span class="ru">← Назад в меню</span>
+                    <span class="en">← Back to Menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- КАТАЛОГ 2: АНКЕТЫ МУЖЧИН (ДЛЯ ДЕВОЧЕК) -->
+        <div id="screen-catalog-gentlemen" class="view-section">
+            <div class="card">
+                <h3>
+                    <span class="ru">💎 База резидентов (Бизнесмены)</span>
+                    <span class="en">💎 Gentlemen Base (Businessmen)</span>
+                </h3>
+                <p>
+                    <span class="ru">Проверенные предприниматели и инвесторы. Лица скрыты для обеспечения конфиденциальности.</span>
+                    <span class="en">Verified entrepreneurs & investors. Faces hidden for privacy protection.</span>
+                </p>
+
+                <!-- Анкета М1 -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="silhouette-avatar">💼</div>
+                        <div class="profile-info">
+                            <h4>№ M-201 • Резидент, 41 год</h4>
+                            <p>📍 Москва / Пхукет</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <b>Статус / Доход:</b> Инвестор в недвижимость / Высокий<br>
+                        <b>Цель:</b> Поиск спутницы для поездок и создания семьи.<br>
+                        <b>О себе:</b> Ценю ум, женственность и утонченный вкус. Часто бываю в Азии и Европе.
+                    </div>
+                    <button class="select-profile-btn" onclick="selectProfileNumber('M-201')">Выбрать номер M-201</button>
+                </div>
+
+                <!-- Анкета М2 -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="silhouette-avatar">💼</div>
+                        <div class="profile-info">
+                            <h4>№ M-202 • Резидент, 38 лет</h4>
+                            <p>📍 Центральная Европа (Вена)</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <b>Статус / Доход:</b> IT-предприниматель / Выше среднего<br>
+                        <b>Цель:</b> Конфиденциальные встречи, романтика.<br>
+                        <b>О себе:</b> Живу на два города, много работаю, ищу приятную девушку для совместных вечеров и отдыха.
+                    </div>
+                    <button class="select-profile-btn" onclick="selectProfileNumber('M-202')">Выбрать номер M-202</button>
+                </div>
+
+                <!-- Анкета М3 -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="silhouette-avatar">💼</div>
+                        <div class="profile-info">
+                            <h4>№ M-203 • Резидент, 45 лет</h4>
+                            <p>📍 Таиланд (Пхукет & Бангкок)</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <b>Статус / Доход:</b> Девелопер / Премиальный уровень<br>
+                        <b>Цель:</b> Постоянная спутница / поддержка.<br>
+                        <b>О себе:</b> Успешный бизнес в Азии. Ищу заботливую, легкую на подъём девушку для совместного проживания.
+                    </div>
+                    <button class="select-profile-btn" onclick="selectProfileNumber('M-203')">Выбрать номер M-203</button>
+                </div>
+
+                <!-- Анкета М4 -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="silhouette-avatar">💼</div>
+                        <div class="profile-info">
+                            <h4>№ M-204 • Резидент, 39 лет</h4>
+                            <p>📍 Болгария (Бургас) / Москва</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <b>Статус / Доход:</b> Международная торговля / Высокий<br>
+                        <b>Цель:</b> Брак, дети, семейный очаг.<br>
+                        <b>О себе:</b> Спокойный, семейный человек. Ищу девушку с традиционными ценностями для серьезных отношений.
+                    </div>
+                    <button class="select-profile-btn" onclick="selectProfileNumber('M-204')">Выбрать номер M-204</button>
+                </div>
+
+                <!-- Анкета М5 -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="silhouette-avatar">💼</div>
+                        <div class="profile-info">
+                            <h4>№ M-205 • Резидент, 43 года</h4>
+                            <p>📍 Москва</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <b>Статус / Доход:</b> Финансист / Премиум<br>
+                        <b>Цель:</b> Сопровождение на мероприятия, отдых.<br>
+                        <b>О себе:</b> Интеллигентный, с чувством юмора. Ценю эрудицию и яркую внешность.
+                    </div>
+                    <button class="select-profile-btn" onclick="selectProfileNumber('M-205')">Выбрать номер M-205</button>
+                </div>
+
+                <button type="button" class="back-btn" onclick="openScreen('screen-menu')">
+                    <span class="ru">← Назад в меню</span>
+                    <span class="en">← Back to Menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ЭКРАН: АНКЕТА ДЛЯ МУЖЧИН (ПОДБОР) -->
         <div id="screen-man" class="view-section">
             <div class="card">
                 <h3>
@@ -356,6 +652,14 @@
                 </h3>
                 <form id="form-man" onsubmit="handleFormSubmit(event, 'Заявка резидента (Бизнесмен)')">
                     
+                    <div class="form-group">
+                        <label>
+                            <span class="ru">Интересующий номер анкеты из каталога (если приглянулась конкретная участница)</span>
+                            <span class="en">Desired profile number from catalog (if any)</span>
+                        </label>
+                        <input type="text" class="form-control" name="selected_number" id="selected-num-man" placeholder="Например: L-101 (или оставьте пустым)">
+                    </div>
+
                     <div class="form-group">
                         <label>
                             <span class="ru">Семейный статус и дети (строго конфиденциально)</span>
@@ -391,20 +695,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label><span class="ru">Ваш рост и вес</span><span class="en">Your Height & Weight</span></label>
-                        <input type="text" class="form-control" name="height_weight" required data-ph-ru="Например: 182 см, 82 кг" data-ph-en="E.g.: 182 cm, 82 kg" placeholder="Например: 182 см, 82 кг">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">Ваше телосложение</span><span class="en">Your Body Type</span></label>
-                        <select class="form-control" name="body_type" required>
-                            <option value="Athletic">Спортивное / Athletic</option>
-                            <option value="Normal">Обычное (плотное) / Normal (solid)</option>
-                            <option value="Soft">Мягкое (солидное) / Soft</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
                         <label><span class="ru">Основное направление / Локация</span><span class="en">Primary Location / Hub</span></label>
                         <select class="form-control" name="location" required>
                             <option value="Moscow">Москва / Moscow</option>
@@ -416,35 +706,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label><span class="ru">Желаемый возраст девушки</span><span class="en">Desired Age of Lady</span></label>
-                        <input type="text" class="form-control" name="desired_age" required data-ph-ru="Например: 21-28 лет" data-ph-en="E.g.: 21-28 years old" placeholder="Например: 21-28 лет">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">Желаемое телосложение девушки</span><span class="en">Desired Body Type of Lady</span></label>
-                        <select class="form-control" name="desired_body" required>
-                            <option value="Sporty">Спортивное (подтянутое) / Sporty & Fit</option>
-                            <option value="Slim">Стройное (худенькое) / Slim</option>
-                            <option value="Curvy">Женственное («кругленькое») / Curvy & Soft</option>
-                            <option value="Any">Не принципиально / Any</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">Ваш доход (по желанию) и бюджет на поддержку</span><span class="en">Your Income (optional) & Support Budget</span></label>
-                        <input type="text" class="form-control" name="income" data-ph-ru="Ваш доход (необязательно)" data-ph-en="Your income (optional)" placeholder="Ваш доход (необязательно)">
-                        <input type="text" class="form-control" style="margin-top: 8px;" name="budget" required data-ph-ru="Ежемесячный бюджет на подарки, экскурсии, содержание" data-ph-en="Monthly budget for gifts, trips & allowance" placeholder="Ежемесячный бюджет на подарки, экскурсии, содержание">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">Цель знакомства и формат</span><span class="en">Meeting Format & Goals</span></label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label"><input type="checkbox" name="goal_night"> <span class="ru">На одну ночь / пару ночей</span><span class="en">For one night / a couple of nights</span></label>
-                            <label class="checkbox-label"><input type="checkbox" name="goal_vacation"> <span class="ru">На неделю / совместный отдых</span><span class="en">For a week / joint vacation</span></label>
-                            <label class="checkbox-label"><input type="checkbox" name="goal_events"> <span class="ru">Сопровождение на мероприятия</span><span class="en">Accompaniment to events</span></label>
-                            <label class="checkbox-label"><input type="checkbox" name="goal_mistress"> <span class="ru">Постоянная любовница</span><span class="en">Regular companion (mistress)</span></label>
-                            <label class="checkbox-label"><input type="checkbox" name="goal_family"> <span class="ru">Для создания семьи</span><span class="en">For family creation</span></label>
-                        </div>
+                        <label><span class="ru">Ежемесячный бюджет на поддержку</span><span class="en">Monthly Support Budget</span></label>
+                        <input type="text" class="form-control" name="budget" required data-ph-ru="Бюджет на подарки, поездки, содержание" data-ph-en="Budget for gifts, trips & allowance" placeholder="Бюджет на подарки, поездки, содержание">
                     </div>
 
                     <div class="form-group">
@@ -465,7 +728,7 @@
             </div>
         </div>
 
-        <!-- ЭКРАН 3: АНКЕТА ДЛЯ ДЕВУШЕК -->
+        <!-- ЭКРАН: АНКЕТА ДЛЯ ДЕВУШЕК -->
         <div id="screen-woman" class="view-section">
             <div class="card">
                 <h3>
@@ -475,13 +738,22 @@
                 <form id="form-woman" onsubmit="handleFormSubmit(event, 'Анкета участницы')">
                     
                     <div class="form-group">
+                        <label>
+                            <span class="ru">Интересующий номер резидента из каталога (если приглянулся конкретный мужчина)</span>
+                            <span class="en">Desired gentleman profile number from catalog (if any)</span>
+                        </label>
+                        <input type="text" class="form-control" name="selected_number" id="selected-num-woman" placeholder="Например: M-201 (или оставьте пустым)">
+                    </div>
+
+                    <div class="form-group">
                         <label><span class="ru">Имя и Возраст</span><span class="en">Name and Age</span></label>
                         <input type="text" class="form-control" name="name" required data-ph-ru="Например: Кристина, 23" data-ph-en="E.g.: Kristina, 23" placeholder="Например: Кристина, 23">
                     </div>
 
                     <div class="form-group">
-                        <label><span class="ru">📸 Фото в полный рост (ссылка)</span><span class="en">📸 Full-length photo (link)</span></label>
-                        <input type="text" class="form-control" name="photo_link" required data-ph-ru="Обязательно: ссылка на фото" data-ph-en="Required: link to photo" placeholder="Обязательно: ссылка на фото">
+                        <label><span class="ru">📸 Загрузить фото (без лица / силуэт)</span><span class="en">📸 Upload photo (face hidden / silhouette)</span></label>
+                        <input type="file" id="lady-photo" class="form-control" accept="image/*" onchange="previewImage(event)" style="padding: 8px;">
+                        <img id="photo-preview-box" class="photo-preview" alt="Preview">
                     </div>
 
                     <div class="form-group">
@@ -495,40 +767,14 @@
                             <option value="Moscow">Москва / Moscow</option>
                             <option value="Vienna">Центральная Европа (Вена) / Vienna</option>
                             <option value="Phuket">Таиланд (Пхукет) / Phuket</option>
-                            <option value="Bangkok">Таиланд (Бангкок) / Bangkok</option>
+                            <option value="Bangkok">Таиланд (Бангкок) / Бангкок</option>
                             <option value="Burgas">Болгария (Бургас) / Burgas</option>
                             <option value="Multiple">Несколько направлений / Multiple</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label><span class="ru">Цели знакомства</span><span class="en">Relationship Goals</span></label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label"><input type="checkbox" name="goal_family"> <span class="ru">Создание семьи / брак</span><span class="en">Family / marriage</span></label>
-                            <label class="checkbox-label"><input type="checkbox" name="goal_children"> <span class="ru">Рождение детей</span><span class="en">Having children</span></label>
-                            <label class="checkbox-label"><input type="checkbox" name="goal_travel"> <span class="ru">Совместные путешествия</span><span class="en">Joint travels</span></label>
-                            <label class="checkbox-label"><input type="checkbox" name="goal_romantic"> <span class="ru">Интимные встречи с поддержкой</span><span class="en">Romantic meetings with support</span></label>
-                            <label class="checkbox-label"><input type="checkbox" name="goal_confidential"> <span class="ru">Конфиденциально (в браке)</span><span class="en">Strictly confidential</span></label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">💰 Желаемый доход и статус мужчины</span><span class="en">💰 Desired Income & Status</span></label>
-                        <input type="text" class="form-control" name="expectations" required data-ph-ru="Ожидания по поддержке" data-ph-en="Expected support" placeholder="Ожидания по поддержке">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">🏡 Желаемое место проживания</span><span class="en">🏡 Preferred residence</span></label>
-                        <input type="text" class="form-control" name="residence" required data-ph-ru="Город / страна" data-ph-en="City / country" placeholder="Город / страна">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">👶 Дети</span><span class="en">👶 Children</span></label>
-                        <input type="text" class="form-control" name="children" required data-ph-ru="Информация о детях (или «нет»)" data-ph-en="Children info (or 'none')" placeholder="Информация о детях (или «нет»)">
-                    </div>
-
-                    <div class="form-group">
-                        <label><span class="ru">✨ Ваши мечты и цели</span><span class="en">✨ Your Dreams & Goals</span></label>
+                        <label><span class="ru">✨ Ваши цели и мечты</span><span class="en">✨ Your Goals & Dreams</span></label>
                         <textarea class="form-control" name="dreams" rows="3" required data-ph-ru="Опишите ваши стремления..." data-ph-en="Describe your aspirations..." placeholder="Опишите ваши стремления..."></textarea>
                     </div>
 
@@ -549,6 +795,7 @@
 
     <script>
         var currentLanguage = 'ru';
+        var uploadedPhotoData = '';
 
         function openScreen(screenId) {
             var sections = document.querySelectorAll('.view-section');
@@ -578,10 +825,37 @@
             }
         }
 
+        function selectProfileNumber(profileNum) {
+            if (profileNum.startsWith('L-')) {
+                // Если мужчина выбрал девушку
+                document.getElementById('selected-num-man').value = profileNum;
+                openScreen('screen-man');
+                alert(currentLanguage === 'en' ? 'Profile ' + profileNum + ' selected! Please complete your application.' : 'Анкета ' + profileNum + ' выбрана! Заполните вашу заявку для связи.');
+            } else if (profileNum.startsWith('M-')) {
+                // Если девушка выбрала резидента
+                document.getElementById('selected-num-woman').value = profileNum;
+                openScreen('screen-woman');
+                alert(currentLanguage === 'en' ? 'Profile ' + profileNum + ' selected! Please complete your application.' : 'Анкета резидента ' + profileNum + ' выбрана! Заполните вашу анкету.');
+            }
+        }
+
+        function previewImage(event) {
+            var file = event.target.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedPhotoData = e.target.result;
+                    var previewBox = document.getElementById('photo-preview-box');
+                    previewBox.src = uploadedPhotoData;
+                    previewBox.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
         function handleFormSubmit(event, formTitle) {
             event.preventDefault();
             var form = event.target;
-            var formData = new FormData(form);
             var text = "🔥 Новая заявка в клубе PROMETHEUS!\n\n📌 Тип: " + formTitle + "\n";
             
             form.querySelectorAll('input, select, textarea').forEach(function(el) {
@@ -590,29 +864,35 @@
                         var labelSpan = el.nextElementSibling;
                         text += "• " + (labelSpan ? labelSpan.textContent.trim() : el.name) + "\n";
                     }
-                } else if (el.value) {
-                    text += "• " + (el.previousElementSibling ? el.previousElementSibling.textContent.trim() : el.name) + ": " + el.value + "\n";
+                } else if (el.value && el.type !== 'file' && el.type !== 'hidden') {
+                    var labelText = el.name;
+                    if (el.previousElementSibling) {
+                        labelText = el.previousElementSibling.textContent.trim();
+                    }
+                    text += "• " + labelText + ": " + el.value + "\n";
                 }
             });
 
-            text += "\n📬 Отправлено для администраторов:\n👤 Администратор: @prometheus_privat\n💼 Куратор: @KonstantinBGInvest\n📧 Email: Atsalov@gmail.com";
+            if (uploadedPhotoData) {
+                text += "• 📸 Фото участницы: [Файл успешно прикреплен с телефона]\n";
+            }
 
-            // Отправка данных на email Atsalov@gmail.com через бесплатный шлюз Formspree / mailto
-            var mailtoLink = "mailto:Atsalov@gmail.com?subject=" + encodeURIComponent("Новая заявка: Prometheus Club") + "&body=" + encodeURIComponent(text);
-            
-            // Отправка в Telegram администратору @prometheus_privat
+            text += "\n📬 Получатели уведомления:\n👤 Администратор: @prometheus_privat\n💼 Куратор: @KonstantinBGInvest\n📧 Email: Atsalov@gmail.com";
+
             var tgUrl = "https://t.me/prometheus_privat?text=" + encodeURIComponent(text);
 
             if (currentLanguage === 'en') {
-                alert('Thank you! Your application has been prepared and will now be sent to the club administration (@prometheus_privat, @KonstantinBGInvest, Atsalov@gmail.com).');
+                alert('Thank you! Your application has been prepared and will now be sent to the club administration.');
             } else {
-                alert('Спасибо! Ваша заявка сформирована и будет передана руководству клуба (@prometheus_privat, @KonstantinBGInvest, Atsalov@gmail.com).');
+                alert('Спасибо! Ваша анкета сформирована и передается руководству клуба.');
             }
 
-            // Открываем пересылку в Telegram
             window.location.href = tgUrl;
             
             form.reset();
+            var previewBox = document.getElementById('photo-preview-box');
+            if(previewBox) previewBox.style.display = 'none';
+            uploadedPhotoData = '';
             openScreen('screen-menu');
         }
     </script>
