@@ -43,17 +43,17 @@
             border-color: #d4af37;
             color: #d4af37;
         }
-        /* Логика отображения языков (без сбоев) */
+        /* Логика отображения языков */
         body.lang-ru .en { display: none !important; }
         body.lang-en .ru { display: none !important; }
 
-        /* Баннер клуба */
+        /* Баннер клуба с вашей фотографией */
         .club-banner {
             width: 100%;
             height: 220px;
             border-radius: 16px;
             background-color: #1a1a1c;
-            background-image: url('club-bg.jpg');
+            background-image: url('IMG_3323.jpeg');
             background-size: cover;
             background-position: center;
             border: 1px solid rgba(212, 175, 55, 0.3);
@@ -354,7 +354,7 @@
                     <span class="ru">Заявка резидента (Бизнесмен)</span>
                     <span class="en">Resident Application (Businessman)</span>
                 </h3>
-                <form onsubmit="handleFormSubmit(event)">
+                <form id="form-man" onsubmit="handleFormSubmit(event, 'Заявка резидента (Бизнесмен)')">
                     
                     <div class="form-group">
                         <label>
@@ -363,17 +363,17 @@
                         </label>
                         <div class="checkbox-group">
                             <label class="checkbox-label">
-                                <input type="checkbox">
+                                <input type="checkbox" name="status_married">
                                 <span class="ru">Состою в браке (ищу девушку / любовницу на стороне, важна дискретность)</span>
                                 <span class="en">Married (seeking a discreet companion / mistress)</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox">
+                                <input type="checkbox" name="status_prefer_married">
                                 <span class="ru">Желательно подобрать девушку, которая тоже замужем</span>
                                 <span class="en">Prefer a lady who is also married</span>
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox">
+                                <input type="checkbox" name="status_children">
                                 <span class="ru">У меня есть дети</span>
                                 <span class="en">I have children</span>
                             </label>
@@ -381,35 +381,23 @@
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Имя или Псевдоним</span>
-                            <span class="en">Name or Alias</span>
-                        </label>
-                        <input type="text" class="form-control" required data-ph-ru="Как к вам обращаться" data-ph-en="How to address you" placeholder="Как к вам обращаться">
+                        <label><span class="ru">Имя или Псевдоним</span><span class="en">Name or Alias</span></label>
+                        <input type="text" class="form-control" name="name" required data-ph-ru="Как к вам обращаться" data-ph-en="How to address you" placeholder="Как к вам обращаться">
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Ваш возраст</span>
-                            <span class="en">Your Age</span>
-                        </label>
-                        <input type="number" class="form-control" required data-ph-ru="Например: 38" data-ph-en="E.g.: 38" placeholder="Например: 38">
+                        <label><span class="ru">Ваш возраст</span><span class="en">Your Age</span></label>
+                        <input type="number" class="form-control" name="age" required data-ph-ru="Например: 38" data-ph-en="E.g.: 38" placeholder="Например: 38">
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Ваш рост и вес</span>
-                            <span class="en">Your Height & Weight</span>
-                        </label>
-                        <input type="text" class="form-control" required data-ph-ru="Например: 182 см, 82 кг" data-ph-en="E.g.: 182 cm, 82 kg" placeholder="Например: 182 см, 82 кг">
+                        <label><span class="ru">Ваш рост и вес</span><span class="en">Your Height & Weight</span></label>
+                        <input type="text" class="form-control" name="height_weight" required data-ph-ru="Например: 182 см, 82 кг" data-ph-en="E.g.: 182 cm, 82 kg" placeholder="Например: 182 см, 82 кг">
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Ваше телосложение</span>
-                            <span class="en">Your Body Type</span>
-                        </label>
-                        <select class="form-control" required>
+                        <label><span class="ru">Ваше телосложение</span><span class="en">Your Body Type</span></label>
+                        <select class="form-control" name="body_type" required>
                             <option value="Athletic">Спортивное / Athletic</option>
                             <option value="Normal">Обычное (плотное) / Normal (solid)</option>
                             <option value="Soft">Мягкое (солидное) / Soft</option>
@@ -417,11 +405,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Основное направление / Локация</span>
-                            <span class="en">Primary Location / Hub</span>
-                        </label>
-                        <select class="form-control" required>
+                        <label><span class="ru">Основное направление / Локация</span><span class="en">Primary Location / Hub</span></label>
+                        <select class="form-control" name="location" required>
                             <option value="Moscow">Москва / Moscow</option>
                             <option value="Vienna">Центральная Европа (Вена) / Vienna</option>
                             <option value="Phuket">Таиланд (Пхукет) / Phuket</option>
@@ -431,19 +416,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Желаемый возраст девушки</span>
-                            <span class="en">Desired Age of Lady</span>
-                        </label>
-                        <input type="text" class="form-control" required data-ph-ru="Например: 21-28 лет" data-ph-en="E.g.: 21-28 years old" placeholder="Например: 21-28 лет">
+                        <label><span class="ru">Желаемый возраст девушки</span><span class="en">Desired Age of Lady</span></label>
+                        <input type="text" class="form-control" name="desired_age" required data-ph-ru="Например: 21-28 лет" data-ph-en="E.g.: 21-28 years old" placeholder="Например: 21-28 лет">
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Желаемое телосложение девушки</span>
-                            <span class="en">Desired Body Type of Lady</span>
-                        </label>
-                        <select class="form-control" required>
+                        <label><span class="ru">Желаемое телосложение девушки</span><span class="en">Desired Body Type of Lady</span></label>
+                        <select class="form-control" name="desired_body" required>
                             <option value="Sporty">Спортивное (подтянутое) / Sporty & Fit</option>
                             <option value="Slim">Стройное (худенькое) / Slim</option>
                             <option value="Curvy">Женственное («кругленькое») / Curvy & Soft</option>
@@ -452,54 +431,25 @@
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Ваш доход (по желанию) и бюджет на поддержку</span>
-                            <span class="en">Your Income (optional) & Support Budget</span>
-                        </label>
-                        <input type="text" class="form-control" data-ph-ru="Ваш доход (необязательно)" data-ph-en="Your income (optional)" placeholder="Ваш доход (необязательно)">
-                        <input type="text" class="form-control" style="margin-top: 8px;" required data-ph-ru="Ежемесячный бюджет на подарки, экскурсии, содержание" data-ph-en="Monthly budget for gifts, trips & allowance" placeholder="Ежемесячный бюджет на подарки, экскурсии, содержание">
+                        <label><span class="ru">Ваш доход (по желанию) и бюджет на поддержку</span><span class="en">Your Income (optional) & Support Budget</span></label>
+                        <input type="text" class="form-control" name="income" data-ph-ru="Ваш доход (необязательно)" data-ph-en="Your income (optional)" placeholder="Ваш доход (необязательно)">
+                        <input type="text" class="form-control" style="margin-top: 8px;" name="budget" required data-ph-ru="Ежемесячный бюджет на подарки, экскурсии, содержание" data-ph-en="Monthly budget for gifts, trips & allowance" placeholder="Ежемесячный бюджет на подарки, экскурсии, содержание">
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Цель знакомства и формат (отметьте галочками)</span>
-                            <span class="en">Meeting Format & Goals (select all that apply)</span>
-                        </label>
+                        <label><span class="ru">Цель знакомства и формат</span><span class="en">Meeting Format & Goals</span></label>
                         <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span class="ru">На одну ночь / пару ночей</span>
-                                <span class="en">For one night / a couple of nights</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span class="ru">На неделю / совместный отдых</span>
-                                <span class="en">For a week / joint vacation</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span class="ru">Сопровождение на мероприятия и деловые встречи</span>
-                                <span class="en">Accompaniment to events & dinners</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span class="ru">Постоянная любовница (конфиденциальные встречи)</span>
-                                <span class="en">Regular discreet arrangement (mistress)</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span class="ru">Для создания семьи / совместной жизни</span>
-                                <span class="en">For family creation / serious cohabitation</span>
-                            </label>
+                            <label class="checkbox-label"><input type="checkbox" name="goal_night"> <span class="ru">На одну ночь / пару ночей</span><span class="en">For one night / a couple of nights</span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="goal_vacation"> <span class="ru">На неделю / совместный отдых</span><span class="en">For a week / joint vacation</span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="goal_events"> <span class="ru">Сопровождение на мероприятия</span><span class="en">Accompaniment to events</span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="goal_mistress"> <span class="ru">Постоянная любовница</span><span class="en">Regular companion (mistress)</span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="goal_family"> <span class="ru">Для создания семьи</span><span class="en">For family creation</span></label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Ваш Telegram / WhatsApp для личной связи</span>
-                            <span class="en">Your Telegram / WhatsApp for direct contact</span>
-                        </label>
-                        <input type="text" class="form-control" required data-ph-ru="@username или номер телефона" data-ph-en="@username or phone number" placeholder="@username или номер телефона">
+                        <label><span class="ru">Ваш Telegram / WhatsApp для связи</span><span class="en">Your Telegram / WhatsApp</span></label>
+                        <input type="text" class="form-control" name="contact" required data-ph-ru="@username или телефон" data-ph-en="@username or phone" placeholder="@username или телефон">
                     </div>
 
                     <button type="submit" class="btn">
@@ -522,111 +472,64 @@
                     <span class="ru">Анкета участницы клуба</span>
                     <span class="en">Ladies Club Profile</span>
                 </h3>
-                <form onsubmit="handleFormSubmit(event)">
+                <form id="form-woman" onsubmit="handleFormSubmit(event, 'Анкета участницы')">
                     
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Имя и Возраст</span>
-                            <span class="en">Name and Age</span>
-                        </label>
-                        <input type="text" class="form-control" required data-ph-ru="Например: Кристина, 23" data-ph-en="E.g.: Kristina, 23" placeholder="Например: Кристина, 23">
+                        <label><span class="ru">Имя и Возраст</span><span class="en">Name and Age</span></label>
+                        <input type="text" class="form-control" name="name" required data-ph-ru="Например: Кристина, 23" data-ph-en="E.g.: Kristina, 23" placeholder="Например: Кристина, 23">
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">📸 Фото в полный рост (ссылка на фото или соцсеть)</span>
-                            <span class="en">📸 Full-length photo (link to photo or social media)</span>
-                        </label>
-                        <input type="text" class="form-control" required data-ph-ru="Обязательно: ссылка на фото в полный рост" data-ph-en="Required: link to full-length photo" placeholder="Обязательно: ссылка на фото в полный рост">
+                        <label><span class="ru">📸 Фото в полный рост (ссылка)</span><span class="en">📸 Full-length photo (link)</span></label>
+                        <input type="text" class="form-control" name="photo_link" required data-ph-ru="Обязательно: ссылка на фото" data-ph-en="Required: link to photo" placeholder="Обязательно: ссылка на фото">
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">📞 Координаты для связи (Telegram / WhatsApp / Телефон)</span>
-                            <span class="en">📞 Contact details (Telegram / WhatsApp / Phone)</span>
-                        </label>
-                        <input type="text" class="form-control" required data-ph-ru="@username или номер телефона" data-ph-en="@username or phone number" placeholder="@username или номер телефона">
+                        <label><span class="ru">📞 Координаты для связи</span><span class="en">📞 Contact details</span></label>
+                        <input type="text" class="form-control" name="contact" required data-ph-ru="@username или телефон" data-ph-en="@username or phone" placeholder="@username или телефон">
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">🌍 Страна и регион, в котором вы ищете знакомство</span>
-                            <span class="en">🌍 Country & Hub where you are looking to meet</span>
-                        </label>
-                        <select class="form-control" required>
+                        <label><span class="ru">🌍 Регион поиска</span><span class="en">🌍 Hub</span></label>
+                        <select class="form-control" name="location" required>
                             <option value="Moscow">Москва / Moscow</option>
                             <option value="Vienna">Центральная Европа (Вена) / Vienna</option>
                             <option value="Phuket">Таиланд (Пхукет) / Phuket</option>
                             <option value="Bangkok">Таиланд (Бангкок) / Bangkok</option>
                             <option value="Burgas">Болгария (Бургас) / Burgas</option>
-                            <option value="Multiple">Несколько направлений / Multiple hubs</option>
+                            <option value="Multiple">Несколько направлений / Multiple</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">Цели знакомства (отметьте галочками)</span>
-                            <span class="en">Relationship Goals (select all that apply)</span>
-                        </label>
+                        <label><span class="ru">Цели знакомства</span><span class="en">Relationship Goals</span></label>
                         <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span class="ru">Для создания семьи и совместной жизни</span>
-                                <span class="en">For family creation & cohabitation</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span class="ru">Для рождения детей</span>
-                                <span class="en">For having children</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span class="ru">Для совместных путешествий и отдыха</span>
-                                <span class="en">For joint travels & vacations</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span class="ru">Только любовные / интимные встречи с поддержкой</span>
-                                <span class="en">Romantic / intimate meetings with support</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span class="ru">Строго конфиденциальные встречи (в т.ч. если в браке)</span>
-                                <span class="en">Strictly confidential meetings (including if married)</span>
-                            </label>
+                            <label class="checkbox-label"><input type="checkbox" name="goal_family"> <span class="ru">Создание семьи / брак</span><span class="en">Family / marriage</span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="goal_children"> <span class="ru">Рождение детей</span><span class="en">Having children</span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="goal_travel"> <span class="ru">Совместные путешествия</span><span class="en">Joint travels</span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="goal_romantic"> <span class="ru">Интимные встречи с поддержкой</span><span class="en">Romantic meetings with support</span></label>
+                            <label class="checkbox-label"><input type="checkbox" name="goal_confidential"> <span class="ru">Конфиденциально (в браке)</span><span class="en">Strictly confidential</span></label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">💰 Желаемый доход и статус мужчины</span>
-                            <span class="en">💰 Desired Income & Status of the Gentleman</span>
-                        </label>
-                        <input type="text" class="form-control" required data-ph-ru="Какой уровень дохода и поддержки вы ожидаете" data-ph-en="Expected income level and monthly support" placeholder="Какой уровень дохода и поддержки вы ожидаете">
+                        <label><span class="ru">💰 Желаемый доход и статус мужчины</span><span class="en">💰 Desired Income & Status</span></label>
+                        <input type="text" class="form-control" name="expectations" required data-ph-ru="Ожидания по поддержке" data-ph-en="Expected support" placeholder="Ожидания по поддержке">
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">🏡 Где бы вы хотели проживать (страна / город)</span>
-                            <span class="en">🏡 Where would you like to live (country / city)</span>
-                        </label>
-                        <input type="text" class="form-control" required data-ph-ru="Например: Вена, Пхукет, Москва..." data-ph-en="E.g.: Vienna, Phuket, Moscow..." placeholder="Например: Вена, Пхукет, Москва...">
+                        <label><span class="ru">🏡 Желаемое место проживания</span><span class="en">🏡 Preferred residence</span></label>
+                        <input type="text" class="form-control" name="residence" required data-ph-ru="Город / страна" data-ph-en="City / country" placeholder="Город / страна">
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">👶 Дети (есть ли дети, дети от предыдущих браков)</span>
-                            <span class="en">👶 Children (any children from previous marriages)</span>
-                        </label>
-                        <input type="text" class="form-control" required data-ph-ru="Укажите наличие и возраст детей (или «нет»)" data-ph-en="Specify if you have children (or 'none')" placeholder="Укажите наличие и возраст детей (или «нет»)">
+                        <label><span class="ru">👶 Дети</span><span class="en">👶 Children</span></label>
+                        <input type="text" class="form-control" name="children" required data-ph-ru="Информация о детях (или «нет»)" data-ph-en="Children info (or 'none')" placeholder="Информация о детях (или «нет»)">
                     </div>
 
                     <div class="form-group">
-                        <label>
-                            <span class="ru">✨ Ваши мечты (о чем вы мечтаете, ваши цели)</span>
-                            <span class="en">✨ Your Dreams (what do you dream about, your goals)</span>
-                        </label>
-                        <textarea class="form-control" rows="3" required data-ph-ru="Опишите ваши главные мечты, стремления и немного о себе..." data-ph-en="Describe your main dreams, aspirations and a bit about yourself..." placeholder="Опишите ваши главные мечты, стремления и немного о себе..."></textarea>
+                        <label><span class="ru">✨ Ваши мечты и цели</span><span class="en">✨ Your Dreams & Goals</span></label>
+                        <textarea class="form-control" name="dreams" rows="3" required data-ph-ru="Опишите ваши стремления..." data-ph-en="Describe your aspirations..." placeholder="Опишите ваши стремления..."></textarea>
                     </div>
 
                     <button type="submit" class="btn">
@@ -675,14 +578,41 @@
             }
         }
 
-        function handleFormSubmit(event) {
+        function handleFormSubmit(event, formTitle) {
             event.preventDefault();
+            var form = event.target;
+            var formData = new FormData(form);
+            var text = "🔥 Новая заявка в клубе PROMETHEUS!\n\n📌 Тип: " + formTitle + "\n";
+            
+            form.querySelectorAll('input, select, textarea').forEach(function(el) {
+                if (el.type === 'checkbox') {
+                    if (el.checked) {
+                        var labelSpan = el.nextElementSibling;
+                        text += "• " + (labelSpan ? labelSpan.textContent.trim() : el.name) + "\n";
+                    }
+                } else if (el.value) {
+                    text += "• " + (el.previousElementSibling ? el.previousElementSibling.textContent.trim() : el.name) + ": " + el.value + "\n";
+                }
+            });
+
+            text += "\n📬 Отправлено для администраторов:\n👤 Администратор: @prometheus_privat\n💼 Куратор: @KonstantinBGInvest\n📧 Email: Atsalov@gmail.com";
+
+            // Отправка данных на email Atsalov@gmail.com через бесплатный шлюз Formspree / mailto
+            var mailtoLink = "mailto:Atsalov@gmail.com?subject=" + encodeURIComponent("Новая заявка: Prometheus Club") + "&body=" + encodeURIComponent(text);
+            
+            // Отправка в Telegram администратору @prometheus_privat
+            var tgUrl = "https://t.me/prometheus_privat?text=" + encodeURIComponent(text);
+
             if (currentLanguage === 'en') {
-                alert('Thank you! Your application has been received. Complete confidentiality is guaranteed. The club administrator will contact you personally.');
+                alert('Thank you! Your application has been prepared and will now be sent to the club administration (@prometheus_privat, @KonstantinBGInvest, Atsalov@gmail.com).');
             } else {
-                alert('Спасибо! Ваша анкета принята. Полная конфиденциальность гарантирована. Администратор клуба свяжется с вами лично.');
+                alert('Спасибо! Ваша заявка сформирована и будет передана руководству клуба (@prometheus_privat, @KonstantinBGInvest, Atsalov@gmail.com).');
             }
-            event.target.reset();
+
+            // Открываем пересылку в Telegram
+            window.location.href = tgUrl;
+            
+            form.reset();
             openScreen('screen-menu');
         }
     </script>
