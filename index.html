@@ -124,16 +124,1191 @@
             position: relative;
             overflow: hidden;
         }
-        /* Фоновые заставки с плавным переходом: IMG_3393.jpeg (Леди) и IMG_3392.jpeg (Джентльмены) */
+        /* Фоновые изображения из вашего репозитория GitHub */
         .card-catalog-ladies {
-            background-image: linear-gradient(180deg, rgba(8, 8, 8, 0.25) 0%, rgba(14, 14, 16, 0.78) 55%, rgba(20, 20, 22, 0.98) 100%), url('IMG_3393.jpeg');
+            background-image: linear-gradient(180deg, rgba(8, 8, 8, 0.25) 0%, rgba(14, 14, 16, 0.88) 65%, rgba(20, 20, 22, 0.98) 100%), url('IMG_3393.jpeg');
             background-size: cover;
-            background-position: center 20%;
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            background-position: center top;
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            padding-top: 130px;
         }
         .card-catalog-gents {
-            background-image: linear-gradient(180deg, rgba(8, 8, 8, 0.3) 0%, rgba(14, 14, 16, 0.82) 55%, rgba(20, 20, 22, 0.98) 100%), url('IMG_3392.jpeg');
+            background-image: linear-gradient(180deg, rgba(8, 8, 8, 0.25) 0%, rgba(14, 14, 16, 0.88) 65%, rgba(20, 20, 22, 0.98) 100%), url('IMG_3392.jpeg');
             background-size: cover;
-            background-position: center 20%;
-            border: 1px solid rgba(21
+            background-position: center top;
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            padding-top: 130px;
+        }
+        .card h2, .card p, .card span {
+            position: relative;
+            z-index: 2;
+        }
+        .card-events {
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            background: linear-gradient(180deg, #181612 0%, #141416 100%);
+        }
+        .card-contact {
+            border: 1px solid #d4af37;
+            background: linear-gradient(180deg, #1a1710 0%, #101012 100%);
+            text-align: center;
+        }
+        .card-contact h2 {
+            justify-content: center;
+        }
+        .card h2 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #e5c158;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+        }
+        .icon-svg {
+            width: 24px;
+            height: 24px;
+            fill: #d4af37;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+        }
+        .card p {
+            font-size: 13px;
+            color: #d1d1d6;
+            line-height: 1.45;
+            margin-top: 0;
+            margin-bottom: 12px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+        }
+        .locations-tag {
+            font-size: 11px;
+            color: #d4af37;
+            background-color: rgba(20, 20, 22, 0.85);
+            padding: 7px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 14px;
+            display: block;
+            backdrop-filter: blur(6px);
+        }
+        /* Блок списка анкет */
+        .catalog-list {
+            display: none;
+            margin-top: 12px;
+            position: relative;
+            z-index: 2;
+        }
+        .catalog-list.active {
+            display: block;
+        }
+        /* Карточки анкет с силуэтами */
+        .profile-card {
+            background: rgba(24, 24, 26, 0.92);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            text-decoration: none;
+            transition: border-color 0.2s;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+        }
+        .profile-card:hover {
+            border-color: #d4af37;
+        }
+        .profile-card.new-added {
+            border: 1px solid rgba(212, 175, 55, 0.8);
+            background: linear-gradient(135deg, rgba(35, 30, 18, 0.95) 0%, rgba(24, 24, 26, 0.95) 100%);
+        }
+        .profile-avatar-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #222 0%, #141416 100%);
+            border: 1.5px solid #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .profile-avatar-box svg {
+            width: 26px;
+            height: 26px;
+            fill: #d4af37;
+        }
+        .profile-info {
+            flex-grow: 1;
+        }
+        .profile-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        .profile-meta {
+            font-size: 12px;
+            color: #d4af37;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        .profile-desc {
+            font-size: 12px;
+            color: #aeaeb2;
+            margin: 0;
+            line-height: 1.35;
+        }
+        /* Подробные формы опросников */
+        .apply-form {
+            background: rgba(20, 20, 22, 0.96);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 10px;
+            display: none;
+            position: relative;
+            z-index: 3;
+            backdrop-filter: blur(10px);
+        }
+        .apply-form.active {
+            display: block;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            color: #d4af37;
+            margin-bottom: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .form-control {
+            width: 100%;
+            background: #141416;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 9px 10px;
+            color: #fff;
+            font-size: 13px;
+            box-sizing: border-box;
+        }
+        .form-control:focus {
+            border-color: #d4af37;
+            outline: none;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: #141416;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #e5e5ea;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .checkbox-label input {
+            accent-color: #d4af37;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+        .photo-note {
+            font-size: 11px;
+            color: #8e8e93;
+            margin-top: 4px;
+            line-height: 1.3;
+        }
+        .event-item {
+            background-color: #1c1c1e;
+            border-left: 3px solid #d4af37;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+        }
+        .event-badge {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.15);
+            color: #d4af37;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 5px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .event-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .event-details {
+            font-size: 12px;
+            color: #98989d;
+            line-height: 1.4;
+            margin: 0;
+        }
+        .founder-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 6px 0 12px 0;
+        }
+        .founder-avatar-wrap {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            padding: 2px;
+            background: linear-gradient(135deg, #d4af37 0%, #aa771c 100%);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .founder-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #141416;
+            display: block;
+        }
+        .founder-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 3px;
+            letter-spacing: 0.3px;
+        }
+        .founder-role {
+            font-size: 12px;
+            font-weight: 500;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: block;
+        }
+        .founder-handle {
+            font-size: 13px;
+            color: #e5c158;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            box-sizing: border-box;
+            margin-bottom: 8px;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            z-index: 2;
+        }
+        .btn:last-child {
+            margin-bottom: 0;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37 0%, #aa771c 100%);
+            color: #000;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        .btn-secondary {
+            background-color: rgba(36, 36, 38, 0.9);
+            color: #fff;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            backdrop-filter: blur(6px);
+        }
+        .btn-tg {
+            background: linear-gradient(135deg, #d4af37 0%, #aa771c 100%);
+            color: #000;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .info-badge {
+            background-color: #141416;
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #aeaeb2;
+            border: 1px solid #2c2c2e;
+            line-height: 1.6;
+        }
+        .info-badge strong {
+            color: #d4af37;
+        }
+        .lang-section {
+            display: none;
+        }
+        .lang-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLang('ru')" id="btn-ru">RU</button>
+            <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+        </div>
+
+        <div class="header">
+            <h1>PROMETHEUS PRIVAT CLUB</h1>
+            <p id="sub-title">Private International Matchmaking</p>
+        </div>
+
+        <!-- РУССКАЯ ВЕРСИЯ -->
+        <div id="content-ru" class="lang-section active">
+            <a href="https://t.me/KonstantinBGInvest" onclick="contactFounder('Здравствуйте, Константин! Пишу вам из мини-приложения Prometheus Privat Club.'); return false;" class="founder-top-bar">
+                <div class="founder-top-left">
+                    <img src="prometheus_privat_club_app_icon_1024.png" alt="Константин" class="founder-mini-avatar">
+                    <div class="founder-top-text">
+                        <span class="founder-top-name">Константин • Founder</span>
+                        <span class="founder-top-role">@KonstantinBGInvest</span>
+                    </div>
+                </div>
+                <span class="founder-top-tg">✈️ Написать</span>
+            </a>
+
+            <div class="card">
+                <p>Закрытое международное сообщество, построенное на простой идее:</p>
+                <p><strong style="color: #fff;">Качество вашего окружения определяет качество вашей жизни.</strong></p>
+                <p>Prometheus объединяет предпринимателей, инвесторов и успешных людей в ключевых локациях: <strong style="color: #fff;">Россия, Украина, Центральная Европа (Вена), Таиланд (Пхукет и Бангкок) и Болгария (Бургас).</strong></p>
+                <p>Не массовая соцсеть.<br>Не рядовой сайт знакомств.<br>Не классический бизнес-клуб.</p>
+                <p>Частная среда для тщательно отобранных людей, ценных знакомств и настоящих отношений с полным соблюдением личных границ и тайны частной жизни.</p>
+                <p style="color: #d4af37; margin-bottom: 0; font-weight: 500;">Проект только начинается. Подробности скоро.</p>
+            </div>
+
+            <div class="info-badge">
+                👥 В закрытой базе: <strong id="total-members-ru">53 участника</strong><br>
+                🌍 Локации: <strong>Россия | Украина | Вена | Пхукет | Бангкок | Бургас</strong>
+            </div>
+
+            <!-- КАТАЛОГ УЧАСТНИЦ (На фоне IMG_3393.jpeg) -->
+            <div class="card card-catalog-ladies">
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/>
+                    </svg>
+                    Каталог участниц (База клуба)
+                </h2>
+                <p>Просмотр анкет резиденток (строго конфиденциально, лица скрыты). Нажмите на кнопку ниже, чтобы открыть каталог.</p>
+                <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
+
+                <button class="btn btn-primary" id="btn-ladies-count-ru" onclick="toggleCatalog('ladies-list-ru')">Смотреть анкеты девушек (12)</button>
+
+                <!-- Выпадающий список всех анкет девушек -->
+                <div id="ladies-list-ru" class="catalog-list">
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #01 (Анастасия, 24, Москва / Вена)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Анастасия • Анкета #01</div>
+                            <div class="profile-meta">24 года • Москва / Вена</div>
+                            <p class="profile-desc">Цель: серьезные отношения, финансовое обеспечение, путешествия. Детей нет.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #02 (Елена, 26, Киев / Пхукет)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Елена • Анкета #02</div>
+                            <div class="profile-meta">26 лет • Киев / Пхукет</div>
+                            <p class="profile-desc">Цель: создание семьи, полное обеспечение, яхтинг. Детей нет.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #03 (Карина, 23, Санкт-Петербург)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Карина • Анкета #03</div>
+                            <div class="profile-meta">23 года • Санкт-Петербург</div>
+                            <p class="profile-desc">Цель: надежный партнер, поддержка, развитие в Европе.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #04 (Виктория, 25, Бангкок / Пхукет)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Виктория • Анкета #04</div>
+                            <div class="profile-meta">25 лет • Бангкок / Пхукет</div>
+                            <p class="profile-desc">Цель: серьезные отношения, инвестиции, совместные путешествия.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #05 (София, 27, Вена / Бургас)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">София • Анкета #05</div>
+                            <div class="profile-meta">27 лет • Вена / Бургас</div>
+                            <p class="profile-desc">Цель: семья, обеспечение, уютный дом в Европе.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #06 (Кристина, 22, Москва)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Кристина • Анкета #06</div>
+                            <div class="profile-meta">22 года • Москва</div>
+                            <p class="profile-desc">Цель: гармоничный союз, финансовая поддержка, путешествия.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #07 (Алиса, 25, Киев / Вена)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Алиса • Анкета #07</div>
+                            <div class="profile-meta">25 лет • Киев / Вена</div>
+                            <p class="profile-desc">Цель: совместные путешествия, серьезные отношения.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #08 (Диана, 28, Пхукет)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Диана • Анкета #08</div>
+                            <div class="profile-meta">28 лет • Пхукет</div>
+                            <p class="profile-desc">Цель: союз с успешным бизнесменом, обеспечение.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #09 (Милана, 24, Санкт-Петербург)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Милана • Анкета #09</div>
+                            <div class="profile-meta">24 года • Санкт-Петербург</div>
+                            <p class="profile-desc">Цель: создание семьи, уют, финансовая опора.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #10 (Полина, 26, Бангкок)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Полина • Анкета #10</div>
+                            <div class="profile-meta">26 лет • Бангкок</div>
+                            <p class="profile-desc">Цель: яркие встречи, романтика, путешествия по Азии.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #11 (Ева, 23, Москва / Пхукет)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Ева • Анкета #11</div>
+                            <div class="profile-meta">23 года • Москва / Пхукет</div>
+                            <p class="profile-desc">Цель: серьезные отношения, полное обеспечение.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Леди #12 (Злата, 25, Вена)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Злата • Анкета #12</div>
+                            <div class="profile-meta">25 лет • Вена</div>
+                            <p class="profile-desc">Цель: гармония, путешествия, поддержка.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" onclick="toggleForm('form-lady-ru')" style="margin-top: 10px;">Подать свою заявку резидента</button>
+
+                <!-- ПОДРОБНАЯ ФОРМА АНКЕТЫ ДЛЯ ДЕВУШЕК -->
+                <div id="form-lady-ru" class="apply-form">
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 12px;">✨ Анкета резидента (Леди)</h3>
+                    
+                    <div class="form-group">
+                        <label>1. Имя и Возраст:</label>
+                        <input type="text" class="form-control" name="name_age" placeholder="Например: Анастасия, 24">
+                    </div>
+                    <div class="form-group">
+                        <label>2. Город / Локация:</label>
+                        <input type="text" class="form-control" name="city" placeholder="Москва, Вена, Пхукет, Бангкок...">
+                    </div>
+                    <div class="form-group">
+                        <label>3. Цель знакомства (отметьте нужное):</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="Серьезные отношения"> Серьезные отношения</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Чтобы мужчина обеспечивал"> Чтобы мужчина обеспечивал</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Совместные путешествия"> Совместные путешествия</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Только секс / Свободные встречи"> Только секс / Свободные встречи</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>4. Желаемый доход мужчины (от скольки, в евро):</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="От 5 000 € / мес"> От 5 000 € / мес</label>
+                            <label class="checkbox-label"><input type="checkbox" value="От 10 000 € / мес"> От 10 000 € / мес</label>
+                            <label class="checkbox-label"><input type="checkbox" value="От 20 000 € / мес и выше"> От 20 000 € / мес и выше</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>5. Род занятий мужчины (предпочтения):</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="Владелец бизнеса / Предприниматель"> Владелец бизнеса / Предприниматель</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Инвестор / Рентье"> Инвестор / Рентье</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Топ-менеджер / IT / Крипто"> Топ-менеджер / IT / Крипто</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>6. Ваша комплекция и параметры (рост/вес):</label>
+                        <div class="checkbox-group" style="margin-bottom: 6px;">
+                            <label class="checkbox-label"><input type="checkbox" value="Спортивная / стройная"> Спортивная / стройная</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Фигуристая"> Фигуристая</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Кругленькая"> Кругленькая</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Рост, вес (например: 170 см, 54 кг)">
+                    </div>
+                    <div class="form-group">
+                        <label>7. Наличие у вас детей и отношение к детям партнера:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="Детей нет"> У меня нет детей</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Есть дети"> У меня есть дети</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Мужчина строго без детей"> Мужчина строго без детей</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Не против детей у мужчины"> Не против детей у мужчины</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>8. Готовность к поездкам / переезду:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="Готова вылететь на 1-2 недели"> Готова вылететь на 1-2 недели (Пхукет, Бангкок, Вена)</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Готова к переезду"> Готова к релокации / переезду</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>9. Предпочитаемый способ связи:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="Telegram"> Telegram</label>
+                            <label class="checkbox-label"><input type="checkbox" value="WhatsApp"> WhatsApp</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Viber"> Viber</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>10. Ваш номер телефона (для WhatsApp/Viber) или @username:</label>
+                        <input type="tel" class="form-control" name="contact" placeholder="+7 / +66 / +43 ... или @username">
+                    </div>
+                    <div class="form-group">
+                        <label>11. Загрузить фотографии (до 3-х шт.):</label>
+                        <input type="file" class="form-control" accept="image/*" multiple>
+                        <div class="photo-note">* Выберите фото. После нажатия кнопки ниже ваша анкета сразу появится в каталоге и откроется личный чат с основателем для отправки фотографий.</div>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="submitApplication('form-lady-ru', 'lady', 'Анкета Леди')">Отправить основателю и опубликовать</button>
+                </div>
+            </div>
+
+            <!-- КАТАЛОГ РЕЗИДЕНТОВ (На фоне IMG_3392.jpeg) -->
+            <div class="card card-catalog-gents">
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/>
+                    </svg>
+                    Каталог резидентов (Бизнесмены)
+                </h2>
+                <p>Закрытая база предпринимателей и инвесторов (силуэты без лиц, доход и цели).</p>
+                <span class="locations-tag">📍 Локации: Россия, Украина, Вена, Пхукет, Бангкок, Бургас</span>
+
+                <button class="btn btn-primary" id="btn-gentlemen-count-ru" onclick="toggleCatalog('gentlemen-list-ru')">Смотреть анкеты мужчин (11)</button>
+
+                <!-- Выпадающий список всех анкет мужчин (включая Антона #11) -->
+                <div id="gentlemen-list-ru" class="catalog-list">
+                    <div class="profile-card" onclick="requestProfile('Анкета Джентльмена #01 (Александр, 38, Пхукет / Москва)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Александр • Анкета #01</div>
+                            <div class="profile-meta">38 лет • Пхукет / Москва</div>
+                            <p class="profile-desc">Сфера: недвижимость, IT. Ищет спутницу на 1-2 недели в Бангкок / Пхукет.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Джентльмена #02 (Максим, 42, Вена / Киев)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Максим • Анкета #02</div>
+                            <div class="profile-meta">42 года • Вена / Киев</div>
+                            <p class="profile-desc">Сфера: международная торговля, финансы. Разведен. Ищет постоянную спутницу жизни.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Джентльмена #03 (Дмитрий, 35, Бангкок / Бургас)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Дмитрий • Анкета #03</div>
+                            <div class="profile-meta">35 лет • Бангкок / Бургас</div>
+                            <p class="profile-desc">Сфера: активы, производство. Ищет эффектную спутницу на закрытые мероприятия.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Джентльмена #04 (Сергей, 40, Пхукет)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Сергей • Анкета #04</div>
+                            <div class="profile-meta">40 лет • Пхукет</div>
+                            <p class="profile-desc">Сфера: яхтинг, инвестиции. Ищет постоянную спутницу на длительный срок.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Джентльмена #05 (Андрей, 45, Вена)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Андрей • Анкета #05</div>
+                            <div class="profile-meta">45 лет • Вена</div>
+                            <p class="profile-desc">Сфера: консалтинг, финансы. Ищет партнершу для путешествий по Европе.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Джентльмена #06 (Игорь, 39, Москва / Бангкок)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Игорь • Анкета #06</div>
+                            <div class="profile-meta">39 лет • Москва / Бангкок</div>
+                            <p class="profile-desc">Сфера: технологии, венчуры. Формат: конфиденциальные встречи и поездки.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Джентльмена #07 (Артем, 36, Бургас / Киев)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Артем • Анкета #07</div>
+                            <div class="profile-meta">36 лет • Бургас / Киев</div>
+                            <p class="profile-desc">Сфера: строительство, девелопмент. Ищет спутницу для жизни и отдыха.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Джентльмена #08 (Владимир, 44, Пхукет / Вена)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Владимир • Анкета #08</div>
+                            <div class="profile-meta">44 года • Пхукет / Вена</div>
+                            <p class="profile-desc">Сфера: международный бизнес. Ищет гармоничный союз с полным обеспечением.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Джентльмена #09 (Павел, 37, Москва)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Павел • Анкета #09</div>
+                            <div class="profile-meta">37 лет • Москва</div>
+                            <p class="profile-desc">Сфера: инвестиции. Формат встреч: на длительный срок.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card" onclick="requestProfile('Анкета Джентльмена #10 (Роман, 41, Бангкок / Пхукет)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Роман • Анкета #10</div>
+                            <div class="profile-meta">41 год • Бангкок / Пхукет</div>
+                            <p class="profile-desc">Сфера: трейдинг. Ищет яркую спутницу на неделю-две в Таиланд.</p>
+                        </div>
+                    </div>
+                    <!-- Добавленная анкета Антона #11 -->
+                    <div class="profile-card new-added" onclick="requestProfile('Анкета Джентльмена #11 (Антон, Пхукет / Бангкок)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Антон • Анкета #11</div>
+                            <div class="profile-meta">Резидент клуба • Пхукет / Бангкок</div>
+                            <p class="profile-desc">Сфера: с бизнесом / работой. Без детей. Формат: на короткий срок или взять спутницу в поездку (Бангкок, Пхукет на 1-2 недели). Предпочтения: фигуристая.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" onclick="toggleForm('form-gentleman-ru')" style="margin-top: 10px;">Заполнить анкету резидента</button>
+
+                <!-- ФОРМА АНКЕТЫ ДЛЯ МУЖЧИН -->
+                <div id="form-gentleman-ru" class="apply-form">
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 12px;">💼 Анкета резидента (Джентльмен)</h3>
+                    
+                    <div class="form-group">
+                        <label>1. Имя и Возраст:</label>
+                        <input type="text" class="form-control" name="name_age" placeholder="Например: Антон, 38">
+                    </div>
+                    <div class="form-group">
+                        <label>2. Город / Локация:</label>
+                        <input type="text" class="form-control" name="city" placeholder="Пхукет, Бангкок, Вена, Москва...">
+                    </div>
+                    <div class="form-group">
+                        <label>3. Семейный статус и желаемая роль спутницы:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="Разведен / Свободен"> Разведен / Свободен</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Женат"> Женат</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Ищу девушку в статусе любовницы"> Ищу девушку в статусе любовницы</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Ищу в статусе жены и партнерши"> Ищу в статусе жены и партнерши</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>4. Дети:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="Без детей"> Без детей</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Есть дети"> Есть дети</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Девушка строго без детей"> Девушка строго без детей</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Девушка может быть с детьми"> Девушка может быть с детьми</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>5. Занятость / Сфера:</label>
+                        <div class="checkbox-group" style="margin-bottom: 6px;">
+                            <label class="checkbox-label"><input type="checkbox" value="С бизнесом / работой"> С бизнесом / работой</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Инвестор / Рентье"> Инвестор / Рентье</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Девушка с работой"> Девушка должна быть с работой</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Готов полностью обеспечивать"> Девушка без работы (готов обеспечивать)</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ваша сфера бизнеса и примерный доход в €">
+                    </div>
+                    <div class="form-group">
+                        <label>6. Формат встреч:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="На одну ночь / короткий срок"> На одну ночь / короткий срок</label>
+                            <label class="checkbox-label"><input type="checkbox" value="На длительный срок (постоянная спутница)"> На длительный срок (постоянная спутница)</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Взять спутницу в поездку (Бангкок, Пхукет на 1-2 недели)"> Взять спутницу на мероприятие / в поездку (в Бангкок, на Пхукет на 1-2 недели)</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>7. Предпочтения по комплекции:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="Фигуристая"> Фигуристая</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Кругленькая"> Кругленькая</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Спортивная / стройная"> Спортивная / стройная</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>8. Предпочитаемый способ связи:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="Telegram"> Telegram</label>
+                            <label class="checkbox-label"><input type="checkbox" value="WhatsApp"> WhatsApp</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Viber"> Viber</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>9. Ваш номер телефона (для WhatsApp/Viber) или @username в Telegram:</label>
+                        <input type="tel" class="form-control" name="contact" placeholder="+7 / +66 / +43 ... или @username">
+                    </div>
+                    <div class="form-group">
+                        <label>10. Загрузить фотографии (до 3-х шт.):</label>
+                        <input type="file" class="form-control" accept="image/*" multiple>
+                        <div class="photo-note">* Выберите фото. После нажатия кнопки ниже ваша анкета сразу появится в общем списке, и откроется чат с основателем.</div>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="submitApplication('form-gentleman-ru', 'gentleman', 'Анкета Джентльмена')">Отправить основателю и опубликовать</button>
+                </div>
+            </div>
+
+            <!-- РУБРИКА: ЗАКРЫТЫЕ ВЕЧЕРИНКИ И СОБЫТИЯ -->
+            <div class="card card-events">
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 8 L28 8 L26 26 C25.5 31 22 34 18 34 C14 34 10.5 31 10 26 L12 8 Z M17 36 L19 36 L19 50 L25 50 L25 54 L11 54 L11 50 L17 50 Z M36 8 L52 8 L54 26 C53.5 31 50 34 46 34 C42 34 38.5 31 38 26 Z M45 36 L47 36 L47 50 L53 50 L53 54 L39 54 L39 50 L45 50 Z"/>
+                    </svg>
+                    Закрытые вечеринки и события
+                </h2>
+                <p>Анонсы закрытых встреч, частных ужинов и клубных вечеринок для резидентов и приглашенных гостей клуба.</p>
+                
+                <div class="event-item">
+                    <span class="event-badge">📍 Пхукет • Ожидается анонс</span>
+                    <div class="event-title">Prometheus Private Villa & Yacht Gathering</div>
+                    <p class="event-details">Закрытая вечерняя встреча в приватной локации на Пхукете. Живое общение, избранное окружение, строгая конфиденциальность. Вход строго по спискам и предварительному согласованию.</p>
+                </div>
+
+                <button class="btn btn-primary" onclick="contactFounder('Здравствуйте, Константин! Хочу запросить приглашение (RSVP) на закрытую встречу Prometheus Private Villa & Yacht Gathering на Пхукете.')">Запросить приглашение (RSVP)</button>
+                <button class="btn btn-secondary" onclick="contactFounder('Здравствуйте, Константин! Подскажите актуальное расписание закрытых событий клуба Prometheus.')">Узнать расписание событий</button>
+            </div>
+
+            <!-- БЛОК В ФУТЕРЕ: ОСНОВАТЕЛЬ КОНСТАНТИН -->
+            <div class="card card-contact">
+                <div class="founder-profile">
+                    <div class="founder-avatar-wrap">
+                        <img src="prometheus_privat_club_app_icon_1024.png" alt="Константин" class="founder-avatar">
+                    </div>
+                    <div class="founder-name">Константин</div>
+                    <span class="founder-role">Founder • Prometheus Privat Club</span>
+                    <span class="founder-handle">@KonstantinBGInvest</span>
+                </div>
+                <p>Все вопросы по вступлению в клуб, личному знакомству, подбору пары и участию в закрытых вечеринках на Пхукете решаются напрямую через личный Telegram основателя.</p>
+                <button onclick="contactFounder('Здравствуйте, Константин! Пишу вам по поводу вступления в Prometheus Privat Club.')" class="btn btn-tg">
+                    ✈️ Написать Константину (@KonstantinBGInvest)
+                </button>
+                <a href="https://t.me/Prometheus_privat_bot" target="_blank" class="btn btn-secondary">
+                    🤖 Официальный бот клуба (@Prometheus_privat_bot)
+                </a>
+            </div>
+        </div>
+
+        <!-- АНГЛИЙСКАЯ ВЕРСИЯ -->
+        <div id="content-en" class="lang-section">
+            <a href="https://t.me/KonstantinBGInvest" onclick="contactFounder('Hello Konstantin! I am writing from the Prometheus Privat Club Mini App.'); return false;" class="founder-top-bar">
+                <div class="founder-top-left">
+                    <img src="prometheus_privat_club_app_icon_1024.png" alt="Konstantin" class="founder-mini-avatar">
+                    <div class="founder-top-text">
+                        <span class="founder-top-name">Konstantin • Founder</span>
+                        <span class="founder-top-role">@KonstantinBGInvest</span>
+                    </div>
+                </div>
+                <span class="founder-top-tg">✈️ Direct Chat</span>
+            </a>
+
+            <div class="card">
+                <p>A private international community built on a simple idea:</p>
+                <p><strong style="color: #fff;">The quality of your environment determines the quality of your life.</strong></p>
+                <p>Prometheus unites entrepreneurs, investors, and accomplished individuals across key locations: <strong style="color: #fff;">Russia, Ukraine, Central Europe (Vienna), Thailand (Phuket & Bangkok), and Bulgaria (Burgas region).</strong></p>
+                <p>Not a mass-market social network.<br>Not another dating platform.<br>Not a traditional business club.</p>
+                <p>A private environment for carefully selected people, meaningful introductions and real relationships with strict privacy protection.</p>
+                <p style="color: #d4af37; margin-bottom: 0; font-weight: 500;">The project is just beginning. More soon.</p>
+            </div>
+
+            <div class="info-badge">
+                👥 In closed database: <strong id="total-members-en">53 members</strong><br>
+                🌍 Hubs: <strong>Russia | Ukraine | Vienna | Phuket | Bangkok | Burgas</strong>
+            </div>
+
+            <!-- Ladies Catalog Grid (EN - IMG_3393.jpeg) -->
+            <div class="card card-catalog-ladies">
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/>
+                    </svg>
+                    Ladies Catalog (Club Base)
+                </h2>
+                <p>Confidential profiles. Faces hidden. Click below to view profiles or submit an application.</p>
+                <span class="locations-tag">📍 Hubs: Russia, Ukraine, Vienna, Phuket, Bangkok, Burgas</span>
+
+                <button class="btn btn-primary" id="btn-ladies-count-en" onclick="toggleCatalog('ladies-list-en')">View Ladies Profiles (12)</button>
+
+                <div id="ladies-list-en" class="catalog-list">
+                    <div class="profile-card" onclick="requestProfile('Ladies Profile #01 (Anastasia, 24, Moscow / Vienna)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Anastasia • Profile #01</div>
+                            <div class="profile-meta">24 years • Moscow / Vienna</div>
+                            <p class="profile-desc">Goal: serious relationship, financial support, travel.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" onclick="toggleForm('form-lady-en')" style="margin-top: 10px;">Submit Resident Application</button>
+
+                <div id="form-lady-en" class="apply-form">
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 12px;">✨ Resident Application (Lady)</h3>
+                    <div class="form-group"><label>1. Name & Age:</label><input type="text" class="form-control" name="name_age" placeholder="Anna, 24"></div>
+                    <div class="form-group"><label>2. City / Hub:</label><input type="text" class="form-control" name="city" placeholder="Moscow, Phuket, Vienna..."></div>
+                    <div class="form-group"><label>3. Goals:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="Serious relationship"> Serious relationship</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Financial support"> Financial support</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Travel together"> Travel together</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Casual / Intimate meetings"> Casual / Intimate meetings</label>
+                        </div>
+                    </div>
+                    <div class="form-group"><label>4. Phone Number or @username:</label><input type="tel" class="form-control" name="contact" placeholder="+66 / +43 ... or @username"></div>
+                    <button class="btn btn-primary" onclick="submitApplication('form-lady-en', 'lady', 'Lady Application (EN)')">Send to Founder & Publish</button>
+                </div>
+            </div>
+
+            <!-- Gentlemen Catalog (EN - IMG_3392.jpeg) -->
+            <div class="card card-catalog-gents">
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/>
+                    </svg>
+                    Gentlemen Catalog (Businessmen)
+                </h2>
+                <p>Closed database of entrepreneurs and investors. Silhouettes without faces, status & goals.</p>
+                <span class="locations-tag">📍 Hubs: Russia, Ukraine, Vienna, Phuket, Bangkok, Burgas</span>
+
+                <button class="btn btn-primary" id="btn-gentlemen-count-en" onclick="toggleCatalog('gentlemen-list-en')">View Gentlemen Profiles (11)</button>
+
+                <div id="gentlemen-list-en" class="catalog-list">
+                    <div class="profile-card" onclick="requestProfile('Gentlemen Profile #01 (Alexander, 38, Phuket / Moscow)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Alexander • Profile #01</div>
+                            <div class="profile-meta">38 years • Phuket / Moscow</div>
+                            <p class="profile-desc">Industry: real estate, IT. Looking for companion for Bangkok/Phuket trip (1-2 weeks).</p>
+                        </div>
+                    </div>
+                    <div class="profile-card new-added" onclick="requestProfile('Gentlemen Profile #11 (Anton, Phuket / Bangkok)')">
+                        <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
+                        <div class="profile-info">
+                            <div class="profile-title">Anton • Profile #11</div>
+                            <div class="profile-meta">Club Resident • Phuket / Bangkok</div>
+                            <p class="profile-desc">Business owner. No children. Format: short-term or trip companion (Bangkok, Phuket 1-2 weeks). Preference: Curvy.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary" onclick="toggleForm('form-gentleman-en')" style="margin-top: 10px;">Fill Out Profile</button>
+
+                <div id="form-gentleman-en" class="apply-form">
+                    <h3 style="color: #d4af37; font-size: 14px; margin-top: 0; margin-bottom: 12px;">💼 Resident Application (Gentleman)</h3>
+                    <div class="form-group"><label>1. Name & Age:</label><input type="text" class="form-control" name="name_age" placeholder="Anton, 38"></div>
+                    <div class="form-group"><label>2. City / Hub:</label><input type="text" class="form-control" name="city" placeholder="Phuket, Bangkok, Vienna..."></div>
+                    <div class="form-group"><label>3. Body Type Preference:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label"><input type="checkbox" value="Curvy"> Curvy</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Plump / Soft"> Plump / Soft</label>
+                            <label class="checkbox-label"><input type="checkbox" value="Athletic / Slim"> Athletic / Slim</label>
+                        </div>
+                    </div>
+                    <div class="form-group"><label>4. Your Phone Number or @username:</label><input type="tel" class="form-control" name="contact" placeholder="+66 / +43 ... or @username"></div>
+                    <button class="btn btn-primary" onclick="submitApplication('form-gentleman-en', 'gentleman', 'Gentleman Application (EN)')">Send to Founder & Publish</button>
+                </div>
+            </div>
+
+            <!-- SECTION: PRIVATE PARTIES & EVENTS -->
+            <div class="card card-events">
+                <h2>
+                    <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 8 L28 8 L26 26 C25.5 31 22 34 18 34 C14 34 10.5 31 10 26 L12 8 Z M17 36 L19 36 L19 50 L25 50 L25 54 L11 54 L11 50 L17 50 Z M36 8 L52 8 L54 26 C53.5 31 50 34 46 34 C42 34 38.5 31 38 26 Z M45 36 L47 36 L47 50 L53 50 L53 54 L39 54 L39 50 L45 50 Z"/>
+                    </svg>
+                    Private Parties & Events
+                </h2>
+                <p>Announcements of exclusive gatherings, private dinners, and club parties for residents and invited guests.</p>
+                
+                <div class="event-item">
+                    <span class="event-badge">📍 Phuket • Upcoming</span>
+                    <div class="event-title">Prometheus Private Villa & Yacht Gathering</div>
+                    <p class="event-details">An exclusive evening gathering at a private location in Phuket. Meaningful networking, curated guests, and strict privacy. Entry strictly by guest list and prior approval.</p>
+                </div>
+
+                <button class="btn btn-primary" onclick="contactFounder('Hello Konstantin! I would like to request an RSVP invitation for the Prometheus Private Villa & Yacht Gathering in Phuket.')">Request Invitation (RSVP)</button>
+                <button class="btn btn-secondary" onclick="contactFounder('Hello Konstantin! Please share the upcoming schedule of Prometheus Club events.')">View Upcoming Schedule</button>
+            </div>
+
+            <!-- FOOTER SECTION: FOUNDER KONSTANTIN -->
+            <div class="card card-contact">
+                <div class="founder-profile">
+                    <div class="founder-avatar-wrap">
+                        <img src="prometheus_privat_club_app_icon_1024.png" alt="Konstantin" class="founder-avatar">
+                    </div>
+                    <div class="founder-name">Konstantin</div>
+                    <span class="founder-role">Founder • Prometheus Privat Club</span>
+                    <span class="founder-handle">@KonstantinBGInvest</span>
+                </div>
+                <p>All inquiries regarding club membership, personal introductions, matchmaking, and private events in Phuket are handled directly via the founder's personal Telegram.</p>
+                <button onclick="contactFounder('Hello Konstantin! I am contacting you regarding membership in Prometheus Privat Club.')" class="btn btn-tg">
+                    ✈️ Message Konstantin (@KonstantinBGInvest)
+                </button>
+                <a href="https://t.me/Prometheus_privat_bot" target="_blank" class="btn btn-secondary">
+                    🤖 Official Club Bot (@Prometheus_privat_bot)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const FOUNDER_TG_USERNAME = 'KonstantinBGInvest';
+        const STORAGE_KEY_PROFILES = 'prometheus_custom_profiles_v1';
+
+        const LADY_SVG = `<svg viewBox="0 0 24 24"><path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/></svg>`;
+        const GENT_SVG = `<svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg>`;
+
+        function toggleCatalog(catalogId) {
+            const cat = document.getElementById(catalogId);
+            if (cat) {
+                cat.classList.toggle('active');
+            }
+        }
+
+        function toggleForm(formId) {
+            const form = document.getElementById(formId);
+            if (form) {
+                form.classList.toggle('active');
+            }
+        }
+
+        function requestProfile(profileName) {
+            const msg = `Здравствуйте, Константин! Меня заинтересовала ${profileName} в закрытой базе Prometheus Privat Club. Как мы можем организовать знакомство?`;
+            contactFounder(msg);
+        }
+
+        function createProfileCardElement(item) {
+            const card = document.createElement('div');
+            card.className = 'profile-card new-added';
+            const roleLabel = item.role === 'lady' ? 'Анкета Леди' : 'Анкета Джентльмена';
+            card.onclick = function() {
+                requestProfile(`${roleLabel} #${item.numStr} (${item.name}, ${item.meta})`);
+            };
+
+            const avatarSvg = item.role === 'lady' ? LADY_SVG : GENT_SVG;
+
+            card.innerHTML = `
+                <div class="profile-avatar-box">${avatarSvg}</div>
+                <div class="profile-info">
+                    <div class="profile-title">${item.name} • Анкета #${item.numStr}</div>
+                    <div class="profile-meta">${item.meta}</div>
+                    <p class="profile-desc">${item.desc}</p>
+                </div>
+            `;
+            return card;
+        }
+
+        function renderSavedProfiles() {
+            let saved = [];
+            try {
+                saved = JSON.parse(localStorage.getItem(STORAGE_KEY_PROFILES) || '[]');
+            } catch (e) {
+                saved = [];
+            }
+
+            const ladiesListRu = document.getElementById('ladies-list-ru');
+            const gentsListRu = document.getElementById('gentlemen-list-ru');
+
+            document.querySelectorAll('.dynamic-profile-card').forEach(el => el.remove());
+
+            let baseLadies = 12;
+            let baseGents = 11;
+
+            saved.forEach(item => {
+                const cardEl = createProfileCardElement(item);
+                cardEl.classList.add('dynamic-profile-card');
+                if (item.role === 'lady' && ladiesListRu) {
+                    ladiesListRu.appendChild(cardEl);
+                    baseLadies++;
+                } else if (item.role === 'gentleman' && gentsListRu) {
+                    gentsListRu.appendChild(cardEl);
+                    baseGents++;
+                }
+            });
+
+            const totalMembers = 53 + saved.length;
+
+            const btnLadiesRu = document.getElementById('btn-ladies-count-ru');
+            const btnGentsRu = document.getElementById('btn-gentlemen-count-ru');
+            const totalRu = document.getElementById('total-members-ru');
+
+            if (btnLadiesRu) btnLadiesRu.innerText = `Смотреть анкеты девушек (${baseLadies})`;
+            if (btnGentsRu) btnGentsRu.innerText = `Смотреть анкеты мужчин (${baseGents})`;
+            if (totalRu) totalRu.innerText = `${totalMembers} участника`;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderSavedProfiles();
+        });
+
+        function submitApplication(formId, role, formTitle) {
+            const form = document.getElementById(formId);
+            if (!form) return;
+
+            let summary = `🔥 НОВАЯ ЗАЯВКА: ${formTitle}\n`;
+            summary += `──────────────────\n`;
+
+            let rawNameAge = '';
+            let rawCity = '';
+            let allCheckedValues = [];
+
+            const nameInput = form.querySelector('input[name="name_age"]');
+            const cityInput = form.querySelector('input[name="city"]');
+            if (nameInput && nameInput.value.trim()) rawNameAge = nameInput.value.trim();
+            if (cityInput && cityInput.value.trim()) rawCity = cityInput.value.trim();
+
+            const groups = form.querySelectorAll('.form-group');
+            groups.forEach(group => {
+                const labelEl = group.querySelector('label');
+                if (!labelEl) return;
+                const questionTitle = labelEl.innerText.trim();
+
+                let answers = [];
+
+                const textInputs = group.querySelectorAll('input[type="text"], input[type="tel"], textarea');
+                textInputs.forEach(input => {
+                    if (input.value && input.value.trim() !== '') {
+                        answers.push(input.value.trim());
+                    }
+                });
+
+                const checkedBoxes = group.querySelectorAll('input[type="checkbox"]:checked');
+                checkedBoxes.forEach(cb => {
+                    const cbText = cb.parentElement ? cb.parentElement.innerText.trim() : cb.value;
+                    answers.push(`✅ ${cbText}`);
+                    allCheckedValues.push(cbText);
+                });
+
+                const fileInput = group.querySelector('input[type="file"]');
+                if (fileInput && fileInput.files && fileInput.files.length > 0) {
+                    answers.push(`📸 Выбрано фото: ${fileInput.files.length} шт. (прикреплю в чате)`);
+                }
+
+                if (answers.length > 0) {
+                    summary += `\n🔸 ${questionTitle}\n${answers.join('\n')}\n`;
+                }
+            });
+
+            if (summary.indexOf('🔸') === -1) {
+                alert('Пожалуйста, заполните хотя бы имя, параметры и контакт для связи.');
+                return;
+            }
+
+            let saved = [];
+            try {
+                saved = JSON.parse(localStorage.getItem(STORAGE_KEY_PROFILES) || '[]');
+            } catch (e) {
+                saved = [];
+            }
+
+            const existingRoleCount = saved.filter(i => i.role === role).length;
+            const nextNumber = (role === 'lady' ? 13 : 12) + existingRoleCount;
+            const numStr = nextNumber < 10 ? '0' + nextNumber : '' + nextNumber;
+
+            let displayName = rawNameAge || (role === 'lady' ? 'Резидентка' : 'Резидент');
+            let displayAge = '';
+            if (rawNameAge.includes(',')) {
+                const parts = rawNameAge.split(',');
+                displayName = parts[0].trim();
+                displayAge = parts.slice(1).join(',').trim();
+                if (/^\d+$/.test(displayAge)) displayAge += ' лет';
+            }
+
+            let metaParts = [];
+            if (displayAge) metaParts.push(displayAge);
+            if (rawCity) metaParts.push(rawCity);
+            const metaText = metaParts.length > 0 ? metaParts.join(' • ') : 'Резидент клуба • Новая анкета';
+
+            const descText = allCheckedValues.length > 0
+                ? 'Выбрано: ' + allCheckedValues.slice(0, 5).join(', ') + '.'
+                : 'Новая анкета резидента клуба.';
+
+            const newProfileItem = {
+                role: role,
+                numStr: numStr,
+                name: displayName,
+                meta: metaText,
+                desc: descText
+            };
+
+            saved.push(newProfileItem);
+            try {
+                localStorage.setItem(STORAGE_KEY_PROFILES, JSON.stringify(saved));
+            } catch (e) {}
+
+            renderSavedProfiles();
+            const targetCatalogId = role === 'lady' ? 'ladies-list-ru' : 'gentlemen-list-ru';
+            const targetCatalog = document.getElementById(targetCatalogId);
+            if (targetCatalog && !targetCatalog.classList.contains('active')) {
+                targetCatalog.classList.add('active');
+            }
+
+            form.classList.remove('active');
+            contactFounder(summary);
+        }
+
+        function contactFounder(customText) {
+            let url = 'https://t.me/' + FOUNDER_TG_USERNAME;
+            if (customText) {
+                url += '?text=' + encodeURIComponent(customText);
+            }
+            if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.openTelegramLink) {
+                window.Telegram.WebApp.openTelegramLink(url);
+            } else {
+                window.open(url, '_blank');
+            }
+        }
+
+        function setLang(lang) {
+            document.getElementById('content-ru').classList.toggle('active', lang === 'ru');
+            document.getElementById('content-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        }
+    </script>
+</body>
+</html>
