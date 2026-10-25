@@ -121,6 +121,26 @@
             padding: 16px;
             margin-bottom: 15px;
             border: 1px solid #2c2c2e;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Оригинальные фоновые изображения для каталогов */
+        .card-catalog-ladies {
+            background-image: linear-gradient(180deg, rgba(8, 8, 8, 0.5) 0%, rgba(20, 20, 22, 0.95) 85%), url('ladies_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+        .card-catalog-gents {
+            background-image: linear-gradient(180deg, rgba(8, 8, 8, 0.55) 0%, rgba(20, 20, 22, 0.95) 85%), url('gents_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        /* Гарантия четкого отображения текста на фото-фоне */
+        .card h2, .card p, .card span {
+            position: relative;
+            z-index: 2;
         }
         .card-events {
             border: 1px solid rgba(212, 175, 55, 0.45);
@@ -158,26 +178,29 @@
             margin-bottom: 12px;
         }
         .locations-tag {
-            font-size: 12px;
+            font-size: 11px;
             color: #d4af37;
-            background-color: #1c1c1e;
-            padding: 8px 10px;
+            background-color: rgba(28, 28, 30, 0.85);
+            padding: 6px 10px;
             border-radius: 8px;
-            border: 1px solid #333;
+            border: 1px solid rgba(212, 175, 55, 0.2);
             margin-bottom: 14px;
-            display: block;
+            display: inline-block;
+            backdrop-filter: blur(4px);
         }
         /* Блок списка анкет */
         .catalog-list {
             display: none;
             margin-top: 12px;
+            position: relative;
+            z-index: 2;
         }
         .catalog-list.active {
             display: block;
         }
         /* Карточки анкет с силуэтами */
         .profile-card {
-            background: #1c1c1e;
+            background: rgba(28, 28, 30, 0.95);
             border: 1px solid #2c2c2e;
             border-radius: 10px;
             padding: 12px;
@@ -188,13 +211,14 @@
             text-decoration: none;
             transition: border-color 0.2s;
             cursor: pointer;
+            backdrop-filter: blur(5px);
         }
         .profile-card:hover {
             border-color: #d4af37;
         }
         .profile-card.new-added {
             border: 1px solid rgba(212, 175, 55, 0.7);
-            background: linear-gradient(135deg, #1f1c14 0%, #1c1c1e 100%);
+            background: linear-gradient(135deg, rgba(31, 28, 20, 0.95) 0%, rgba(28, 28, 30, 0.95) 100%);
         }
         .profile-avatar-box {
             width: 50px;
@@ -229,18 +253,21 @@
         }
         .profile-desc {
             font-size: 12px;
-            color: #98989d;
+            color: #aeaeb2;
             margin: 0;
             line-height: 1.35;
         }
         /* Подробные формы опросников */
         .apply-form {
-            background: #1c1c1e;
+            background: rgba(28, 28, 30, 0.98);
             border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 10px;
             padding: 14px;
             margin-top: 10px;
             display: none;
+            position: relative;
+            z-index: 3;
+            backdrop-filter: blur(10px);
         }
         .apply-form.active {
             display: block;
@@ -389,6 +416,8 @@
             margin-bottom: 8px;
             cursor: pointer;
             border: none;
+            position: relative;
+            z-index: 2;
         }
         .btn:last-child {
             margin-bottom: 0;
@@ -399,9 +428,13 @@
             font-weight: 600;
         }
         .btn-secondary {
-            background-color: #2c2c2e;
+            background-color: rgba(44, 44, 46, 0.85);
             color: #fff;
-            border: 1px solid #3a3a3c;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        .btn-secondary:hover {
+            border-color: #d4af37;
         }
         .btn-tg {
             background: linear-gradient(135deg, #d4af37 0%, #aa771c 100%);
@@ -473,8 +506,8 @@
                 🌍 Локации: <strong>Россия | Украина | Вена | Пхукет | Бангкок | Бургас</strong>
             </div>
 
-            <!-- КАТАЛОГ УЧАСТНИЦ -->
-            <div class="card">
+            <!-- КАТАЛОГ УЧАСТНИЦ (Художественный фон ladies_bg.jpg) -->
+            <div class="card card-catalog-ladies">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/>
@@ -672,8 +705,8 @@
                 </div>
             </div>
 
-            <!-- КАТАЛОГ РЕЗИДЕНТОВ -->
-            <div class="card">
+            <!-- КАТАЛОГ РЕЗИДЕНТОВ (Художественный фон gents_bg.jpg) -->
+            <div class="card card-catalog-gents">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                         <path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/>
@@ -685,7 +718,7 @@
 
                 <button class="btn btn-primary" id="btn-gentlemen-count-ru" onclick="toggleCatalog('gentlemen-list-ru')">Смотреть анкеты мужчин (11)</button>
 
-                <!-- Выпадающий список всех анкет мужчин (включая Антона #11) -->
+                <!-- Выпадающий список всех анкет мужчин -->
                 <div id="gentlemen-list-ru" class="catalog-list">
                     <div class="profile-card" onclick="requestProfile('Анкета Джентльмена #01 (Александр, 38, Пхукет / Москва)')">
                         <div class="profile-avatar-box"><svg viewBox="0 0 64 64" style="width:28px;height:28px;fill:#d4af37;"><path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/></svg></div>
@@ -926,7 +959,7 @@
             </div>
 
             <!-- Ladies Catalog Grid (EN) -->
-            <div class="card">
+            <div class="card card-catalog-ladies">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6a6 6 0 0 0-6-6zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-1 5v2H9v2h2v2h2v-2h2v-2h-2v-2h-2z"/>
@@ -969,7 +1002,7 @@
             </div>
 
             <!-- Gentlemen Catalog (EN) -->
-            <div class="card">
+            <div class="card card-catalog-gents">
                 <h2>
                     <svg class="icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                         <path d="M32 6 C25.5 6 21 11 21 17.5 C21 22.5 24 26.8 27.5 28.5 C17.5 30.5 11 38 10 49 L10 58 L54 58 L54 49 C53 38 46.5 30.5 36.5 28.5 C40 26.8 43 22.5 43 17.5 C43 11 38.5 6 32 6 Z M28 31 L32 42 L36 31 L39 33 L32 51 L25 33 L28 31 Z"/>
@@ -1250,7 +1283,7 @@
                 localStorage.setItem(STORAGE_KEY_PROFILES, JSON.stringify(saved));
             } catch (e) {}
 
-            // Мгновенно обновляем каталог и разворачиваем его, чтобы человек сразу увидел свою анкету
+            // Мгновенно обновляем каталог и разворачиваем его
             renderSavedProfiles();
             const targetCatalogId = role === 'lady' ? 'ladies-list-ru' : 'gentlemen-list-ru';
             const targetCatalog = document.getElementById(targetCatalogId);
@@ -1258,7 +1291,7 @@
                 targetCatalog.classList.add('active');
             }
 
-            // Скрываем форму и отправляем данные основателю в Telegram
+            // Скрываем форму и отправляем данные в Telegram
             form.classList.remove('active');
             contactFounder(summary);
         }
